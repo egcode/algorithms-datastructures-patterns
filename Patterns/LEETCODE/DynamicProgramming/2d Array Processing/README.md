@@ -4,6 +4,7 @@ Given an `m x n` binary `matrix` filled with `0`'s and `1`'s, find the largest s
 
 #### Example 1:
 <img src="../../../../images/max1grid.jpg">
+
 ```
 Input: matrix = [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
 Output: 4
@@ -12,6 +13,7 @@ Output: 4
 
 #### Example 2:
 <img src="../../../../images/max2grid.jpg">
+
 ```
 Input: matrix = [["0","1"],["1","0"]]
 Output: 1
@@ -36,7 +38,6 @@ class Solution:
         w=len(matrix[0])
         
         dp=[[0 for _ in range(w+1)] for _ in range(h+1)]
-        
         
         res=0
         for i in range(1, h+1):
