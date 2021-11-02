@@ -9,6 +9,15 @@ Problem_description
 Example_one
 ```
 
+
+#### Example 2:
+<img src="../../../../images/max2grid.jpg">
+
+```
+Example_two
+```
+
+
 # Solutions
 
 ### Python
