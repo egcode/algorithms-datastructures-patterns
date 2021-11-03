@@ -9,14 +9,12 @@ Problem_description
 Example_one
 ```
 
-
 #### Example 2:
 <img src="../../../../../images/Whereballfall.jpg">
 
 ```
 Example_two
 ```
-
 
 # Solutions
 
