@@ -38,15 +38,12 @@ class Solution:
         
         for total_nodes in range(2, n+1): # increasing total nodes and calculate each number separately
             total=0
-            # print(" total_nodes:  "+str(total_nodes))
             for root in range(1, total_nodes+1):
                 left=numTree[root-1]
                 right=numTree[total_nodes-root]
-                # print("left:"+str(root-1)+"   root:"+str(root)+"   right:"+str(total_nodes-root))                
                 total += (left * right)
                 
             numTree[total_nodes]=total
             
-        # print(numTree)
         return numTree[n]
 ```

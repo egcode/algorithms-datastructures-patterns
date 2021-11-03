@@ -44,6 +44,5 @@ class Solution:
             if dp[i]==dp[p5]*5:
                 p5 += 1 
             
-        # print(dp)
         return dp[n-1]
 ```
