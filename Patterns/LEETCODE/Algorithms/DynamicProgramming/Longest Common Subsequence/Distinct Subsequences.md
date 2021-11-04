@@ -32,15 +32,15 @@ Output: 5
 Explanation:
 As shown below, there are 5 ways you can generate "bas" from s.
 ```
-<u>**ba**</u>b<u>**s**</u>bas
+<ins>**ba**</ins>b<ins>**s**</ins>bas
 
-<u>**ba**</u>bsba<u>**s**</u>
+<ins>**ba**</ins>bsba<ins>**s**</ins>
 
-<u>**b**</u>absb<u>**as**</u>
+<ins>**b**</ins>absb<ins>**as**</ins>
 
-ba<u>**b**</u>sb<u>**as**</u>
+ba<ins>**b**</ins>sb<ins>**as**</ins>
 
-babs<u>**bas**</u>
+babs<ins>**bas**</ins>
 
 # Solutions
 
