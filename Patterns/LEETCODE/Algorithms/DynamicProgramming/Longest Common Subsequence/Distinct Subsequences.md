@@ -16,11 +16,11 @@ Output: 3
 Explanation:
 As shown below, there are 3 ways you can generate "rabbit" from S.
 ```
-<u>**rabb**</u>b<u>**it**</u>
+<ins>**rabb**</ins>b<ins>**it**</ins>
 
-<u>**ra**</u>b<u>**bbit**</u>
+<ins>**ra**</ins>b<ins>**bbit**</ins>
 
-<u>**rab**</u>b<u>**bit**</u>
+<ins>**rab**</ins>b<ins>**bit**</ins>
 
 
 
