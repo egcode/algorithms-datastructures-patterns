@@ -7,7 +7,7 @@ Find the **smallest set of vertices from which all nodes in the graph are reacha
 Notice that you can return the vertices in any order.
 
 
-and some inline math, $$`a^2 + b^2 = c^2`$$.
+and some inline math, `$a^2 + b^2 = c^2$`.
 
 
 
