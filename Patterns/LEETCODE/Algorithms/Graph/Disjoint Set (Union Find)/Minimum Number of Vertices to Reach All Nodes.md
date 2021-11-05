@@ -1,13 +1,10 @@
 ### [Minimum Number of Vertices to Reach All Nodes](https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/) <br>
 
-Given a **directed acyclic graph**, with `n` vertices numbered from `0` to `n-1`, and an array `edges` where $edges[i]$ = [$from_i$, $to_i$] represents a directed edge from node $from_i$ to node $to_i$.
+Given a **directed acyclic graph**, with `n` vertices numbered from `0` to `n-1`, and an array `edges` where <img src="https://render.githubusercontent.com/render/math?math=edges[i] = [from_i, to_i]"> represents a directed edge from node <img src="https://render.githubusercontent.com/render/math?math=from_i"> to node <img src="https://render.githubusercontent.com/render/math?math=to_i">.
 
 Find the **smallest set of vertices from which all nodes in the graph are reachable**. It's guaranteed that a unique solution exists.
 
 Notice that you can return the vertices in any order.
-
-
-<img src="https://render.githubusercontent.com/render/math?math=edges[i] = [from_i, to_i]">
 
 
 
