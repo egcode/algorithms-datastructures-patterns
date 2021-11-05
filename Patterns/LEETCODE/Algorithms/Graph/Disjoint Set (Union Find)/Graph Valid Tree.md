@@ -69,11 +69,3 @@ Output: false
         # print(res)
         return len(set(root))==1
     
-'''
-4
-[[0,1],[2,3],[1,2]]
-3
-[[1,0],[2,1]]
-'''    
-
-```
