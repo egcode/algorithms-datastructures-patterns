@@ -1,6 +1,6 @@
 ### [The Earliest Moment When Everyone Become Friends](https://leetcode.com/problems/the-earliest-moment-when-everyone-become-friends/) <br>
 
-There are n people in a social group labeled from `0` to `n - 1`. You are given an array `logs` where $logs[i]$ = [$timestamp_i$, $x_i$, $y_i$] indicates that $x_i$ and $y_i$ will be friends at the time $timestamp_i$.
+There are n people in a social group labeled from `0` to `n - 1`. You are given an array `logs` where <img src="https://render.githubusercontent.com/render/math?math=logs[i] = [timestamp_i, x_i, y_i]"> indicates that <img src="https://render.githubusercontent.com/render/math?math=x_i"> and <img src="https://render.githubusercontent.com/render/math?math=y_i"> will be friends at the time <img src="https://render.githubusercontent.com/render/math?math=timestamp_i">.
 
 Friendship is **symmetric**. That means if `a` is friends with `b`, then `b` is friends with `a`. Also, person `a` is acquainted with a person `b` if `a` is friends with `b`, or `a` is a friend of someone acquainted with `b`.
 

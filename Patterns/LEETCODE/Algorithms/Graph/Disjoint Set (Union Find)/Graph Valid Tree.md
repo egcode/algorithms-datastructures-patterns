@@ -1,6 +1,6 @@
 ### [Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/) <br>
 
-You have a graph of `n` nodes labeled from `0` to `n - 1`. You are given an integer n and a list of `edges` where  $edges[i] = [a_i, b_i]$ indicates that there is an undirected edge between nodes $a_i$ and $b_i$ in the graph.
+You have a graph of `n` nodes labeled from `0` to `n - 1`. You are given an integer n and a list of `edges` where  <img src="https://render.githubusercontent.com/render/math?math=edges[i] = [a_i, b_i]">  indicates that there is an undirected edge between nodes <img src="https://render.githubusercontent.com/render/math?math=a_i">  and <img src="https://render.githubusercontent.com/render/math?math=b_i"> in the graph.
 
 Return `true` if the edges of the given graph make up a valid tree, and `false` otherwise.
  
