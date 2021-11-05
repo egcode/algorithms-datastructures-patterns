@@ -7,7 +7,7 @@ Find the **smallest set of vertices from which all nodes in the graph are reacha
 Notice that you can return the vertices in any order.
 
 
-<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
+<img src="https://render.githubusercontent.com/render/math?math=edges[i] = [from_i, to_i]">
 
 
 
