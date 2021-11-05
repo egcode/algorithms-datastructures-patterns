@@ -1,6 +1,6 @@
 ### [Maximum Length of Pair Chain](https://leetcode.com/problems/maximum-length-of-pair-chain/) <br>
 
-You are given an array of `n` pairs `pairs` where $pairs[i]$ = [$left_i$, $right_i$] and $left_i$ < $right_i$.
+You are given an array of `n` pairs `pairs` where <img src="https://render.githubusercontent.com/render/math?math=pairs[i] = [left_i, right_i]"> and <img src="https://render.githubusercontent.com/render/math?math=left_i < right_i">.
 
 A pair `p2 = [c, d]` **follows** a pair `p1 = [a, b]` if `b < c`. A **chain** of pairs can be formed in this fashion.
 
