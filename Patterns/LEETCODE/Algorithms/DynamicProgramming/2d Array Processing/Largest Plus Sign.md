@@ -1,6 +1,6 @@
 ### [Largest Plus Sign](https://leetcode.com/problems/largest-plus-sign/) <br>
 
-You are given an integer `n`. You have an `n x n` binary grid `grid` with all values initially `1`'s except for some indices given in the array `mines`. The `i-th`  element of the array mines is defined as `mines[i] = [xi, yi]` where `grid[xi][yi] == 0`.
+You are given an integer `n`. You have an `n x n` binary grid `grid` with all values initially `1`'s except for some indices given in the array `mines`. The `i`-th  element of the array mines is defined as <img src="https://render.githubusercontent.com/render/math?math=mines[i] = [x_i, y_i]"> where <img src="https://render.githubusercontent.com/render/math?math=grid[x_i][y_i] == 0">.
 
 Return the order of the largest axis-aligned plus sign of 1's contained in `grid`. If there is none, return `0`.
 
