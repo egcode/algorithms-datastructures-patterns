@@ -32,6 +32,37 @@ Explanation: There is no way to connect all cities even if all edges are used.
 ### Python
 ```
 class Solution:
+    def minimumCost(self, N: int, connections: List[List[int]]) -> int:
+        '''
+        Prim's algorithm with heap
+        
+        1. Create bi-directional graph with connected points and dist
+        2. We store first point 0 in edge_heap, Starting with all edges in point 0
+        3. While we didn't finish with final MST we add point by point in MST_set, and store result in res
+        '''
+        graph=collections.defaultdict(list)
+        for a, b, cost in connections:
+            graph[a-1].append((cost, b-1))
+            graph[b-1].append((cost, a-1))
+            
+        edges_heap=graph[0]
+        heapify(edges_heap)
+        vis=set([0])
+    
+        res=0
+        while edges_heap:
+            cost, node = heappop(edges_heap)
+            if node not in vis:
+                vis.add(node)
+                res += cost
+                for cost1, child in graph[node]:
+                    if child not in vis:
+                        heappush(edges_heap, (cost1, child))
+    
+        if len(vis) != N:
+            return -1
+        return res
+
 #     def minimumCost(self, N: int, connections: List[List[int]]) -> int:
 #         '''
 #         Kruskal's algorithm (with disjoint set (union find))
@@ -77,37 +108,4 @@ class Solution:
 #         if len(set(roots))==1: # check if all nodes have same root
 #             return res
 #         return -1
-    
-    
-    def minimumCost(self, N: int, connections: List[List[int]]) -> int:
-        '''
-        Prim's algorithm with heap
-        
-        1. Create bi-directional graph with connected points and dist
-        2. We store first point 0 in edge_heap, Starting with all edges in point 0
-        3. While we didn't finish with final MST we add point by point in MST_set, and store result in res
-        '''
-        graph=collections.defaultdict(list)
-        for a, b, cost in connections:
-            graph[a-1].append((cost, b-1))
-            graph[b-1].append((cost, a-1))
-            
-        edges_heap=graph[0]
-        heapify(edges_heap)
-        vis=set([0])
-    
-        res=0
-        while edges_heap:
-            cost, node = heappop(edges_heap)
-            if node not in vis:
-                vis.add(node)
-                res += cost
-                for cost1, child in graph[node]:
-                    if child not in vis:
-                        heappush(edges_heap, (cost1, child))
-    
-        if len(vis) != N:
-            return -1
-        return res
-
 ```
