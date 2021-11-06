@@ -2,7 +2,7 @@
 
 You are given an array `points` representing integer coordinates of some points on a 2D-plane, where <img src="https://render.githubusercontent.com/render/math?math=points[i]"> = [<img src="https://render.githubusercontent.com/render/math?math=x_i">, <img src="https://render.githubusercontent.com/render/math?math=y_i">].
 
-The cost of connecting two points [<img src="https://render.githubusercontent.com/render/math?math=x_i">, <img src="https://render.githubusercontent.com/render/math?math=y_i">] and [<img src="https://render.githubusercontent.com/render/math?math=x_j">, <img src="https://render.githubusercontent.com/render/math?math=y_j">] is the **manhattan distance** between them: |<img src="https://render.githubusercontent.com/render/math?math=x_i"> - <img src="https://render.githubusercontent.com/render/math?math=x_j">| + |<img src="https://render.githubusercontent.com/render/math?math=y_i"> - <img src="https://render.githubusercontent.com/render/math?math=y_j">|, where |val| denotes the absolute value of val.
+The cost of connecting two points [<img src="https://render.githubusercontent.com/render/math?math=x_i">, <img src="https://render.githubusercontent.com/render/math?math=y_i">] and [<img src="https://render.githubusercontent.com/render/math?math=x_j">, <img src="https://render.githubusercontent.com/render/math?math=y_j">] is the **manhattan distance** between them: |<img src="https://render.githubusercontent.com/render/math?math=x_i"> - <img src="https://render.githubusercontent.com/render/math?math=x_j">| + |<img src="https://render.githubusercontent.com/render/math?math=y_i"> - <img src="https://render.githubusercontent.com/render/math?math=y_j">|, where `|val|` denotes the absolute value of `val`.
 
 Return the **minimum cost to make all points connected**. All points are connected if there is **exactly one** simple path between any two points.
 
@@ -18,9 +18,12 @@ Explanation:
 
 ```
 <img src="../../../../../images/1584-ex1-1.png">
+
+
 ```
 We can connect the points as shown above to get the minimum cost of 20.
 Notice that there is a unique path between every pair of points.
+
 ```
 
 
