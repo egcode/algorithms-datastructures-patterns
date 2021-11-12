@@ -1,4 +1,4 @@
-### [problem_title](https://leetcode.com/problems/word-search/) <br>
+### [Word Search](https://leetcode.com/problems/word-search/) <br>
 
 Given an `m x n` grid of characters `board` and a string `word`, return `true` *if* `word` *exists in the grid*.
 
