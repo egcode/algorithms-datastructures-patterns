@@ -5,7 +5,7 @@ Given the `root` of a binary search tree, and an integer <img src="https://rende
 
 
 #### Example 1:
-<img src="../../../../images/230kthtree1.jpg">
+<img src="../../../../../images/230kthtree1.jpg">
 
 ```
 Input: root = [3,1,4,null,2], k = 1
@@ -14,7 +14,7 @@ Output: 1
 ```
 
 #### Example 2:
-<img src="../../../../images/230kthtree2.jpg">
+<img src="../../../../../images/230kthtree2.jpg">
 
 ```
 Input: root = [5,3,6,2,4,null,null,1], k = 3

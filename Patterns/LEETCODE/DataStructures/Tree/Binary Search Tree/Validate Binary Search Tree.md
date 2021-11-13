@@ -10,7 +10,7 @@ A **valid BST** is defined as follows:
 
 
 #### Example 1:
-<img src="../../../../images/98tree1.jpg">
+<img src="../../../../../images/98tree1.jpg">
 
 ```
 Input: root = [2,1,3]
@@ -19,7 +19,7 @@ Output: true
 ```
 
 #### Example 2:
-<img src="../../../../images/98tree2.jpg">
+<img src="../../../../../images/98tree2.jpg">
 
 ```
 Input: root = [5,1,4,null,null,3,6]
