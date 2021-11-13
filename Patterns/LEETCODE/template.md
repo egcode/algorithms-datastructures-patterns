@@ -6,14 +6,14 @@ Problem_description
 
 
 #### Example 1:
-<img src="../../../../images/73-mat1.jpg">
+<img src="../../../../images/mat1.jpg">
 
 ```
 Example_one
 ```
 
 #### Example 2:
-<img src="../../../../images/73-mat1.jpg">
+<img src="../../../../images/mat1.jpg">
 
 ```
 Example_two
