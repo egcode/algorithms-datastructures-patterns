@@ -7,7 +7,7 @@ According to the [definition of LCA on Wikipedia](https://en.wikipedia.org/wiki/
 
 
 #### Example 1:
-<img src="../../../../images/235binarysearchtree_improved.png">
+<img src="../../../../../images/235binarysearchtree_improved.png">
 
 ```
 Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8
@@ -17,7 +17,7 @@ Explanation: The LCA of nodes 2 and 8 is 6.
 ```
 
 #### Example 2:
-<img src="../../../../images/235binarysearchtree_improved-1.png">
+<img src="../../../../../images/235binarysearchtree_improved-1.png">
 
 ```
 Input: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4
