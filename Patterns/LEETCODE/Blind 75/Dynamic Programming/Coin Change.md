@@ -55,89 +55,51 @@ Output: 2
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
         '''
-        Recursion
+        Dynamic programming, Tabulation
         '''
-        if amount == 0: return 0
-        memo = {}
-
-        def dfs(path):
-            if path == 0:
-                return 0
-            if path < 0:
-                return None
-            if path in memo:
-                return memo[path]
-            
-            
-            shortest = None
+        if amount==0: return 0
+        dp=[float('inf')]*(amount+1)
+        dp[0]=0
+        
+        for am in range(1, amount+1):
             for coin in coins:
-                remainder=path-coin
-                out = dfs(remainder)
-                
-                if out is not None:
-                    out = out + 1
-                    if shortest is None or out<shortest:
-                        shortest=out
-                        
-            memo[path] = shortest
-            return memo[path]
+                if am-coin < 0: 
+                    continue
+                dp[am]=min(dp[am], 1+dp[am-coin])
         
-        short=dfs(amount)
-        
-        
-        if short != None:
-            return short
+        if dp[amount] != float('inf'):
+            return dp[amount]
         return -1
-    
-        
-        
-#         if arr:
-#             return len(arr)
-#         return -1
-    
+
+
 #     def coinChange(self, coins: List[int], amount: int) -> int:
 #         '''
-#         BFS Time Limit Exceeded
+#         Recursion
 #         '''
-#         res=sys.maxsize
-#         vis=set() 
-#         q=[(amount, 0)]
-        
-#         while len(q)>0:
-#             path, level = q.pop()
+#         if amount == 0: return 0
+#         memo = {}
+
+#         def dfs(path):
 #             if path == 0:
-#                 return level
-#             vis.add(path)
+#                 return 0
+#             if path in memo:
+#                 return memo[path]
+            
+#             shortest = float('inf')
 #             for coin in coins:
-#                 rem=path-coin
-#                 if rem >= 0 and rem not in vis:
-#                     q.insert(0, (rem, level+1))
+#                 if path-coin < 0:
+#                     continue
+#                 out = dfs(path-coin)
+#                 shortest=min(shortest, out+1)
+                        
+#             memo[path] = shortest
+#             return memo[path]
         
+#         short=dfs(amount)
+        
+        
+#         if short != float('inf'):
+#             return short
 #         return -1
-        
-    
-    
-#     def coinChange(self, coins: List[int], amount: int) -> int:
-#         '''
-#         Dynamic programming
-#         '''
-#         if amount==0: return 0
-        
-#         dp=[None for _ in range(amount+1)]
-#         dp[0]=0
-        
-#         for i in range(0, amount+1):
-#             if dp[i] != None:
-#                 for coin in coins:
-#                     if (i+coin) >= len(dp):
-#                         continue
-#                     if dp[i+coin] == None or dp[i]+1<dp[i+coin]: 
-#                         dp[i+coin]=dp[i]+1
-        
-#         # print(dp)
-#         if dp[-1]:
-#             return dp[-1]
-#         else:
-#             return -1
 
 ```
