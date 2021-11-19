@@ -56,35 +56,97 @@ Output: [[1,1]]
 
 ### Python
 ```
-class Solution:    
+class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         '''
-        Recurstion.
-        Note:            
-            If we remove `first` parameter here we will have all
-            [[3,2,2],[2,3,2],[2,2,3],[7]] arrays returned.
-            
-            here we have only have [[3,2,2],[7]]  returned
+        Tabulation
         '''
-        def dfs(target, first):
-            if target == 0:
-                return [[]]
-            if target < 0:
-                return []
-            out=[]
-            for i in range(first, len(candidates)):
-                cand=candidates[i]
-                arr=dfs(target-cand, i)
-                ways=[]
-                for a in arr:
-                    ways.append(a+[cand])
-                if ways:
-                    out += ways
-                    
-            return out
+        dp=[[] for _ in range(target+1)]
+        dp[0]=[[]]
         
-        res=dfs(target, 0)
-        return res
+        ######################################################
+        ## Generates [[3,2,2],[2,3,2],[2,2,3],[7]]
+        ######################################################
+        # for i in range(1, target+1):
+        #     for cand in candidates:
+        #         if i-cand >= 0:
+        #             path=[]
+        #             for a in dp[i-cand]:
+        #                 path.append(a+[cand])
+        #             dp[i] += path
+        ######################################################
+        
+        ######################################################
+        ## Generates[[2,2,3],[7]]
+        ######################################################
+        for cand in candidates:
+            for i in range(cand, target+1):
+                if i-cand >= 0:
+                    path=[]
+                    for a in dp[i-cand]:
+                        path.append(a+[cand])
+                    dp[i] += path
+        ######################################################
+        
+        return dp[target]
+    
+        
+#     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+#         '''
+#         Recursion
+#         Note:            
+#             If we remove `first` parameter here we will have all
+#             [[3,2,2],[2,3,2],[2,2,3],[7]] arrays returned.
+            
+#             here we have only have [[3,2,2],[7]]  returned
+#         '''
+        
+#         ######################################################
+#         ## Generates [[3,2,2],[2,3,2],[2,2,3],[7]]
+#         ######################################################
+#         def dfs(target):
+#             if target == 0:
+#                 return [[]]
+#             if target < 0:
+#                 return []
+#             paths=[]
+#             for i in range(len(candidates)):
+#                 cand=candidates[i]
+#                 arr=dfs(target-cand)
+#                 path=[]
+#                 for a in arr:
+#                     path.append(a+[cand])
+#                 if path:
+#                     paths += path
+                    
+#             return paths
+#         res=dfs(target)
+#         ######################################################
+
+
+#         ######################################################
+#         ## Generates[[2,2,3],[7]]
+#         ######################################################
+#         def dfs(target, first):
+#             if target == 0:
+#                 return [[]]
+#             if target < 0:
+#                 return []
+#             paths=[]
+#             for i in range(first, len(candidates)):
+#                 cand=candidates[i]
+#                 arr=dfs(target-cand, i)
+#                 path=[]
+#                 for a in arr:
+#                     path.append(a+[cand])
+#                 if path:
+#                     paths += path
+                    
+#             return paths
+#         res=dfs(target, 0)
+#         ######################################################    
+        
+#         return res
         
     
     
@@ -106,5 +168,4 @@ class Solution:
 #         backtrack(0, [], 0)
         
 #         return ans
-
 ```
