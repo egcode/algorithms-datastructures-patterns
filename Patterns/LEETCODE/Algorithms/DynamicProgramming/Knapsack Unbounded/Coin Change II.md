@@ -52,7 +52,7 @@ class Solution:
             There is an important difference between the two, 
             the order of the loops are interchanged.
 
-            This problemcounts all the permutations             
+            This problem counts all the permutations             
             [1, 1, 2], [1,2,1] and [1, 1, 2] are counted as one solution.
 
             In the Combination Sum IV problem, 
