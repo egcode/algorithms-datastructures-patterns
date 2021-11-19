@@ -56,23 +56,55 @@ Output: [[1,1]]
 
 ### Python
 ```
-class Solution:
+class Solution:    
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
-        ans=[]
-        def backtrack(remain, cands, start):
-            if remain==target:
-                ans.append(list(cands))
-                return
-            if remain>target:
-                return
+        '''
+        Recurstion.
+        Note:            
+            If we remove `first` parameter here we will have all
+            [[3,2,2],[2,3,2],[2,2,3],[7]] arrays returned.
             
-            for i in range(start, len(candidates)):
-                cands.append(candidates[i])
-                backtrack(remain+candidates[i], cands, i)
-                cands.pop()
+            here we have only have [[3,2,2],[7]]  returned
+        '''
+        def dfs(target, first):
+            if target == 0:
+                return [[]]
+            if target < 0:
+                return []
+            out=[]
+            for i in range(first, len(candidates)):
+                cand=candidates[i]
+                arr=dfs(target-cand, i)
+                ways=[]
+                for a in arr:
+                    ways.append(a+[cand])
+                if ways:
+                    out += ways
+                    
+            return out
+        
+        res=dfs(target, 0)
+        return res
+        
+    
+    
+#     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+#         ans=[]
+#         def backtrack(remain, cands, start):
+#             if remain==target:
+#                 ans.append(list(cands))
+#                 return
+#             if remain>target:
+#                 return
+            
+#             for i in range(start, len(candidates)):
+#                 cands.append(candidates[i])
+#                 backtrack(remain+candidates[i], cands, i)
+#                 cands.pop()
                 
         
-        backtrack(0, [], 0)
+#         backtrack(0, [], 0)
         
-        return ans
+#         return ans
+
 ```
