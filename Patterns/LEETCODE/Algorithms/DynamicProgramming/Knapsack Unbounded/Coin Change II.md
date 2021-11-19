@@ -45,39 +45,61 @@ Output: 1
 ### Python
 ```
 class Solution:
-    
     def change(self, amount: int, coins: List[int]) -> int:
         '''
         Tabulation
-        
-        amount=5 coins[1,2,5]
-        
-          5 4 3 2 1 0
-        1 0 0 0 0 0 1
-        2 0 0 0 0 0 1
-        5 0 0 0 0 0 1
-          0 0 0 0 0 1
-          
-        Base case is 1, it takes one for any coin to get zero
-        '''
-        dp=[[0]*(amount+1) for _ in range(len(coins)+1)]
-        for row in dp:
-            row[-1]=1
-        
-        for row in range(len(coins))[::-1]:
-            for col in range(amount)[::-1]:
-                
-                left=0
-                sourceRow = col+coins[row] # (current column + current coin)
-                if sourceRow <= amount: # if source row is not out of bounds
-                    left=dp[row][sourceRow]
-                    
-                bottom=dp[row+1][col]
-                
-                dp[row][col] = left + bottom
+         Same as Combination Sum IV
+            There is an important difference between the two, 
+            the order of the loops are interchanged.
+
+            This problemcounts all the permutations             
+            [1, 1, 2], [1,2,1] and [1, 1, 2] are counted as one solution.
+
+            In the Combination Sum IV problem, 
+            [1, 1, 2], [1,2,1] and [1, 1, 2] as different solutions to the sum of 4.
             
-        # print(dp)
-        return dp[0][0]
+        '''
+        dp = [0] * (amount + 1)
+        dp[0] = 1
+        
+        for coin in coins:
+            for x in range(coin, amount + 1):
+                dp[x] += dp[x - coin]
+        return dp[amount]    
+    
+    
+#     def change(self, amount: int, coins: List[int]) -> int:
+#         '''
+#         Tabulation
+        
+#         amount=5 coins[1,2,5]
+        
+#           5 4 3 2 1 0
+#         1 0 0 0 0 0 1
+#         2 0 0 0 0 0 1
+#         5 0 0 0 0 0 1
+#           0 0 0 0 0 1
+          
+#         Base case is 1, it takes one for any coin to get zero
+#         '''
+#         dp=[[0]*(amount+1) for _ in range(len(coins)+1)]
+#         for row in dp:
+#             row[-1]=1
+        
+#         for row in range(len(coins))[::-1]:
+#             for col in range(amount)[::-1]:
+                
+#                 left=0
+#                 sourceRow = col+coins[row] # (current column + current coin)
+#                 if sourceRow <= amount: # if source row is not out of bounds
+#                     left=dp[row][sourceRow]
+                    
+#                 bottom=dp[row+1][col]
+                
+#                 dp[row][col] = left + bottom
+            
+#         # print(dp)
+#         return dp[0][0]
             
     
     

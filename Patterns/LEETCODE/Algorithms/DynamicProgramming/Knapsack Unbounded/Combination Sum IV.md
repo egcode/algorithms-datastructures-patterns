@@ -47,6 +47,17 @@ class Solution:
                      
         loop through and if (i-num >= 0) that means that this num could be part of target
         
+        
+        Same as Coin Change 2 problem
+            There is an important difference between the two, 
+            the order of the loops are interchanged.
+
+            This problemcounts all the permutations 
+            [1, 1, 2], [1,2,1] and [1, 1, 2] as different solutions to the sum of 4.
+
+            In the coin-change-2 problem, 
+            [1, 1, 2], [1,2,1] and [1, 1, 2] are counted as one solution.
+        
         '''
         dp=[0]*(target+1)
         dp[0]=1 # could be part of target 
