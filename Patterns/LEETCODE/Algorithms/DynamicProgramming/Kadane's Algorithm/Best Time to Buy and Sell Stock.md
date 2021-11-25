@@ -35,14 +35,40 @@ class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         '''
         Kadane's Algorithm
-        '''
-    
-        best_sum=0
-        current_sum=0
-        
+        '''        
+        if not prices: return 0
+        sell=-prices[0]
+        buy=0
+        profit=0
         for i in range(1, len(prices)):
-            current_sum=max(0, current_sum + prices[i] - prices[i-1])
-            best_sum=max(best_sum, current_sum)
-        return best_sum
+            sell = max(sell, -prices[i])
+            buy = max(buy, sell+prices[i])
+            profit = max(profit, buy)
+        return profit
+        
+    
+#     def maxProfit(self, prices: List[int]) -> int:
+#         '''
+#         Kadane's Algorithm
+#         '''
+#         best_sum=0
+#         current_sum=0
+        
+#         for i in range(1, len(prices)):
+#             current_sum=max(0, current_sum + prices[i] - prices[i-1])
+#             best_sum=max(best_sum, current_sum)
+#         return best_sum
+    
+    
+    
+#    def maxProfit(self, prices: List[int]) -> int:
+#         res=0
+#         smallest=prices[0]
+        
+#         for i in range(1, len(prices)):
+#             smallest=min(smallest, prices[i])
+#             res=max(res, prices[i]-smallest)
+            
+#         return res
 
 ```
