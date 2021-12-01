@@ -42,7 +42,6 @@ class Solution:
         '''
         DFS
         '''
-        if len(words)==1: return words[0]
         
         graph={}
         for word in words:
@@ -99,7 +98,6 @@ class Solution:
 #         '''
 #         BFS
 #         '''
-#         if len(words)==1: return words[0]
 
 #         # Part 1 - Creating graph
 #         graph={}
