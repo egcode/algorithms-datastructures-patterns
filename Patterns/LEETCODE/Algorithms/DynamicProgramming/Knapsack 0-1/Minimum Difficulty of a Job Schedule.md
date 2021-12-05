@@ -65,8 +65,33 @@ Output: 843
 ### Python
 ```
 class Solution:
-        
     def minDifficulty(self, jobDifficulty: List[int], d: int) -> int:
+        '''
+        Tabulation
+            Example:
+                jobDifficulty = [3,1,4,1,7,1]
+                d = 3
+                output: 11
+        
+            Start with:
+                [3, inf, inf]
+                [3, inf, inf]
+                [4, inf, inf]
+                [4, inf, inf]
+                [7, inf, inf]
+                [7, inf, inf]        
+                
+            End with:
+                [3, inf, inf]
+                [3,   4, inf]
+                [4,   7,   8]
+                [4,   5,   8]
+                [7,  10,  11]
+                [7,   8,  11]        
+        
+        '''
+        
+        
         n=len(jobDifficulty)
         if d>n: return -1
         
@@ -76,8 +101,7 @@ class Solution:
         dp[0][0]=jobDifficulty[0]
         for i in range(1, n):
             dp[i][0]=max(dp[i-1][0], jobDifficulty[i])
-
-            
+        
         for day in range(1, d):
             for job in range(1, n):
                 for doneJob in range(job):
@@ -87,9 +111,7 @@ class Solution:
                     
                     dp[job][day]=min(dp[job][day], prev_done + max_rest)
                     
-                    
         if dp[-1][-1]==impossible:
             return -1
         return dp[-1][-1]
-
 ```
