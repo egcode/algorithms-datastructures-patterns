@@ -44,21 +44,45 @@ The total score is 50 + 15 - 9 + 4 + 42 = 102.
 
 ### Python
 ```
-Solution:
+class Solution:
     def maximumScore(self, nums: List[int], multipliers: List[int]) -> int:
         '''
         Tabulation
+        
+        Example:
+            nums = [-5,-3,-3,-2,7,1]
+            multipliers = [-10,-5,3,4,6]
+            output: 102
+            
+            Start with Aray dp:
+            [0, 0, 0, 0, 0, 0]
+            [0, 0, 0, 0, 0, 0]
+            [0, 0, 0, 0, 0, 0]
+            [0, 0, 0, 0, 0, 0]
+            [0, 0, 0, 0, 0, 0]
+            [0, 0, 0, 0, 0, 0]
+            
+            End with:
+            [102,   0,   0,  0,  0,  0] # left=0 right=5, run once  
+            [ 46,  52,   0,  0,  0,  0] # left=1 right=5, (continue until left=0, right=4)
+            [-36,  21,  37,  0,  0,  0] # left=2 right=5, (continue until left=0, right=3)
+            [-30, -24,  30, 46,  0,  0] # left=3 right=5, (continue until left=0, right=2)
+            [-18, -18, -12, 42, 42,  0] # left=4 right=5, (continue until left=0, right=1)
+            [  0,   0,   0,  0,  0,  0]
+            
+        
         '''
         n=len(nums)
         m=len(multipliers)
         dp=[[0]*(m+1) for _ in range(m+1)]
         
-        for i in range(m - 1, -1, -1):
-            for left in range(i, -1, -1):
+        for i in range(m)[::-1]:
+            for left in range(i+1)[::-1]: # we need i inclusive
                 mult = multipliers[i]
                 right = n - 1 - (i - left)
                 dp[i][left] = max(mult * nums[left] + dp[i + 1][left + 1], 
-                                  mult * nums[right] + dp[i + 1][left])        
+                                  mult * nums[right] + dp[i + 1][left])  
+                        
         return dp[0][0]    
     
     
@@ -79,5 +103,5 @@ Solution:
 #                         multipliers[i]*nums[right]+dfs(left, i+1))
         
 #         return dfs(0, 0)
-        
+                
 ```
