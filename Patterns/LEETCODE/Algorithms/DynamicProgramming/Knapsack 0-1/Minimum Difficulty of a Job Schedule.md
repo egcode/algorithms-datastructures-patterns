@@ -101,15 +101,18 @@ class Solution:
         dp[0][0]=jobDifficulty[0]
         for i in range(1, n):
             dp[i][0]=max(dp[i-1][0], jobDifficulty[i])
-
+        
         for day in range(1, d):
             for job in range(1, n):
-                maxDiff=0
-                for doneJob in range(job+1)[::-1]:
-                    maxDiff = max(maxDiff, jobDifficulty[doneJob])                    
-                    dp[job][day]=min(dp[job][day], dp[doneJob-1][day-1] + maxDiff)
+                for doneJob in range(job):
+                    
+                    prev_done=dp[doneJob][day-1]
+                    max_rest=max(jobDifficulty[doneJob+1:job+1])
+                    
+                    dp[job][day]=min(dp[job][day], prev_done + max_rest)
                                         
         if dp[-1][-1]==impossible:
             return -1
-        return dp[-1][-1]        
+        return dp[-1][-1]
+
 ```
