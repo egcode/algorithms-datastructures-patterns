@@ -12,7 +12,7 @@ Return the *minimum difficulty* of a job schedule. If you cannot find a schedule
 
 
 #### Example 1:
-<img src="../../../../images/1335.png">
+<img src="../../../../../images/1335.png">
 
 ```
 Input: jobDifficulty = [6,5,4,3,2,1], d = 2
