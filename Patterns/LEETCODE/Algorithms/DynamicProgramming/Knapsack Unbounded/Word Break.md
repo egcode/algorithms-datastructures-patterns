@@ -48,6 +48,13 @@ class Solution:
 
             End with:
                 [True, False, False, False, True, False, False, False, True]
+                
+                
+        # m=target
+        # n=word_bank.length
+        # Complexity O((m^2)*n) time 
+        # Complexity O(m) space
+                
         
         '''
         dp = [False] * (len(s) + 1)
@@ -66,6 +73,10 @@ class Solution:
 #     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
 #         '''
 #         Memoization
+#           
+#           Complexity O(n*m^2) time 
+#           Complexity O(m^2) space
+
 #         '''
         
 #         memo={}
