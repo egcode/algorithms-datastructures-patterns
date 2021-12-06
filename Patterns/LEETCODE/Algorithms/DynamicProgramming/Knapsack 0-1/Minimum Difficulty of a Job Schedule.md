@@ -68,6 +68,92 @@ class Solution:
     def minDifficulty(self, jobDifficulty: List[int], d: int) -> int:
         '''
         Tabulation
+        More info here: https://leetcode.com/explore/featured/card/dynamic-programming/632/common-patterns-in-dp-problems/4109/
+        
+        Starting with: 
+
+            [inf, inf, inf, 7]
+            [inf, inf, inf, 7]
+            [inf, inf, inf, 7]
+            [inf, inf, inf, 7]
+            [inf, inf, inf, 7]
+            [inf, inf, inf, 1]
+
+        Ending with:
+            [inf,  11, inf,  7]
+            [inf,   9,   8,  7]
+            [inf,  12,   8,  7]
+            [inf,   9,   8,  7]
+            [inf, inf,   8,  7]
+            [inf, inf, inf,  1]
+
+        '''
+        n = len(jobDifficulty)
+        # If we cannot schedule at least one job per day, 
+        # it is impossible to create a schedule
+        if n < d:
+            return -1
+        
+        dp = [[float("inf")] * (d + 1) for _ in range(n)]
+        
+        # Set base cases
+        dp[-1][d] = jobDifficulty[-1]
+
+        # On the last day, we must schedule all remaining jobs, so dp[i][d]
+        # is the maximum difficulty job remaining
+        for i in range(n - 2, -1, -1):
+            dp[i][d] = max(dp[i + 1][d], jobDifficulty[i])
+            
+        for day in range(1, d)[::-1]: # don't include last day since it is in dp already
+            for i in range(day - 1, n - (d - day)): # Leave at least 1 job per remaining day
+                hardest = 0
+                # Iterate through the options and choose the best
+                for j in range(i, n - (d - day)): # Leave at least 1 job per remaining day
+                    hardest = max(hardest, jobDifficulty[j])
+                    # Recurrence relation
+                    dp[i][day] = min(dp[i][day], hardest + dp[j + 1][day + 1])
+                    
+        return dp[0][1]  
+    
+    
+#     def minDifficulty(self, jobDifficulty: List[int], d: int) -> int:
+#         '''
+#         Memoization
+#         '''
+#         n = len(jobDifficulty)
+#         # If we cannot schedule at least one job per day, 
+#         # it is impossible to create a schedule
+#         if n < d:
+#             return -1
+        
+#         hardest_job_remaining = [0] * n
+#         hardest_job = 0
+#         for i in range(n - 1, -1, -1):
+#             hardest_job = max(hardest_job, jobDifficulty[i])
+#             hardest_job_remaining[i] = hardest_job
+        
+#         @lru_cache(None)
+#         def dp(i, day):
+#             # Base case, it's the last day so we need to finish all the jobs
+#             if day == d:
+#                 return hardest_job_remaining[i]
+            
+#             best = float("inf")
+#             hardest = 0
+#             # Iterate through the options and choose the best
+#             for j in range(i, n - (d - day)): # Leave at least 1 job per remaining day
+#                 hardest = max(hardest, jobDifficulty[j])
+#                 best = min(best, hardest + dp(j + 1, day + 1)) # Recurrence relation
+
+#             return best
+        
+#         return dp(0, 1)   
+
+
+
+    def minDifficulty(self, jobDifficulty: List[int], d: int) -> int:
+        '''
+        Tabulation
             Example:
                 jobDifficulty = [3,1,4,1,7,1]
                 d = 3
