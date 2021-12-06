@@ -41,24 +41,50 @@ Note that you are allowed to reuse a dictionary word.
 ```
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+        '''
+        Tabulation:
+            Start with:
+                [True, False, False, False, False, False, False, False, False]
+
+            End with:
+                [True, False, False, False, True, False, False, False, True]
         
-        memo={}
-        def dfs(path):
-            if path in memo.keys():
-                return memo[path]
-            if path=="":
-                memo[path]=True
-                return True
-            for word in wordDict:
-                if len(path)>=len(word) and path[:len(word)]==word:
-                    suffix=path[len(word):]
-                    if dfs(suffix)==True:
-                        memo[path]=True
-                        return True
-            memo[path]=False
-            return False
+        '''
+        dp = [False] * (len(s) + 1)
+        dp[0] = True
+        print(dp)
+        for i in range(len(s)):
+            if dp[i]==True:
+
+                for word in wordDict:
+                    if s[i : i + len(word)] == word:
+                        dp[i + len(word)] = True
+        print(dp)
+        return dp[-1]
         
         
-        return dfs(s)
+#     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+#         '''
+#         Memoization
+#         '''
+        
+#         memo={}
+#         def dfs(path):
+#             if path in memo.keys():
+#                 return memo[path]
+#             if path=="":
+#                 memo[path]=True
+#                 return True
+#             for word in wordDict:
+#                 if len(path)>=len(word) and path[:len(word)]==word:
+#                     suffix=path[len(word):]
+#                     if dfs(suffix)==True:
+#                         memo[path]=True
+#                         return True
+#             memo[path]=False
+#             return False
+        
+        
+#         return dfs(s)
 
 ```
