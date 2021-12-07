@@ -37,13 +37,13 @@ class Solution:
         Kadane's Algorithm
         '''        
         if not prices: return 0
-        sell=-prices[0]
-        buy=0
+        buy=-prices[0]
+        sell=0
         profit=0
         for i in range(1, len(prices)):
-            sell = max(sell, -prices[i])
-            buy = max(buy, sell+prices[i])
-            profit = max(profit, buy)
+            buy = max(buy, -prices[i])
+            sell = max(sell, buy+prices[i])
+            profit = max(profit, sell)
         return profit
         
     
