@@ -52,50 +52,50 @@ Output: 0
 ### Python
 ```
 class Solution:
-#     def maxProfit(self, prices: List[int]) -> int:
-#         ###########################################################
-#         ########### Original Best Time to Buy and Sell Stock:######
-#         ###########################################################
-#         ###### if not prices: return 0
-#         ###### sell=-prices[0]
-#         ###### buy=0
-#         ###### profit=0
-#         ###### for i in range(1, len(prices)):
-#         ######     sell = max(sell, -prices[i])
-#         ######     buy = max(buy, sell+prices[i])
-#         ######     profit = max(profit, buy)
-#         ###### return profit
-#         #############################################
-#         '''
-#         Max Profit with K transations:
-#         '''
-#         if not prices: return 0
-#         dp=[0 for _ in range(len(prices))]
-        
-#         K_transactions=2
-#         for i in range(1, K_transactions+1):
-#             sell=-prices[0]
-#             buy=0
-#             profit=0
-#             for i in range(1, len(prices)):
-#                 sell = max(sell, dp[i]-prices[i])
-#                 buy = max(buy, sell+prices[i])
-#                 profit = max(profit, buy)
-#                 dp[i]=profit
-                
-#         return profit
-    
-    
     def maxProfit(self, prices: List[int]) -> int:
+        ###########################################################
+        ########### Original Best Time to Buy and Sell Stock:######
+        ###########################################################
+        ###### if not prices: return 0
+        ###### buy=-prices[0]
+        ###### sell=0
+        ###### profit=0
+        ###### for i in range(1, len(prices)):
+        ######     buy = max(buy, -prices[i])
+        ######     sell = max(sell, buy+prices[i])
+        ######     profit = max(profit, sell)
+        ###### return profit
+        #############################################
+        '''
+        Max Profit with K transations:
+        '''
         if not prices: return 0
-        s1,s2,s3,s4 = -prices[0], float('-inf'), float('-inf'), float('-inf')
+        dp=[0 for _ in range(len(prices))]
         
-        for p in prices:
-            s1=max(s1, -p)
-            s2=max(s2, s1+p)
-            s3=max(s3, s2-p)
-            s4=max(s4, s3+p)
+        K_transactions=2
+        for i in range(1, K_transactions+1):
+            buy=-prices[0]
+            sell=0
+            profit=0
+            for i in range(1, len(prices)):
+                buy = max(buy, dp[i]-prices[i])
+                sell = max(sell, buy+prices[i])
+                profit = max(profit, sell)
+                dp[i]=profit
+                
+        return profit
+    
+    
+#     def maxProfit(self, prices: List[int]) -> int:
+#         if not prices: return 0
+#         s1,s2,s3,s4 = -prices[0], float('-inf'), float('-inf'), float('-inf')
+        
+#         for p in prices:
+#             s1=max(s1, -p)
+#             s2=max(s2, s1+p)
+#             s3=max(s3, s2-p)
+#             s4=max(s4, s3+p)
             
-        return max(s4, 0)
+#         return max(s4, 0)
 
 ```
