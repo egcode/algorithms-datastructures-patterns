@@ -73,7 +73,7 @@ class Solution:
         dp=[0 for _ in range(len(prices))]
         
         K_transactions=2
-        for i in range(1, K_transactions+1):
+        for _ in range(1, K_transactions+1):
             buy=-prices[0]
             sell=0
             profit=0
