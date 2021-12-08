@@ -103,5 +103,21 @@ class Solution:
 #                         multipliers[i]*nums[right]+dfs(left, i+1))
         
 #         return dfs(0, 0)
+
+#     def maximumScore(self, nums: List[int], multipliers: List[int]) -> int:
+#         '''
+#         Memoization
+#         '''
+#         n=len(nums)
+#         m=len(multipliers)
+        
+#         @lru_cache(2000)
+#         def dfs(left, right, i):
+#             if i==m:
+#                 return 0            
+#             return  max(multipliers[i]*nums[left]+dfs(left+1, right, i+1),
+#                         multipliers[i]*nums[right]+dfs(left, right-1, i+1))
+        
+#         return dfs(0, len(nums)-1, 0)
                 
 ```
