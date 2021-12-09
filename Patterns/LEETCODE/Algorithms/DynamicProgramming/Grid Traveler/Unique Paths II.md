@@ -59,22 +59,46 @@ class Solution:
         
 #         return dfs(0, 0)
     
+#     def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
+#         '''
+#         Tabulation
+#         '''
+#         if obstacleGrid[-1][-1]==1: return 0
+#         h=len(obstacleGrid)
+#         w=len(obstacleGrid[0])
+#         dp=[[0]*(w+1) for i in range(h+1)]
+#         dp[-2][-2]=1
+        
+#         for r in range(h)[::-1]:
+#             for c in range(w)[::-1]:
+#                 if obstacleGrid[r][c] != 1:
+#                     dp[r][c] += dp[r+1][c]
+#                     dp[r][c] += dp[r][c+1]
+                
+#         return dp[0][0]
+    
+    
     def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
         '''
-        Tabulation
+        Tabulation 2
         '''
+        if not obstacleGrid: return 0
         if obstacleGrid[-1][-1]==1: return 0
-        h=len(obstacleGrid)
-        w=len(obstacleGrid[0])
-        dp=[[0]*(w+1) for i in range(h+1)]
-        dp[-2][-2]=1
+        if obstacleGrid[0][0]==1: return 0
         
-        for r in range(h)[::-1]:
-            for c in range(w)[::-1]:
-                if obstacleGrid[r][c] != 1:
-                    dp[r][c] += dp[r+1][c]
-                    dp[r][c] += dp[r][c+1]
-                
-        return dp[0][0]
+        h=len(obstacleGrid)
+        w=len(obstacleGrid[0])        
+        dp=[[0]*w for _ in range(h)]
+        dp[0][0]=1
+        for r in range(h):
+            for c in range(w):
+                if obstacleGrid[r][c]==1:
+                    continue
+                if r>0:
+                    dp[r][c] += dp[r-1][c]
+                if c>0:
+                    dp[r][c] += dp[r][c-1]
+                    
+        return dp[-1][-1]
 
 ```
