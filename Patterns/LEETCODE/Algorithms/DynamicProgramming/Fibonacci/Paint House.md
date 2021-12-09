@@ -62,8 +62,20 @@ class Solution:
         
     def minCost(self, costs: List[List[int]]) -> int:
         '''
-        Dynamic Programming 
-        Bottom up
+        Tabulation
+        
+        Input: [[17,2,17],[16,16,5],[14,3,19]]
+        Output: 10
+        Start with:
+            [[0, 0, 0], [0, 0, 0], [14, 3, 19]]
+            [[0, 0, 0], [0, 0, 0], [14, 3, 19]]
+            [[0, 0, 0], [0, 0, 0], [14, 3, 19]]
+            
+        End with:
+            [[25, 10, 36], [19, 30, 8], [14, 3, 19]]
+            [[25, 10, 36], [19, 30, 8], [14, 3, 19]]
+            [[25, 10, 36], [19, 30, 8], [14, 3, 19]]
+        
         '''
         h=len(costs)
         w=len(costs[0])
