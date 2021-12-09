@@ -29,7 +29,7 @@ We can construct a Quad-Tree from a two-dimensional area using the following ste
  - If the current grid has different values, set `isLeaf` to False and set `val` to any value and divide the current grid into four sub-grids as shown in the photo.
  - Recurse for each of the children with the proper sub-grid.
 
-<img src="../../../../images/427new_top.png">
+<img src="../../../../../images/427new_top.png">
 
 
 
@@ -48,7 +48,7 @@ If the value of `isLeaf` or `val` is True we represent it as **1** in the list `
 
 
 #### Example 1:
-<img src="../../../../images/427grid1.png">
+<img src="../../../../../images/427grid1.png">
 
 ```
 Input: grid = [[0,1],[1,0]]
@@ -57,12 +57,12 @@ Explanation: The explanation of this example is shown below:
 Notice that 0 represnts False and 1 represents True in the photo representing the Quad-Tree.
 
 ```
-<img src="../../../../images/427e1tree.png">
+<img src="../../../../../images/427e1tree.png">
 
 
 
 #### Example 2:
-<img src="../../../../images/427e2mat.png">
+<img src="../../../../../images/427e2mat.png">
 
 ```
 Input: grid = [[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0],[1,1,1,1,0,0,0,0]]
@@ -73,7 +73,7 @@ The topRight have different values so we divide it into 4 sub-grids where each h
 Explanation is shown in the photo below:
 
 ```
-<img src="../../../../images/427e2tree.png">
+<img src="../../../../../images/427e2tree.png">
 
 
 
