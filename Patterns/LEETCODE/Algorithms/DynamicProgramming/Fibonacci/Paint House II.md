@@ -35,19 +35,33 @@ Output: 5
 class Solution:
     def minCostII(self, costs: List[List[int]]) -> int:
         '''
-        Dynamic programming 
         Tabulation
+        
+        Example: 
+            Input: [[1,5,3,2],[2,9,4,1],[3,7,9,4]]
+            Output: 5
+
+            Start with:
+                [inf, inf, inf, inf, inf]
+                [inf, inf, inf, inf, inf]
+                [3, 7, 9, 4]
+
+            End with:
+                [5, 9, 7, 8, inf]
+                [6, 12, 7, 4, inf]
+                [3, 7, 9, 4]
         '''
         h=len(costs)
         w=len(costs[0])
         if h==1: return min(costs[0])
         dp=[[float('inf')]*(w+1) for _ in range(h)]
         dp[-1]=costs[-1]
+        
         for house in range(h-1)[::-1]:
             for color in range(w):
                 candid_colors = dp[house+1][color+1:]+dp[house+1][:color] # exclude current index
                 dp[house][color]=costs[house][color]+min(candid_colors)
-        
+                
         return min(dp[0])
 
 ```
