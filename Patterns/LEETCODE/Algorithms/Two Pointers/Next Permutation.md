@@ -45,7 +45,7 @@ Output: [1]
 
 # Solutions
 
-<img src="../../../../../images/31_Next_Permutation.gif">
+<img src="../../../../images/31_Next_Permutation.gif">
 
 
 ### Python
