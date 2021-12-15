@@ -45,27 +45,18 @@ Output: 1
 ### Python
 ```
 class Solution:
+    
     def change(self, amount: int, coins: List[int]) -> int:
         '''
         Tabulation
-         Same as Combination Sum IV
-            There is an important difference between the two, 
-            the order of the loops are interchanged.
-
-            This problem counts all the permutations             
-            [1, 1, 2], [1,2,1] and [1, 1, 2] are counted as one solution.
-
-            In the Combination Sum IV problem, 
-            [1, 1, 2], [1,2,1] and [1, 1, 2] as different solutions to the sum of 4.
-            
         '''
-        dp = [0] * (amount + 1)
-        dp[0] = 1
+        dp=[0]*(amount+1)
+        dp[0]=1
         
         for coin in coins:
-            for x in range(coin, amount + 1):
-                dp[x] += dp[x - coin]
-        return dp[amount]    
+            for i in range(coin, amount + 1):
+                dp[i] += dp[i - coin]
+        return dp[-1]
     
     
 #     def change(self, amount: int, coins: List[int]) -> int:
