@@ -18,7 +18,6 @@ Example_one
 ```
 Example_two
 ```
-
 #### Example 3:
 <img src="../../../../../images/Whereballfall.jpg">
 
