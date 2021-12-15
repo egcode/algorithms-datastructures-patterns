@@ -1,4 +1,4 @@
-### [Basic Calculator](https://leetcode.com/problems/basic-calculator-iii/) <br>
+### [Basic Calculator III](https://leetcode.com/problems/basic-calculator-iii/) <br>
 
 Implement a basic calculator to evaluate a simple expression string.
 
