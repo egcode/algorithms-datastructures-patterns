@@ -1,0 +1,55 @@
+### [Sqrt(x)](https://leetcode.com/problems/sqrtx/) <br>
+
+Given a non-negative integer `x`, compute and return *the square root of* `x`.
+
+Since the return type is an integer, the decimal digits are **truncated**, and only **the integer part** of the result is returned.
+
+**Note:** You are not allowed to use any built-in exponent function or operator, such as `pow(x, 0.5)` or `x ** 0.5`.
+
+
+
+#### Example 1:
+
+```
+Input: x = 4
+Output: 2
+
+```
+
+#### Example 2:
+
+```
+Input: x = 8
+Output: 2
+Explanation: The square root of 8 is 2.82842..., and since the decimal part is truncated, 2 is returned.
+
+```
+
+
+# Solutions
+
+### Python
+```
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        '''
+        Binary Search
+        '''
+        if x<2:
+            return x
+        
+        lo=2
+        hi=x//2
+        
+        while lo<=hi:
+            mid=lo+(hi-lo)//2
+            num = mid*mid
+            if num>x:
+                hi=mid-1
+            elif num<x:
+                lo=mid+1
+            else:
+                return mid
+        return hi
+
+```
