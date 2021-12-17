@@ -5,6 +5,10 @@ You are given an array `points`, an integer `angle`, and your `location`, where 
 Initially, you are facing directly east from your position. You **cannot move** from your position, but you can **rotate**. In other words, <img src="https://render.githubusercontent.com/render/math?math=pos_x"> and <img src="https://render.githubusercontent.com/render/math?math=pos_y"> cannot be changed. Your field of view in **degrees** is represented by `angle`, determining how wide you can see from any given view direction. Let `d` be the amount in degrees that you rotate counterclockwise. Then, your field of view is the **inclusive** range of angles `[d - angle/2, d + angle/2]`.
 
 
+
+https://user-images.githubusercontent.com/12247313/146472715-5a362b28-9ad9-42ed-b11a-d8c8c4247a5e.mp4
+
+
 You can **see** some set of points if, for each point, the **angle** formed by the point, your position, and the immediate east direction from your position is **in your field of view**.
 
 There can be multiple points at one coordinate. There may be points at your location, and you can always see these points regardless of your rotation. Points do not obstruct your vision to other points.
