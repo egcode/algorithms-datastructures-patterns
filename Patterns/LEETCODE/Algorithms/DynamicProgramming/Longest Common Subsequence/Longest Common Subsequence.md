@@ -45,13 +45,24 @@ class Solution:
     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
         '''
         Same as below but we loop from the end
-           a  c  e
-        a [0, 0, 0, 0], 
-        b [0, 0, 0, 0], 
-        c [0, 0, 0, 0], 
-        d [0, 0, 0, 0], 
-        e [0, 0, 0, 0], 
-          [0, 0, 0, 0]]
+        Start with:
+               a  c  e
+           a [0, 0, 0, 0], 
+           b [0, 0, 0, 0], 
+           c [0, 0, 0, 0], 
+           d [0, 0, 0, 0], 
+           e [0, 0, 0, 0], 
+             [0, 0, 0, 0]]
+            
+        End with:
+              a  c  e
+           a [3, 2, 1, 0]
+           b [2, 2, 1, 0]
+           c [2, 2, 1, 0]
+           d [1, 1, 1, 0]
+           e [1, 1, 1, 0]
+             [0, 0, 0, 0]
+
 
         '''            
         
@@ -66,13 +77,15 @@ class Solution:
                     dp[row][col]=max(dp[row][col], 1+dp[row+1][col+1])
                 else:
                     dp[row][col]=max(dp[row][col], dp[row][col+1], dp[row+1][col])
-        
+                       
         return dp[0][0]
     
 
 #     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
 #         '''
 #         Same as above, but we loop from begining
+        
+#         Start with:
 #            a  c  e
 #         a [0, 0, 0, 0], 
 #         b [0, 0, 0, 0], 
@@ -80,21 +93,28 @@ class Solution:
 #         d [0, 0, 0, 0], 
 #         e [0, 0, 0, 0], 
 #           [0, 0, 0, 0]]
-
+          
+#         End with:          
+#            a  c  e
+#         a [0, 0, 0, 0]
+#         b [0, 1, 1, 1]
+#         c [0, 1, 1, 1]
+#         d [0, 1, 2, 2]
+#         e [0, 1, 2, 2]
+#           [0, 1, 2, 3]
 #         '''            
         
 #         n1=len(text1)
 #         n2=len(text2)
 #         dp=[[0]*(n2+1) for _ in range((n1+1))]
-        
-        
+                
 #         for row in range(n1):
 #             for col in range(n2):
 #                 if text1[row]==text2[col]:
 #                     dp[row+1][col+1]=max(dp[row+1][col+1], 1+dp[row][col])
 #                 else:
 #                     dp[row+1][col+1]=max(dp[row+1][col+1], dp[row][col+1], dp[row+1][col])
-#         print(dp)
         
-#         return
+#         return dp[-1][-1]    
+
 ```
