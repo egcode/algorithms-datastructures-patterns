@@ -1,14 +1,3 @@
-# LOOP ~ sign example
-data=[1,2,3,4,5]
-for i in range(len(data)):
-    print(data[i])
-print("--")
-for i in range(len(data)):
-    print(data[~i])
-
-
-
-
 h=3
 w=5
 
@@ -40,4 +29,14 @@ print([row[:half] for row in grid[:half]])
 print([row[half:] for row in grid[:half]])
 print([row[:half] for row in grid[half:]])
 print([row[half:] for row in grid[half:]])
+
+
+# LOOP ~ sign example
+data=[1,2,3,4,5]
+for i in range(len(data)):
+    print(data[i])
+print("--")
+for i in range(len(data)):
+    print(data[~i])
+
 
