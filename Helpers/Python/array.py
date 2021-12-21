@@ -8,6 +8,20 @@ for i in range(len(data)):
 
 
 
+
+h=3
+w=5
+
+### 1d Array
+arr=[0]*w
+print(arr)
+
+### 2d Array
+arr=[[0]*w for _ in range(h)]
+print(arr)
+
+
+
 # #### MATRIX
 '''
 Split Matrix into 4 pieces. Quad-Tree
@@ -27,12 +41,3 @@ print([row[half:] for row in grid[:half]])
 print([row[:half] for row in grid[half:]])
 print([row[half:] for row in grid[half:]])
 
-
-
-
-# Sort By tuple element
-t=[[4,5],[1,4],[0,1]]
-t.sort(key=lambda tup: tup[0]) 
-print("Sorted Tuple: " + str(t))
-
-print(60*"-")

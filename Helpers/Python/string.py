@@ -12,13 +12,6 @@ print("Array from string: " + str(arr))
 
 print(60*"-")
 
-# Sort string
-some_str = "defbgca"
-str_sorted="".join(sorted(some_str))
-print("Sorted string: " + str_sorted)
-
-print(60*"-")
-
 
 # Split String
 s="leetcode"
