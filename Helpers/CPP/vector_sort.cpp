@@ -37,17 +37,23 @@ int main(){
     }
     cout << endl << "SORTED:" << endl; 
     
-    // C++ 14
+    // // C++ 14
     // sort( vv.begin( ), vv.end( ), [ ]( const auto& lhs, const auto& rhs )
     // {
     // return lhs[0] < rhs[0];
     // });
+    // C++ 14
+    sort(vv.begin(), vv.end(),[](auto& lhs, auto& rhs )
+    {
+        return lhs[0] < rhs[0];
+    });
+
 
     // C++ 11
-    sort( vv.begin( ), vv.end( ), [ ]( const vector<int>& lhs, const vector<int>& rhs )
-    {
-    return lhs[0] < rhs[0];
-    });
+    // sort( vv.begin( ), vv.end( ), [ ]( const vector<int>& lhs, const vector<int>& rhs )
+    // {
+    // return lhs[0] < rhs[0];
+    // });
 
 
     for (auto x: vv) {
