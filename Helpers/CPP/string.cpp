@@ -7,6 +7,7 @@ using namespace std;
 
 int main() {
 
+    cout << endl << "SUBSTRINGS-----------------------------" << endl; 
     string word = "blah";
     cout << " word: "<< word << endl;      
 
@@ -17,6 +18,8 @@ int main() {
 
     string combined = lastChars + firstSeconChars;
     cout << " combined: "<< combined << endl;      
+
+    cout << endl << "-----------------------------" << endl; 
 
     return 0;
 }
