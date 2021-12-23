@@ -118,5 +118,12 @@ int main(){
         cout << " " << num;
     cout << endl;
 
+    nums2=vector<int>(nums.begin(), nums.begin()+2);
+    cout << "Copied Vector: ";
+    for (auto num: nums2)
+        cout << " " << num;
+
+
+        
     return 0;
 }
