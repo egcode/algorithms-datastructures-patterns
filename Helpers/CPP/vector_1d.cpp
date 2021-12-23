@@ -114,16 +114,25 @@ int main(){
 
     vector <int> nums;
     nums={1, 2, 3, 4, 5, 6};
+    cout << "Original Vector: "; // Original Vector:  1 2 3 4 5 6
     for ( auto num: nums)
         cout << " " << num;
     cout << endl;
 
-    nums2=vector<int>(nums.begin(), nums.begin()+2);
-    cout << "Copied Vector: ";
-    for (auto num: nums2)
-        cout << " " << num;
+    vector<int> cop1=vector<int>(nums.begin(), nums.begin()+2);
+    cout << "1 Copied Vector: "; // 1 Copied Vector:  1 2
+    for (auto cop: cop1)
+        cout << " " << cop;
+    cout << endl;
 
+    // nums:    1, 2, 3, 4, 5, 6
+    // indexes  0  1  2  3  4  5
+    // copy           ^     ^    - result {3, 4} - not inclusive at the end. Just like python slicing
+    vector<int> cop2=vector<int>(nums.begin()+2, nums.begin()+4);
+    cout << "2 Copied Vector: "; // 2 Copied Vector:  3 4
+    for (auto cop1: cop2)
+        cout << " " << cop1;
+    cout << endl;
 
-        
     return 0;
 }
