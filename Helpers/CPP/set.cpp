@@ -6,6 +6,9 @@ g++ set.cpp -std=c++11;./a.out
 using namespace std;
 
 int main(){
+
+    cout << endl << "-----------------------------Set" << endl; 
+
     set<int> s;
     s.insert(1);
     s.insert(5);
@@ -40,8 +43,7 @@ int main(){
         std::cout << "333 Not in the set" << std::endl; // 333 Not in the set
     }
 
-
-    // Set on pair
+    cout << endl << "-----------------------------Set on pair" << endl; 
     set<pair<int, int>> pairSet;
     pairSet.insert({1, 2});
     pairSet.insert({5, 10});

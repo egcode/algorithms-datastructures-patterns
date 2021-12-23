@@ -7,17 +7,17 @@ using namespace std;
 
 int main() {
 
-    cout << endl << "SUBSTRINGS-----------------------------" << endl; 
+    cout << endl << "-----------------------------SUBSTRINGS" << endl; 
     string word = "yobana";
-    cout << " word: "<< word << endl;      
+    cout << " word: "<< word << endl; // word: yobana  
 
     string firstSeconChars = word.substr(0, 2);
     string lastChars = word.substr(2, word.size());
-    cout << " firstSeconChars: "<< firstSeconChars << endl;      
-    cout << " lastChars: "<< lastChars << endl;      
+    cout << " firstSeconChars: "<< firstSeconChars << endl; // firstSeconChars: yo  
+    cout << " lastChars: "<< lastChars << endl; // lastChars: bana
 
     string combined = lastChars + firstSeconChars;
-    cout << " combined: "<< combined << endl;      
+    cout << " combined: "<< combined << endl;  // combined: banayo
 
     cout << endl << "-----------------------------" << endl; 
 
