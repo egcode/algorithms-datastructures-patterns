@@ -21,38 +21,56 @@ emplace_back() - Faster version push the elements into a vector from the back
 using namespace std;
 
 int main(){
+    cout << endl << "-----------------------------Vector Creation" << endl; 
 
-    cout << endl << "Vector Creation-----------------------------" << endl; 
+    // V1
+    cout<<"\nV1: "; // V1: 0 0 0 0 0
+    int n = 5;
+    vector<int> vect(n, 0);
+    for (int x : vect)
+        cout << x << " ";
 
+    // V2
+    cout<<"\nV2: ";   // V2: 5 5 5 5 5 5 5 5 5 5 
+    vector<int> vect1(10);
+    int value = 5;
+    fill(vect1.begin(), vect1.end(), value);
+    for (int x : vect1)
+        cout << x << " ";
+
+
+    // V3
     vector <int> numbers;
     if (numbers.empty()) { 
         cout << "The vector is empty :(" << endl; // The vector is empty :(
     }
-
     for(int i=0; i<100; i+=10) { 
         numbers.push_back(i);
         numbers.emplace_back(i+1);
     }
+
+    cout << endl << "-----------------------------Vector Looping" << endl; 
+    // Looping: 
+    // V1
     vector <int>::iterator it;
-    cout<<"\nAAA"; // AAA 0 1 10 11 20 21 30 31 40 41 50 51 60 61 70 71 80 81 90 91
+    cout<<"\nV1: "; // V1:  0 1 10 11 20 21 30 31 40 41 50 51 60 61 70 71 80 81 90 91
     for (it=numbers.begin(); it!=numbers.end(); it++) {
         cout << " " << *it;
     }
-
-    cout<<"\nBBB"; // BBB 0 1 10 11 20 21 30 31 40 41 50 51 60 61 70 71 80 81 90 91
+    // V2
+    cout<<"\nV2: "; // V2:  0 1 10 11 20 21 30 31 40 41 50 51 60 61 70 71 80 81 90 91
     for(int i=0;i<numbers.size();i++){
         cout << " " << numbers[i];
     }
-
-    cout<<"\nCCC"; // CCC 0 1 10 11 20 21 30 31 40 41 50 51 60 61 70 71 80 81 90 91
+    // V3
+    cout<<"\nV3: "; // V3:  0 1 10 11 20 21 30 31 40 41 50 51 60 61 70 71 80 81 90 91
     for(int num : numbers)
         cout << " " << num;
 
     cout << "vector front: " << numbers.front() << endl; // vector front: 0
     cout << "vector back: " << numbers.back() << endl; // vector back: 91
 
-
-    cout << endl << "Modify Vector-----------------------------" << endl; 
+    cout << endl << "-----------------------------Modify Vector" << endl; 
     /////// Modify Vector
 
     int position = 5;
@@ -90,7 +108,15 @@ int main(){
     for (auto p: vec)
         cout<<"      "<<p.first<<" "<<p.second;
     cout<<"\n"; //       100 2      300 4
-    cout << endl << "-----------------------------" << endl; 
+
+
+    cout << endl << "-----------------------------Vector Slicing" << endl; 
+
+    vector <int> nums;
+    nums={1, 2, 3, 4, 5, 6};
+    for ( auto num: nums)
+        cout << " " << num;
+    cout << endl;
 
     return 0;
 }
