@@ -1,5 +1,5 @@
 /*
-g++ vector.cpp -std=c++11;./a.out
+g++ vector_1d.cpp -std=c++11;./a.out
 
 begin() — Returns an iterator to the first element in the vector
 end() — Returns an iterator to a location past last element in the vector
@@ -20,66 +20,51 @@ emplace_back() - Faster version push the elements into a vector from the back
 #include <bits/stdc++.h>
 using namespace std;
 
-// used c+++ stl iterator
-void displayVector(const vector<int> & v){
-    for(vector<int>::const_iterator it = v.begin(); it != v.end() ; it++)
-        cout<<*it<<" ";
-}
-
-// c++ auto feature
-void autoVector(const vector<int> & v){
-    for(auto it = v.begin(); it != v.end() ; it++)
-        cout<<*it<<" ";
-}
-
-// shorthand notation
-void shorthand(const vector<int> & v){
-    for(int x : v)
-        cout<<x<<" ";
-}
-
-
 int main(){
+
+    cout << endl << "Vector Creation-----------------------------" << endl; 
 
     vector <int> numbers;
     if (numbers.empty()) { 
-        cout << "The vector is empty :(" << endl;
+        cout << "The vector is empty :(" << endl; // The vector is empty :(
     }
 
     for(int i=0; i<100; i+=10) { 
         numbers.push_back(i);
         numbers.emplace_back(i+1);
     }
-
-    cout << "vector front: " << numbers.front() << endl;
-    cout << "vector back: " << numbers.back() << endl;
-
     vector <int>::iterator it;
-    cout<<"\nAAA";
+    cout<<"\nAAA"; // AAA 0 1 10 11 20 21 30 31 40 41 50 51 60 61 70 71 80 81 90 91
     for (it=numbers.begin(); it!=numbers.end(); it++) {
         cout << " " << *it;
     }
 
-    cout<<"\nBBB";
+    cout<<"\nBBB"; // BBB 0 1 10 11 20 21 30 31 40 41 50 51 60 61 70 71 80 81 90 91
     for(int i=0;i<numbers.size();i++){
         cout << " " << numbers[i];
     }
 
-    cout<<"\nCCC";
+    cout<<"\nCCC"; // CCC 0 1 10 11 20 21 30 31 40 41 50 51 60 61 70 71 80 81 90 91
     for(int num : numbers)
         cout << " " << num;
 
+    cout << "vector front: " << numbers.front() << endl; // vector front: 0
+    cout << "vector back: " << numbers.back() << endl; // vector back: 91
+
+
+    cout << endl << "Modify Vector-----------------------------" << endl; 
+    /////// Modify Vector
 
     int position = 5;
-    cout<<"\nVector at position "<<position<<" contains "<<numbers.at(position)<<endl;
+    cout<<"\nVector at position "<<position<<" contains "<<numbers.at(position)<<endl; // Vector at position 5 contains 21
 
     numbers.erase(numbers.begin() + position);
-    cout<<"Vector at position "<<position<<" contains "<<numbers.at(position)<<endl;
+    cout<<"Vector at position "<<position<<" contains "<<numbers.at(position)<<endl; // Vector at position 5 contains 30
 
     // deleting a range of elements, first two elements
     // index 2 is not inclusive.
     numbers.erase(numbers.begin(), numbers.begin()+2);
-    cout << "The vector contains: ";
+    cout << "The vector contains: "; // The vector contains:   10  11  20  30  31  40  41  50  51  60  61  70  71  80  81  90  91
     for (it=numbers.begin(); it!=numbers.end(); it++) {
         cout << "  " << *it;
     }
@@ -87,18 +72,15 @@ int main(){
 
     numbers.clear();
     if (numbers.empty()){
-        cout << "\nThe vector is now empty again :(";
+        cout << "\nThe vector is now empty again :("; // The vector is now empty again :(
     }
     
-
-    /////// Modify Vector
-
     cout << "\n\nVector of pairs vefore modification: "<<endl;
     vector <pair<int, int>> vec;
     vec={{1, 2}, { 3, 4}};
     for (auto p: vec)
         cout<<"      "<<p.first<<" "<<p.second;
-    cout<<"\n";
+    cout<<"\n"; //       1 2      3 4
 
     // Modifing values
     for (auto &p: vec)
@@ -107,8 +89,8 @@ int main(){
     cout << "\nVector of pairs after modification: "<<endl;
     for (auto p: vec)
         cout<<"      "<<p.first<<" "<<p.second;
-    cout<<"\n";
-
+    cout<<"\n"; //       100 2      300 4
+    cout << endl << "-----------------------------" << endl; 
 
     return 0;
 }
