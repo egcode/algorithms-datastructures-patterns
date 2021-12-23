@@ -19,7 +19,13 @@ int main() {
     string combined = lastChars + firstSeconChars;
     cout << " combined: "<< combined << endl;  // combined: banayo
 
-    cout << endl << "-----------------------------" << endl; 
+    cout << endl << "-----------------------------Reverse" << endl; 
+    string wrd = "zalupa";
+    cout << " original word: "<< wrd << endl; // original word: zalupa
+
+    string rev(wrd);
+    reverse(rev.begin(), rev.end());
+    cout << " word reversed: "<< rev << endl; // word reversed: apulaz
 
     return 0;
 }
