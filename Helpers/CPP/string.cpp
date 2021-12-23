@@ -8,7 +8,7 @@ using namespace std;
 int main() {
 
     cout << endl << "SUBSTRINGS-----------------------------" << endl; 
-    string word = "blah";
+    string word = "yobana";
     cout << " word: "<< word << endl;      
 
     string firstSeconChars = word.substr(0, 2);
