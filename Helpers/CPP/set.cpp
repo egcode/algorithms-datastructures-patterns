@@ -22,22 +22,22 @@ int main(){
     auto it = s.find(-3);
 
     if(it == s.end()) cout<<"element not in set"<<endl;
-    else cout<<*it<<" element is found"<<endl;
+    else cout<<*it<<" element is found"<<endl; // -10 -3 1 5 -3 element is found
 
     auto it1 = s.upper_bound(-3);
-    cout<<"found element just greater than -3 "<<*it1<<endl;
+    cout<<"found element just greater than -3 "<<*it1<<endl; // found element just greater than -3 5
 
     auto it3 = s.upper_bound(5);
 
-    if(it3 == s.end()) cout<<"not found"<<endl;
+    if(it3 == s.end()) cout<<"not found"<<endl; // not found
     else cout<<"found upper bound"<<endl;
 
     // Using count
     if (s.count(5)) {
-        std::cout << "5 in the set" << std::endl;
+        std::cout << "5 in the set" << std::endl; // 5 in the set
     }
     if (s.count(333) == false) {
-        std::cout << "333 Not in the set" << std::endl;
+        std::cout << "333 Not in the set" << std::endl; // 333 Not in the set
     }
 
 
@@ -50,7 +50,7 @@ int main(){
 
     // {1, 2}, {3, 1}, {5, 10}, {5, 11}
     for(pair<int, int> x : pairSet)
-    cout<<"{"<<x.first<<", "<<x.second<<"}, ";
+    cout<<"{"<<x.first<<", "<<x.second<<"}, "; // {1, 2}, {3, 1}, {5, 10}, {5, 11}, 
 
     cout<<endl;
 
