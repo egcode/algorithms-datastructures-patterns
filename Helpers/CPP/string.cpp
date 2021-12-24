@@ -19,6 +19,15 @@ int main() {
     string combined = lastChars + firstSeconChars;
     cout << " combined: "<< combined << endl;  // combined: banayo
 
+    cout << endl << "-----------------------------Slicing" << endl; 
+    string ws = "yobanavagu";
+    //           0123456789
+    //             ^   ^  2-6 bana - NOT INCLUSIVE at the end
+    cout << " word: "<< ws << endl; // word: yobanavagu  
+    string wordSlice = string(ws.begin()+2, ws.begin()+6);
+    cout << " wordSlice: "<< wordSlice << endl;  // wordSlice: bana
+
+
     cout << endl << "-----------------------------Reverse" << endl; 
     string wrd = "zalupa";
     cout << " original word: "<< wrd << endl; // original word: zalupa
