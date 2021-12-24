@@ -23,9 +23,9 @@ int main() {
     string wrd = "zalupa";
     cout << " original word: "<< wrd << endl; // original word: zalupa
 
-    string rev(wrd);
-    reverse(rev.begin(), rev.end());
-    cout << " word reversed: "<< rev << endl; // word reversed: apulaz
+    string wordReversed(wrd);
+    reverse(wordReversed.begin(), wordReversed.end());
+    cout << " word reversed: "<< wordReversed << endl; // word reversed: apulaz
 
     return 0;
 }
