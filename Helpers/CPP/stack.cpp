@@ -12,10 +12,10 @@ int main(){
     distros.push("a");  //Pushes elements into the stack.
     distros.push("b");
 
-    cout << "Stack count: " << distros.size() << endl;
-    cout << "stack last element: " << distros.top() << endl;
+    cout << "Stack count: " << distros.size() << endl; // Stack count: 2
+    cout << "stack last element: " << distros.top() << endl; // stack last element: b
 
     distros.pop();
-    cout << "stack top: " << distros.top() << endl;
+    cout << "stack top: " << distros.top() << endl; // stack top: a
     return 0;
 }
