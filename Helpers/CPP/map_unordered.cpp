@@ -43,19 +43,23 @@ int main() {
 
     cout << "\nCheck if 'b' key in map" << endl;
 
-    // Key is not present
+    // Key is present
     cout << "mymap.count('b'): " << mymap.count('b') << endl;
     if (mymap.count('b')) {        
-        cout << "1111'b' key is in the map" << endl; // 1111'b' key is in the map
+        cout << "1111 'b' key is in the map" << endl; // 1111'b' key is in the map
     } else {
-        cout << "1111'b' key is Not in the map" << endl;
-    }    
+        cout << "1111 'b' key is Not in the map" << endl;
+    }
+
+    cout << "Delete 'b' key from the map " << endl; // Delete 'b' key from the map 
+    mymap.erase('b');
+
     
     // C++ 20
     if (mymap.contains('b')) {
-        cout << "2222'b' key is in the map" << endl; // 2222'b' key is in the map
+        cout << "2222 'b' key is in the map" << endl;
     } else {
-        cout << "2222'b' key is Not in the map" << endl;
+        cout << "2222 'b' key is Not in the map" << endl; // 2222 'b' key is Not in the map
     }
 
     cout << endl << "-----------------------------Count elements in Vector" << endl; 
