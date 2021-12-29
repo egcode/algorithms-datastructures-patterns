@@ -12,8 +12,28 @@ int main(){
     dqu.push_back(5);
     for(int x : dqu)
         cout<<x<<" ";
+    cout << endl;
     /*
     1 2 3 4 5
     */
+
+    cout << endl << "-----------------------------Pop Back" << endl; 
+    dqu.pop_back();
+    for(int x : dqu)
+        cout<<x<<" ";
+    cout << endl;
+    /*
+    1 2 3 4 5
+    */
+    cout << endl << "-----------------------------Pop Front" << endl; 
+    dqu.pop_front();
+    for(int x : dqu)
+        cout<<x<<" ";
+    cout << endl;
+    /*
+    1 2 3 4 5
+    */
+
+
     return 0;
 }
