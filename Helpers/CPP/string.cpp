@@ -36,5 +36,31 @@ int main() {
     reverse(wordReversed.begin(), wordReversed.end());
     cout << " word reversed: "<< wordReversed << endl; // word reversed: apulaz
 
+    cout << endl << "-----------------------------Check if char is Didit" << endl; 
+    string wordWithDigit = "1[ab2[xz3g";
+    //                      0123456789
+    //                      ^   ^   ^  {  0, 4, 8 } - digits
+    for(int i=0;i<wordWithDigit.size();i++){
+        if (isdigit(wordWithDigit[i])) {
+            string ch=string(1, wordWithDigit[i]); // char to string
+            int dig = stoi(ch); // string to int
+            cout << dig << " - digit char: " << endl;  // 
+        }
+        if (isalpha(wordWithDigit[i])) {
+            cout << wordWithDigit[i] << " - alphabet char: " << endl; //
+        }
+    }
+    cout << endl;
+    /*
+        1 - digit char: 
+        a - alphabet char: 
+        b - alphabet char: 
+        2 - digit char: 
+        x - alphabet char: 
+        z - alphabet char: 
+        3 - digit char: 
+        g - alphabet char:     
+    */
+
     return 0;
 }
