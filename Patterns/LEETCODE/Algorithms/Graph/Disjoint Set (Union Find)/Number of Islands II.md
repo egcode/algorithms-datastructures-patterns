@@ -42,45 +42,106 @@ Output: [1]
 class Solution:
     def numIslands2(self, m: int, n: int, positions: List[List[int]]) -> List[int]:
         '''
-        Custom Disjoint set.
-        Cache every position in `roots` map and store it's roots.
-        Cache every island and store it's children in `islands` map.
-        If we merge islands we delete not needed islands from `islands` map and reassign it's roots in `roots` map.
+        Disjoint set (union find) with 2D matrix.
+        Convert 2D array into 1D array
+        To get value from 1D array:
+        index = row * width + col
         '''
-        roots={} # key-(x,y)   value-island root (x,y)
-        islands=collections.defaultdict(list) # key-island root,   value-array of children [(x1,y1), (x2,y2)]
-                        
-        res=[]    
-        for row,col in positions:
+        root=[-1 for _ in range(m*n)]
+        rank=[0]*(m*n)
+        count=0
+        res=[]
+        
+        def find(x):
+            if x == root[x]:
+                return x
+            root[x] = find(root[x])
+            return root[x]
+
+        def union(x, y):
+            nonlocal count
+            rootX = find(x)
+            rootY = find(y)
+            if rootX != rootY:
+                if rank[rootX] > rank[rootY]:
+                    root[rootY] = rootX
+                elif rank[rootX] < rank[rootY]:
+                    root[rootX] = rootY
+                else:
+                    root[rootY] = rootX
+                    rank[rootX] += 1    
+                count -= 1
+                
+        def set_root(i):
+            nonlocal count
+            if root[i] == -1:
+                root[i]=i
+                count += 1
+            
+            
+        for r,c in positions:
             islands_met=set()
-            for d in [[-1,0], [1,0],[0,1],[0,-1]]:
-                r=row+d[0]
-                c=col+d[1]
-                if 0<=r<m and 0<=c<n:
-                    if (r,c) in roots.keys():
-                        islands_met.add(roots[(r,c)])
-                        
-            if len(islands_met)==0:
-                islands[(row,col)].append((row,col))
-                roots[(row,col)]=(row,col)
-            elif len(islands_met)==1:
-                root=islands_met.pop()
-                islands[root].append((row,col))
-                roots[(row,col)]=root
-            elif len(islands)>1:
-                root1=islands_met.pop()
-                islands[root1].append((row,col))
-                roots[(row,col)]=root1
-                for root2 in islands_met:
-                    for rr in islands[root2]:
-                        # union(root1,root2)
-                        roots[(rr[0],rr[1])]=root1
-                        islands[root1].append(rr)
-                    del islands[root2]
+            if r-1>=0 and root[(r-1)*n+c] >= 0:
+                islands_met.add((r-1)*n+c)
+            if r+1<m and root[(r+1)*n+c] >= 0:
+                islands_met.add((r+1)*n+c)
+                
+            if c-1>=0 and root[r*n+c-1] >= 0:
+                islands_met.add(r*n+c-1)
+            if c+1<n and root[r*n+c+1] >= 0:
+                islands_met.add(r*n+c+1)
+                
+                
+            index=r*n+c
+            set_root(index)
+            for ismet in islands_met:
+                union(ismet, index)
+            res.append(count)
+                
+            
+        return res        
                     
-            res.append(len(islands.keys()))
+    
+#     def numIslands2(self, m: int, n: int, positions: List[List[int]]) -> List[int]:
+#         '''
+#         Cache every position in `roots` map and store it's roots.
+#         Cache every island and store it's children in `islands` map.
+#         If we merge islands we delete not needed islands from `islands` map and reassign it's roots in `roots` map.
+#         '''
+#         roots={} # key-(x,y)   value-island root (x,y)
+#         islands=collections.defaultdict(list) # key-island root,   value-array of children [(x1,y1), (x2,y2)]
+                        
+#         res=[]    
+#         for row,col in positions:
+#             islands_met=set()
+#             for d in [[-1,0], [1,0],[0,1],[0,-1]]:
+#                 r=row+d[0]
+#                 c=col+d[1]
+#                 if 0<=r<m and 0<=c<n:
+#                     if (r,c) in roots.keys():
+#                         islands_met.add(roots[(r,c)])
+                        
+#             if len(islands_met)==0:
+#                 islands[(row,col)].append((row,col))
+#                 roots[(row,col)]=(row,col)
+#             elif len(islands_met)==1:
+#                 root=islands_met.pop()
+#                 islands[root].append((row,col))
+#                 roots[(row,col)]=root
+#             elif len(islands)>1:
+#                 root1=islands_met.pop()
+#                 islands[root1].append((row,col))
+#                 roots[(row,col)]=root1
+#                 for root2 in islands_met:
+#                     for rr in islands[root2]:
+#                         # union(root1,root2)
+#                         roots[(rr[0],rr[1])]=root1
+#                         islands[root1].append(rr)
+#                     del islands[root2]
+                    
+#             res.append(len(islands.keys()))
                     
             
-        return res
+#         return res
 
 ```
