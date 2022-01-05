@@ -52,7 +52,7 @@ int main(){
 
     // {1, 2}, {3, 1}, {5, 10}, {5, 11}
     for(pair<int, int> x : pairSet)
-    cout<<"{"<<x.first<<", "<<x.second<<"}, "; // {1, 2}, {3, 1}, {5, 10}, {5, 11}, 
+        cout<<"{"<<x.first<<", "<<x.second<<"}, "; // {1, 2}, {3, 1}, {5, 10}, {5, 11}, 
 
     cout<<endl;
 
@@ -63,6 +63,20 @@ int main(){
     sp.lower_bound({5, 8}); // {5, 10}
     sp.lower_bound({5, 10}); // {5, 10}
     sp.lower_bound({5, 11}); // {8, 16}
+
+    cout << endl << "-----------------------------Pop from set" << endl; 
+    for(pair<int, int> x : pairSet)
+        cout<<"{"<<x.first<<", "<<x.second<<"}, "; // {1, 2}, {3, 1}, {5, 10}, {5, 11}, 
+    cout << endl;
+
+    pair<int,int> pop = *pairSet.begin();
+    cout << "popped: {" << pop.first << " " << pop.second << "}" << endl;
+    pairSet.erase(pairSet.begin());
+
+    cout << "After pop:   ";
+    for(pair<int, int> x : pairSet)
+        cout<<"{"<<x.first<<", "<<x.second<<"}, "; // After pop:   {3, 1}, {5, 10}, {5, 11}, 
+    cout << endl;
 
 
     return 0;
