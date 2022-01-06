@@ -3,6 +3,10 @@ n=5
 arr=[0]*n
 print(arr) # [0, 0, 0, 0, 0]
 
+### 1d Array
+arr1=list(range(10))
+print(arr1) # [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
 
 # LOOP ~ sign example
 data=[1,2,3,4,5]
