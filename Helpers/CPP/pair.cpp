@@ -82,5 +82,34 @@ int main(){
         odin: s one dva: s two    
     */
 
+
+    cout << endl << "-----------------------------Pair with Priority Queue {max heap}" << endl; 
+
+    // Max heap
+    priority_queue < pair<int, char> > pq1; 
+    pq1.push({32, 'a'});
+    pq1.push({3, 'c'});
+    pq1.push({1, 'b'});
+
+    while (!pq1.empty()) {
+        cout << "{" << pq1.top().first << "} "; // 
+        pq1.pop();
+    }
+    cout << endl << "-----------------------------Pair with Priority Queue {min heap}" << endl; 
+
+    // Min heap
+    typedef pair<int, char> pi;
+    priority_queue<pi, vector<pi>, greater<pi> > pq2;
+
+    // priority_queue < pair<int, char> > pq2; 
+    pq2.push({32, 'a'});
+    pq2.push({3, 'c'});
+    pq2.push({1, 'b'});
+
+    while (!pq2.empty()) {
+        cout << "{" << pq2.top().first << "} "; // 
+        pq2.pop();
+    }
+
     return 0;
 }
