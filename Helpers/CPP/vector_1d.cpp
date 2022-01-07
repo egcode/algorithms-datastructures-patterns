@@ -134,5 +134,17 @@ int main(){
         cout << " " << cop1;
     cout << endl;
 
+    cout << endl << "-----------------------------Vector Concatenate" << endl; 
+    vector <int> conc1, conc2;    
+    conc1={1, 2, 3};
+    conc2={15, 16, 17};
+
+    // Inserting
+    conc1.insert(conc1.end(), conc2.begin(), conc2.end());
+
+    for (auto i : conc1)
+        cout << " " << i; // 1 2 3 15 16 17
+    cout << endl;
+
     return 0;
 }
