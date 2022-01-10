@@ -21,20 +21,21 @@ class DisjointSet:
                 self.roots[rootY] = rootX
                 self.ranks[rootX] += 1    
 
-###### Example: ######
-## Number of Connected Components in an Undirected Graph   
 '''
-problem: https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/
-github: https://github.com/egcode/algorithms-datastructures-patterns/blob/main/Patterns/LEETCODE/Algorithms/Graph/Disjoint%20Set%20(Union%20Find)/Number%20of%20Connected%20Components%20in%20an%20Undirected%20Graph.md
-Input: n = 5, edges = [[0,1],[1,2],[3,4]]
-Output: 2
+    Example: 
+        Number of Connected Components in an Undirected Graph   
+            problem: https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/
+            github: https://github.com/egcode/algorithms-datastructures-patterns/blob/main/Patterns/LEETCODE/Algorithms/Graph/Disjoint%20Set%20(Union%20Find)/Number%20of%20Connected%20Components%20in%20an%20Undirected%20Graph.md
+
+    Input: n = 5, edges = [[0,1],[1,2],[3,4]]
+    Output: 2
 '''
 n=5
 edges = [[0,1],[1,2],[3,4]]
 
 ds=DisjointSet(n)
 print(30*"="+"Init:")
-print("roots: "+str(ds.roots))
+print("roots: "+str(ds.roots)) # roots: [0, 1, 2, 3, 4]
 
 for edge in edges:
     ds.union(edge[0], edge[1])
@@ -45,5 +46,5 @@ for i in range(n):
     res.add(ds.find(i))
 
 print("\n"+30*"="+"Result:")
-print("roots: "+str(ds.roots))
-print("res: "+str(res))
+print("roots: "+str(ds.roots)) # roots: [0, 0, 0, 3, 3]
+print("res: "+str(res)) # res: {0, 3}
