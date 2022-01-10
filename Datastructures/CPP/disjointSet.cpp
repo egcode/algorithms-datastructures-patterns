@@ -54,7 +54,7 @@ int main() {
     Output: 2
     */
 
-    cout << endl << "-----------------------------ALPHABET As Letters" << endl; 
+    cout << endl << "-----------------------------" << endl; 
 
     int n=5;
     vector<vector<int>> edges;
