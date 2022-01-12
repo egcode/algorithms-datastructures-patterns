@@ -70,22 +70,24 @@ class Solution:
         Tabulation
         More info here: https://leetcode.com/explore/featured/card/dynamic-programming/632/common-patterns-in-dp-problems/4109/
         
-        Starting with: 
+            Input: jobDifficulty = [5,4,8,3,2,1], d = 3
+            Output: 7
 
-            [inf, inf, inf, 7]
-            [inf, inf, inf, 7]
-            [inf, inf, inf, 7]
-            [inf, inf, inf, 7]
-            [inf, inf, inf, 7]
+        Start with:
+            [inf, inf, inf, 8]
+            [inf, inf, inf, 8]
+            [inf, inf, inf, 8]
+            [inf, inf, inf, 3]
+            [inf, inf, inf, 2]
             [inf, inf, inf, 1]
 
-        Ending with:
-            [inf,  11, inf,  7]
-            [inf,   9,   8,  7]
-            [inf,  12,   8,  7]
-            [inf,   9,   8,  7]
-            [inf, inf,   8,  7]
-            [inf, inf, inf,  1]
+        End with:
+            [inf, 11,  inf, 8]
+            [inf, 11,  9,   8]
+            [inf, 11,  9,   8]
+            [inf, 6,   4,   3]
+            [inf, inf, 3,   2]
+            [inf, inf, inf, 1]
 
         '''
         n = len(jobDifficulty)
@@ -105,10 +107,13 @@ class Solution:
             dp[i][d] = max(dp[i + 1][d], jobDifficulty[i])
             
         for day in range(1, d)[::-1]: # don't include last day since it is in dp already
+            # print(" ")
             for i in range(day - 1, n - (d - day)): # Leave at least 1 job per remaining day
+                # print("day: "+str(day)+"  i:"+str(i))
                 hardest = 0
                 # Iterate through the options and choose the best
                 for j in range(i, n - (d - day)): # Leave at least 1 job per remaining day
+                    # print(" (i,day):"+str((i,day)) + " (j+1, day+1):"+str((j+1, day+1)))
                     hardest = max(hardest, jobDifficulty[j])
                     # Recurrence relation
                     dp[i][day] = min(dp[i][day], hardest + dp[j + 1][day + 1])
@@ -147,66 +152,77 @@ class Solution:
 
 #             return best
         
-#         return dp(0, 1)   
-
-
-
-    def minDifficulty(self, jobDifficulty: List[int], d: int) -> int:
-        '''
-        Tabulation
-            Example:
-                jobDifficulty = [3,1,4,1,7,1]
-                d = 3
-                output: 11
+#         return dp(0, 1)    
+    
+    
+#     def minDifficulty(self, jobDifficulty: List[int], d: int) -> int:
+#         '''
+#         Tabulation
+#             More info here:
+#                 https://jz-tk.github.io/algorithm.github.io/2021/01/30/LeetCode-1335-Minimum-Difficulty-of-a-Job-Schedule/
+#                 https://youtu.be/L9xrdaymV-k?t=729
         
-            Start with:
-                [3, inf, inf]
-                [3, inf, inf]
-                [4, inf, inf]
-                [4, inf, inf]
-                [7, inf, inf]
-                [7, inf, inf]        
+#             Example:
+#                 jobDifficulty = [3,1,4,1,7,1]
+#                 d = 3
+#                 output: 11
+        
+#             Start with:
+#                 [3, inf, inf]
+#                 [3, inf, inf]
+#                 [4, inf, inf]
+#                 [4, inf, inf]
+#                 [7, inf, inf]
+#                 [7, inf, inf]        
                 
-            End with:
-                [3, inf, inf]
-                [3,   4, inf]
-                [4,   7,   8]
-                [4,   5,   8]
-                [7,  10,  11]
-                [7,   8,  11]        
+#             End with:
+#                 [3, inf, inf]
+#                 [3,   4, inf]
+#                 [4,   7,   8]
+#                 [4,   5,   8]
+#                 [7,  10,  11]
+#                 [7,   8,  11]                                        
         
-        '''
+#         '''
         
         
-        n=len(jobDifficulty)
-        if d>n: return -1
+#         n=len(jobDifficulty)
+#         if d>n: return -1
         
-        impossible=float('inf')
+#         impossible=float('inf')
         
-        dp=[[impossible]*d for _ in range(n)]
-        dp[0][0]=jobDifficulty[0]
-        for i in range(1, n):
-            dp[i][0]=max(dp[i-1][0], jobDifficulty[i])
+#         dp=[[impossible]*d for _ in range(n)]
+#         dp[0][0]=jobDifficulty[0]
+#         for i in range(1, n):
+#             dp[i][0]=max(dp[i-1][0], jobDifficulty[i])
+
+#         # for row in dp:
+#         #     print(row)
+#         # print(" ")
         
-        ### Non Optimized
-        # for day in range(1, d):
-        #     for job in range(1, n):
-        #         for doneJob in range(job):
-        #             prev_done=dp[doneJob][day-1]
-        #             max_rest=max(jobDifficulty[doneJob+1:job+1])
-        #             dp[job][day]=min(dp[job][day], prev_done + max_rest)
+#         ### Non Optimized        
+#         # for day in range(1, d):
+#         #     for job in range(1, n):
+#         #         for doneJob in range(job):
+#         #             prev_done=dp[doneJob][day-1]
+#         #             max_rest=max(jobDifficulty[doneJob+1:job+1])
+#         #             dp[job][day]=min(dp[job][day], prev_done + max_rest)
               
-        ### Optimized
-        for day in range(1, d):
-            for job in range(1, n):
-                maxDiff=0
-                for doneJob in range(job+1)[::-1]:
-                    maxDiff = max(maxDiff, jobDifficulty[doneJob])                    
-                    dp[job][day]=min(dp[job][day], dp[doneJob-1][day-1] + maxDiff)
+#         ### Optimized
+#         for day in range(1, d):
+#             for job in range(1, n):
+#                 maxDiff=0
+#                 for doneJob in range(job+1)[::-1]:
+#                     maxDiff = max(maxDiff, jobDifficulty[doneJob])                    
+#                     dp[job][day]=min(dp[job][day], dp[doneJob-1][day-1] + maxDiff)
                     
-                                        
-        if dp[-1][-1]==impossible:
-            return -1
-        return dp[-1][-1]
+                    
+#         # for row in dp:
+#         #     print(row)
+#         # print(" ")
+                    
+#         if dp[-1][-1]==impossible:
+#             return -1
+#         return dp[-1][-1]
 
 ```
