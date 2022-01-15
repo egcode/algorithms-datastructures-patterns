@@ -67,7 +67,6 @@ class Solution:
 #         dfs(0, 0, 0, 0)
 #         return res
 
-    
     def maxValue(self, events: List[List[int]], k: int) -> int:
         '''
         Memoization
@@ -91,11 +90,10 @@ class Solution:
                     lo=mid+1
                 else:
                     hi=mid
-            next_index=lo
             
-            skip = dp(i+1, k)
             not_skip = events[i][2]+dp(lo, k-1)
-            return max(skip, not_skip )
+            skip = dp(i+1, k)
+            return max(skip, not_skip)
             
         return dp(0, k)
 
