@@ -36,52 +36,63 @@ class Trie:
     def __init__(self):
         self.root=TrieNode()
         
+    # def add(self, word):
+    #     cur=self.root
+    #     for l in word:
+    #         if l in cur.children.keys():
+    #             cur=cur.children[l]
+    #         else:
+    #             new_node=TrieNode()
+    #             cur.children[l]=new_node
+    #             cur=new_node
+    #     cur.is_word=True
     def add(self, word):
-        cur=self.root
-        for l in word:
-            if l in cur.children.keys():
-                cur=cur.children[l]
-            else:
-                new_node=TrieNode()
-                cur.children[l]=new_node
-                cur=new_node
-        cur.is_word=True
+        '''
+        Faster add
+        '''
+        root = self.root
+        for c in word:
+            if c not in root.children:
+                root.children[c] = TrieNode()
+            root = root.children[c]
+        root.is_word = True
+        
 
-
-class Solution:
-    def __init__(self):
-        self.trie=Trie()
-        self.ans=[]
-    
-    def DFS(self, board, r, c, node, cand):
-        if node.is_word==True:
-            self.ans.append(cand)
-            node.is_word=False
-            
-        if r<0 or r >= len(board) or c<0 or c >= len(board[r]):
-            return
-        
-        l=board[r][c]
-        
-        if l not in node.children.keys():
-            return
-        
-        board[r][c]="#"
-        self.DFS(board, r+1,c , node.children[l], cand+l)
-        self.DFS(board, r-1,c , node.children[l], cand+l)
-        self.DFS(board, r,c+1 , node.children[l], cand+l)
-        self.DFS(board, r,c-1 , node.children[l], cand+l)
-        board[r][c]=l
-        
+class Solution:        
                 
     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
+        trie=Trie()
         for w in words:
-            self.trie.add(w)
+            trie.add(w)    
+        res=[]
+        
+        def dfs(r,c, node, path):
+            nonlocal trie
+            nonlocal res
+            if node.is_word==True:
+                res.append(path)
+                # TRICKY part
+                # prevet duplicate word found in board
+                node.is_word = False
+                # don't return for search word with prefix part string
+                # return
+            l=board[r][c]
+            board[r][c]="#"
+            for d in [[-1,0],[1,0],[0,-1],[0,1]]:
+                row=r+d[0]
+                col=c+d[1]
+                if 0<=row<len(board) and 0<=col<len(board[row]) and board[row][col] in node.children:
+                    new_ch=board[row][col]                                    
+                    dfs(row, col, node.children[new_ch], path+new_ch)
+            board[r][c]=l
+            
             
         for i in range(len(board)):
             for j in range(len(board[i])):
-                self.DFS(board, i,j , self.trie.root, "")
+                ch = board[i][j]
+                if ch in trie.root.children:
+                    dfs(i,j , trie.root.children[ch], ch)
                 
-        return self.ans
+        return res
 
 ```
