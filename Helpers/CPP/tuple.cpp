@@ -1,5 +1,5 @@
 /*
-g++ tuple.cpp -std=c++11;./a.out
+g++ tuple.cpp -std=c++17;./a.out
 */
 
 #include <bits/stdc++.h>
@@ -24,6 +24,29 @@ int main(){
     tie (a ,b) = make_tuple(b,a);  // swapping b and a
     // used macro to see values
     watch(a), watch(b), watch(c);
+
+
+    cout << endl << "-----------------------------Tuple Vector" << endl; 
+
+    vector < tuple<int,int>> arr;
+    arr.push_back(make_tuple(6,8));
+    arr.push_back(make_tuple(5,10));
+    arr.push_back(make_tuple(3,7));
+    arr.push_back(make_tuple(1,5));
+    arr.push_back(make_tuple(2,5));
+
+    for (auto a : arr )
+        cout << "(" << get<0>(a) << " " << get<1>(a) << ") "; // (6 8) (5 10) (3 7) (1 5) (2 5) 
+    
+    // Sort by first member
+    sort(arr.begin(), arr.end(), [] (auto& l, auto& r) {
+        return get<0>(l) < get<0>(r);
+    });
+    
+    cout << endl << "Sorted by first member: " << endl;
+    for (auto a : arr )
+        cout << "(" << get<0>(a) << " " << get<1>(a) << ") "; // (1 5) (2 5) (3 7) (5 10) (6 8)
+
 
     return 0;
 }
