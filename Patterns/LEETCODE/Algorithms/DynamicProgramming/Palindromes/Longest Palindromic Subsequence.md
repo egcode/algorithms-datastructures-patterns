@@ -28,7 +28,6 @@ Explanation: One possible longest palindromic subsequence is "bb".
 
 ### Python
 ```
-class Solution:
     def longestPalindromeSubseq(self, s: str) -> int:
         '''
         Dynamic Programming 
@@ -60,21 +59,16 @@ class Solution:
         
         Result = 5
         '''
-        n=len(s)
-        dp=[[0]*n for _ in range(n)]
-        for i in range(n):
-            dp[i][i]=1
-                
-        palLen=1
+        n = len(s)
+        dp = [[0] * n for _ in range(n)]
         for i in range(n)[::-1]:
-            for j in range(i+1, i+palLen+1):
-                if j>=n: continue
-                if s[j]==s[i]:
-                    dp[i][j]=2+dp[i+1][j-1]
+            dp[i][i] = 1 # one letter palindrome
+            for j in range(i+1, n):
+                if s[i] == s[j]:
+                    dp[i][j] = dp[i+1][j-1]+2
                 else:
-                    dp[i][j]=max(dp[i][j-1], dp[i+1][j])
-            palLen += 1        
-        
-        return dp[0][-1]
+                    dp[i][j] = max(dp[i+1][j], dp[i][j-1])
+
+        return dp[0][-1]    
 
 ```
