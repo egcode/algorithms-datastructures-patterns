@@ -39,6 +39,9 @@ Explanation: The longest repeating substring is "aab", which occurs 3 times.
 class Solution:
     def longestRepeatingSubstring(self, s: str) -> int:
         '''
+        Example: s = "abbaba" 
+                 Output: 2
+            
         Just like Longest Common Subsequence but:
             1. Do string to itself
             2. Do top right corner.
