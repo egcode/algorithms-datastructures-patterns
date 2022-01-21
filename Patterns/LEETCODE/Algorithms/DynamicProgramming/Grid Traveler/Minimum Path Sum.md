@@ -78,6 +78,21 @@ class Solution:
     def minPathSum(self, grid: List[List[int]]) -> int:
         '''
         Dynamic Programming (Tabulation)
+        
+        Example: [[1,3,1],[1,5,1],[4,2,1]]
+        Output: 7
+        
+        Start with: 
+            [inf, inf, inf, inf]
+            [inf, inf, inf, inf]
+            [inf, inf, 1,   inf]
+            [inf, inf, inf, inf]
+
+        End with:
+            [7,   6,   3,   inf]
+            [8,   7,   2,   inf]
+            [7,   3,   1,   inf]
+            [inf, inf, inf, inf]
         '''
         if not grid: return 0
         h=len(grid)
@@ -85,11 +100,11 @@ class Solution:
         
         dp=[[float('inf')]*(w+1) for _ in range(h+1)]
         dp[h-1][w-1]=grid[h-1][w-1]
-        
+                
         for r in range(h)[::-1]:
             for c in range(w)[::-1]:
                 if r==(h-1) and c==(w-1): continue
                 dp[r][c]=grid[r][c]+min(dp[r+1][c], dp[r][c+1])
-        
+                
         return dp[0][0]
 ```
