@@ -77,7 +77,7 @@ class Solution:
         
     def minPathSum(self, grid: List[List[int]]) -> int:
         '''
-        Dynamic Programming (Tabulation)
+        Tabulation Backward Direction
         
         Example: [[1,3,1],[1,5,1],[4,2,1]]
         Output: 7
@@ -99,12 +99,45 @@ class Solution:
         w=len(grid[0])
         
         dp=[[float('inf')]*(w+1) for _ in range(h+1)]
-        dp[h-1][w-1]=grid[h-1][w-1]
+        dp[-1][w-1]=0
                 
         for r in range(h)[::-1]:
             for c in range(w)[::-1]:
-                if r==(h-1) and c==(w-1): continue
                 dp[r][c]=grid[r][c]+min(dp[r+1][c], dp[r][c+1])
                 
         return dp[0][0]
+    
+    
+    def minPathSum(self, grid: List[List[int]]) -> int:
+        '''
+        Tabulation Forward Direction
+         
+        Example: [[1,3,1],[1,5,1],[4,2,1]]
+        Output: 7
+        
+        Start with: 
+            [inf, 0,   inf, inf]
+            [inf, inf, inf, inf]
+            [inf, inf, inf, inf]
+            [inf, inf, inf, inf]
+
+        End with:
+            [inf, 0, inf, inf]
+            [inf, 1, 4,   5]
+            [inf, 2, 7,   6]
+            [inf, 6, 8,   7]
+        '''
+        if not grid: return 0
+        h=len(grid)
+        w=len(grid[0])
+        
+        dp=[[float('inf')]*(w+1) for _ in range(h+1)]
+        dp[0][1]=0
+                
+        for r in range(1, h+1):
+            for c in range(1, w+1):
+                dp[r][c]=grid[r-1][c-1]+min(dp[r-1][c], dp[r][c-1])
+                
+        return dp[-1][-1]
+
 ```
