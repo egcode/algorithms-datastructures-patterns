@@ -58,17 +58,17 @@ class Solution:
         @lru_cache(None)
         def dfs(r, c1, c2):
             if r == h: return 0
-            
+                            
+            res = 0
+            for nc1 in range(c1-1, c1+2): # 1 of 3 possible for robot1
+                for nc2 in range(c2-1, c2+2): # 1 of 3 possible for robot2
+                    if 0<=nc1<w and 0 <=nc2<w: # check if within boundaries
+                        res = max(res, dfs(r+1, nc1, nc2))
+                        
             if c1 == c2:
                 cherries = grid[r][c1] # if same row pick once
             else:
                 cherries = grid[r][c1] + grid[r][c2] # differen row pick both
-                
-            res = 0
-            for nc1 in range(c1-1, c1+2): # 1 of 3 possible for robot1
-                for nc2 in range(c2-1, c2+2): # 1 of 3 possible for robot2
-                    if 0<=nc1<w and 0 <=nc2<w:
-                        res = max(res, dfs(r+1, nc1, nc2))
             return res + cherries
 
         return dfs(0, 0, w-1)
