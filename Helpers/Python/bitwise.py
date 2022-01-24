@@ -1,5 +1,41 @@
 # # #### BIT Wise Operations
 
+# ######################### Combination Binary masks
+
+### Reverse Indexing:
+n=5
+for i in range(n):
+    print("     i: "+str(i))
+print(" ")
+for i in range(n):
+    print(" n-1-i: "+str(n-1-i))
+
+# ######################### Combination Binary masks
+'''
+if we want all combinations of bits withing 3 bit sections, we should loop 1 << 3 which is 8. Example:
+'''
+n=3 # we need all combination within 3 bit sections.  1 << n  ==  1 << 3 == 8
+for i in range(1 << n): # will loop from `0` to `8`
+    '''
+    i: 0 binary: 000
+    i: 1 binary: 001
+    i: 2 binary: 010
+    i: 3 binary: 011
+    i: 4 binary: 100
+    i: 5 binary: 101
+    i: 6 binary: 110
+    i: 7 binary: 111
+    '''
+    print("i: " + str(i) + " binary: " + format(i, '0{}b'.format(n)))
+    for j in range(n): # loop through bits:
+        if i & (1 << n-1-j):
+            print(" \t\t\tyes ")
+        else:
+            print(" \t\t\tno ")
+        
+print("-"*20)
+
+
 #####-------------------
 # # #### BIT Wise Operations
 x=7
