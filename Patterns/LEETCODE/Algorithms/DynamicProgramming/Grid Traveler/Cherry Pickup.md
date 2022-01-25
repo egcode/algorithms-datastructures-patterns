@@ -51,23 +51,22 @@ class Solution:
         '''
         
         if not grid: return 0
-        h=len(grid)
-        w=len(grid[0])
-        if h==1 and w==1: return grid[0][0]
+        n=len(grid)
+        if n==1: return grid[0][0]
         dirs=[[1,0],[0,1]]
         
         
         @lru_cache(None)
         def dp(r1, c1, r2, c2):
-            if r1>=h or c1>=w or r2>=h or c2>=w:
+            if r1>=n or c1>=n or r2>=n or c2>=n:
                 return -inf  
             if grid[r1][c1]==-1 or grid[r2][c2]==-1:
                 return -inf
             if r1+c1 != r2+c2: # paths len should be the same
                 return -inf
             
-            if r1==h-1 and c1==w-1 and r2==h-1 and c2==w-1:
-                return grid[h-1][w-1]
+            if r1==n-1 and c1==n-1 and r2==n-1 and c2==n-1:
+                return grid[n-1][n-1]
             
             
             res=-inf
@@ -91,5 +90,6 @@ class Solution:
         if res==-inf:
             return 0
         return res
+
 
 ```
