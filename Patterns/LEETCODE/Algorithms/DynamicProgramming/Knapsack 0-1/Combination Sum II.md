@@ -52,13 +52,14 @@ class Solution:
             if summ==target:
                 res.append(path[:])
                 return
-            
+            prev=-1
             for i in range(first,  len(candidates)):
                 # since array is sorted we could have duplicates like in [1,1,2,5,6,7,10]
                 # here we need to skip all ones, because they should be used only once
-                if i>first and candidates[i]==candidates[i-1]:
+                if prev==candidates[i]:
                     continue
                 dfs(path+[candidates[i]] ,summ+candidates[i], i+1)
+                prev=candidates[i]
                 
         dfs([], 0, 0)
         return res
