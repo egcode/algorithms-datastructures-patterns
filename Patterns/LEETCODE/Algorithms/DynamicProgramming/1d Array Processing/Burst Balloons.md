@@ -42,10 +42,6 @@ class Solution:
         
         '''
         
-        # special case
-        if len(nums) > 1 and len(set(nums)) == 1:
-            return (nums[0] ** 3) * (len(nums) - 2) + nums[0] ** 2 + nums[0]
-
         nums = [1] + nums + [1]
         
         @lru_cache(None)
