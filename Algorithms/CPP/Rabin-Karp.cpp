@@ -34,23 +34,6 @@ int findPattern(string s, string pattern, int power, int modulo) {
     cout << "Pattern Hash Value: " << hashValue << endl;
 
     // Searching pattern
-    //  5 60 78 26 21 61 36 68 93 82 74two was found on index: 3
-    // int n=s.size();
-    // int pk=pow(power,k);
-    // int res=n;
-    // int win=0;
-    // for (int i=n-1;i>=0;i--) {
-    //     // win*power=mult power to prev window
-    //     // val(s[0]) * p^0 
-    //     win = (win*power + (s[i]-'a'+1)) % modulo;             
-    //     cout << " " << win;
-    //     if (i+k<n)
-    //         win = (win - (s[i]-'a'+1) * pk) % modulo;
-            
-    //     if (win==hashValue)
-    //         res=i;
-    // }
-
     long long win = 0;
     long long res = 0; 
     long long pk = 1;
