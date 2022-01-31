@@ -62,6 +62,9 @@ int findPattern(string s, string pattern, int power, int modulo) {
         if (i+k >= n)
             pk = pk * power % modulo; // accumulation pk by hand
         else
+
+            // remove s[i+k] value.
+            // Note: But "win - (pk*(s[i+k]-'a'+1))%mod" could be negative, so +mod and %mod
             win = (win - (s[i+k]-'a'+1) * pk % modulo + modulo) % modulo;
         if (win == hashValue)
             res = i;
