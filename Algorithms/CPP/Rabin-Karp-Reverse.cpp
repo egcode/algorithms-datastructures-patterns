@@ -1,5 +1,5 @@
 /*
-g++ Rabin-Karp.cpp -std=c++17;./a.out
+g++ Rabin-Karp-Reverse.cpp -std=c++17;./a.out
 */
 
 #include <bits/stdc++.h>
