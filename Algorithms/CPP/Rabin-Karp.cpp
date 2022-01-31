@@ -57,12 +57,12 @@ int findPattern(string s, string pattern, int power, int modulo) {
     long long n = s.size();
     for (int i=n-1;i>=0;i--) {
         win = (win * power + (s[i]-'a'+1)) % modulo;
-        cout << " " << win;
+        // cout << " " << win;
 
-        if (i + k >= n)
-            pk = pk * power % modulo;
+        if (i+k >= n)
+            pk = pk * power % modulo; // accumulation pk by hand
         else
-            win = (win - (s[i + k]-'a'+1) * pk % modulo + modulo) % modulo;
+            win = (win - (s[i+k]-'a'+1) * pk % modulo + modulo) % modulo;
         if (win == hashValue)
             res = i;
     }
