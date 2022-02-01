@@ -17,14 +17,14 @@ class LRUCache:
         self.head.next=self.tail
         self.tail.pres=self.head
 
-    def add(self, node):
+    def connect(self, node):
         node.prev=self.head
         node.next=self.head.next
         
         self.head.next.prev=node
         self.head.next=node
         
-    def remove(self,node):
+    def disconnect(self,node):
         prev=node.prev
         nxt=node.next
         node.prev=None
@@ -35,7 +35,7 @@ class LRUCache:
         
     def cut_tail(self):
         to_del=self.tail.prev
-        self.remove(to_del)
+        self.disconnect(to_del)
         del self.dic[to_del.key]
         self.count -= 1
 
@@ -47,8 +47,8 @@ class LRUCache:
         '''
         if key in self.dic.keys():
             node=self.dic[key]
-            self.remove(node)
-            self.add(node)
+            self.disconnect(node)
+            self.connect(node)
             return node.val
         else:
             return -1
@@ -60,13 +60,13 @@ class LRUCache:
         '''
         if key in self.dic.keys():
             node=self.dic[key]
-            self.remove(node)
+            self.disconnect(node)
             node.val=value
-            self.add(node)
+            self.connect(node)
         else:
             new_node=Node(value, key)
             self.dic[key]=new_node
-            self.add(new_node)
+            self.connect(new_node)
             self.count += 1            
             if self.count>self.cap:
                 self.cut_tail()
