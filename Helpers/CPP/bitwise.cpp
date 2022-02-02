@@ -33,9 +33,16 @@ int main() {
     c = a >> 2;
     cout << ">> operator: " << bitset<8>(c) << endl; // >> operator: 00001111 - Right Shift
 
-    cout << endl << "-----------------------------Complement" << endl;
+    cout << endl << "-----------------------------Keep rightmost" << endl;
 
-     
+    int x = 7;
+    cout << "  x      " << bitset<8>(x) << endl; // 00000111
+    
+    c = (-x);
+    cout << " -x      " << bitset<8>(c) << endl; // 
+
+    c = x & (-x); // keeps rightmost 1-bit and sets all other bits to 0
+    cout << "x & (-x) " << bitset<8>(c) << endl; // 00000001 - Right Shift
 
     return 0;
 }
