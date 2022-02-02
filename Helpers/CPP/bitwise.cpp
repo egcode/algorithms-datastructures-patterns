@@ -56,5 +56,10 @@ int main() {
     m |= 1 << 3;
     cout << "  m       " << bitset<8>(m) << endl; //    m      00010000
 
+    if (m & (1 << 3))
+        cout << " 3rd bit is set to 1" << endl;
+    if (!(m & (1 << 2)))
+        cout << " 2nd bit is not set to 1" << endl;
+
     return 0;
 }
