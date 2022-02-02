@@ -36,13 +36,13 @@ int main() {
     cout << endl << "-----------------------------Keep rightmost" << endl;
 
     int x = 7;
-    cout << "  x      " << bitset<8>(x) << endl; // 00000111
+    cout << "  x      " << bitset<8>(x) << endl; //   x      00000111
     
     c = (-x);
-    cout << " -x      " << bitset<8>(c) << endl; // 
+    cout << " -x      " << bitset<8>(c) << endl; //   -x      11111001
 
     c = x & (-x); // keeps rightmost 1-bit and sets all other bits to 0
-    cout << "x & (-x) " << bitset<8>(c) << endl; // 00000001 - Right Shift
+    cout << "x & (-x) " << bitset<8>(c) << endl; //  x & (-x) 00000001
 
     return 0;
 }
