@@ -47,5 +47,14 @@ int main() {
     c = x & (x-1); // removes rightmost 1-bit
     cout << "x & (x-1) " << bitset<8>(c) << endl; // x & (x-1) 00000110
 
+
+    cout << endl << "-----------------------------Binary Mask" << endl;
+
+    int m = 0;
+    cout << "  m       " << bitset<8>(m) << endl; //    m      00000000
+
+    m |= 1 << 3;
+    cout << "  m       " << bitset<8>(m) << endl; //    m      00010000
+
     return 0;
 }
