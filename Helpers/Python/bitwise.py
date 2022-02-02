@@ -5,10 +5,10 @@
 ### Reverse Indexing:
 n=5
 for i in range(n):
-    print("     i: "+str(i))
+    print("     i: "+str(i))     # 0 1 2 3 4
 print(" ")
 for i in range(n):
-    print(" n-1-i: "+str(n-1-i))
+    print(" n-1-i: "+str(n-1-i)) # 4 3 2 1 0
 
 # ######################### Combination Binary masks
 '''
