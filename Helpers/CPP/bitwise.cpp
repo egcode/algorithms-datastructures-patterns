@@ -44,7 +44,7 @@ int main() {
     c = x & (-x); // keeps rightmost 1-bit and sets all other bits to 0
     cout << "x & (-x)  " << bitset<8>(c) << endl; //  x & (-x) 00000001
 
-    c = x & (x-); // removes rightmost 1-bit
+    c = x & (x-1); // removes rightmost 1-bit
     cout << "x & (x-1) " << bitset<8>(c) << endl; // x & (x-1) 00000001
 
     return 0;
