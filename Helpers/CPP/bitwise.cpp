@@ -36,7 +36,7 @@ int main() {
     cout << endl << "-----------------------------Keep rightmost" << endl;
 
     int x = 7;
-    cout << "  x      " << bitset<8>(x) << endl; //   x      00000111
+    cout << "  x      " << bitset<8>(x) << endl; //    x      00000111
     
     c = (-x);
     cout << " -x      " << bitset<8>(c) << endl; //   -x      11111001
