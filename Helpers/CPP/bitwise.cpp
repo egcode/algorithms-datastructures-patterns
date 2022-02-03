@@ -68,11 +68,11 @@ int main() {
     cout << endl << "-----------------------------Fill Mask" << endl;
 
     m = 0;
-    cout << "empty mask:      m       " << bitset<8>(m) << endl; //    m      00000000
+    cout << "empty mask:      m       " << bitset<8>(m) << endl; //              empty mask:      m       00000000
 
     int fill = 5;
     m = (1 << fill) - 1;
-    cout << "filled " << fill << " bytes:  m       " << bitset<8>(m) << endl; //    m      00000000
+    cout << "filled " << fill << " bytes:  m       " << bitset<8>(m) << endl; // filled 5 bytes:  m       00011111
 
 
     return 0;
