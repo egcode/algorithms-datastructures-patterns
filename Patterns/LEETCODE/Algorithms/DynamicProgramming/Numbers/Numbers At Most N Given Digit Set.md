@@ -48,9 +48,9 @@ class Solution:
     def atMostNGivenDigitSet(self, digits: List[str], n: int) -> int:
         '''
         Example: 
-            ["1","2","5","7"],  n = 4836, Output: 212
+            ["1","2","5","7","8","9"],  n = 4836, Output: 690
                             
-            target = "4826"
+            target = "4836"
             Loop1: 
                 The numbers with the digitsize less than 4 are guarenteed to be less than n            
                 Accumulate res = 4^1 + 4^2 + 4^3
