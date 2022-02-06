@@ -74,6 +74,16 @@ int main() {
     m = (1 << fill) - 1;
     cout << "filled " << fill << " bytes:  m       " << bitset<8>(m) << endl; // filled 5 bytes:  m       00011111
 
+    cout << endl << "-----------------------------Flip by Mask" << endl;
+
+    int num  = 0;
+    int mask = (1 << 5) - 1;   
+    cout << "num         " << bitset<8>(num) << endl; //                      num:         00000000
+    cout << "mask        " << bitset<8>(mask) << endl;//                     mask:         00011111
+
+    int flipByMask = ~num & mask;
+    cout << "flipByMask  " << bitset<8>(flipByMask) << endl;//   flipByMask:               00011111
+
 
     return 0;
 }
