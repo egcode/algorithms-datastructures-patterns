@@ -88,4 +88,33 @@ class Solution:
             
         return min(0, maxSubArray(s1)) + n
 
+    def minimumTime(self, s: str) -> int:
+        '''
+        
+        "01001010" - original
+        
+         02224466  - right
+         66444220  - left    
+         12345678  - count right
+         87654321  - count left
+       
+        '''
+        n=len(s)
+        
+        left=[0]*n
+        left[-1]=2 if s[-1]=='1' else 0
+        for i in range(n-1)[::-1]:
+            left[i]=left[i+1]+(2 if s[i]=='1' else 0)
+            
+        right=0
+        res=float('inf')
+        for i in range(n):
+            if s[i]=='1':
+                right = min(right+2, i+1) # `right` and `count right`
+            res=min(res, right+left[i], right+n-i-1) # `right` and `left`   `right` and `count left`
+            
+            
+        return res
+
+
 ```
