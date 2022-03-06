@@ -33,6 +33,17 @@ int main() {
     a=0 b=1 c=2 d=3 e=4 f=5 g=6 h=7 i=8 j=9 k=10 l=11 m=12 n=13 o=14 p=15 q=16 r=17 s=18 t=19 u=20 v=21 w=22 x=23 y=24 z=25
     */
 
+    cout << endl << "-----------------------------INT to CHARACTER" << endl;
+    char one = '1';
+    char five = '5';
+
+    int d1=one-'0';
+    int d5=five-'0';
+
+    cout << "one: " << d1 << endl;
+    cout << "five: " << d5 << endl;
+    cout << "one+five=" << d1+d5 << endl;
+
     cout << endl << "-----------------------------CHARACTERS Count" << endl; 
     int cnt[26] = {};
     string s = "aababab";
@@ -54,5 +65,6 @@ int main() {
         }
     }
     cout << "new String: " << newString << endl; // new String: bbbaaaa
+
     return 0;
 }
