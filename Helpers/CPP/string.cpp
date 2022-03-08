@@ -36,31 +36,94 @@ int main() {
     reverse(wordReversed.begin(), wordReversed.end());
     cout << " word reversed: "<< wordReversed << endl; // word reversed: apulaz
 
-    cout << endl << "-----------------------------Check if char is Didit" << endl; 
-    string wordWithDigit = "1[ab2[xz3g";
-    //                      0123456789
-    //                      ^   ^   ^  {  0, 4, 8 } - digits
-    for(int i=0;i<wordWithDigit.size();i++){
-        if (isdigit(wordWithDigit[i])) {
-            string ch=string(1, wordWithDigit[i]); // char to string
-            int dig = stoi(ch); // string to int
-            cout << dig << " - digit char: " << endl;  // 
-        }
-        if (isalpha(wordWithDigit[i])) {
-            cout << wordWithDigit[i] << " - alphabet char: " << endl; //
-        }
-    }
-    cout << endl;
+    cout << "--------------- Replace one char in string" << endl;        
+    // replace character
+    string s = "yobana";
+    s[0]='r';
+    s[3]='H';
+    cout << s << endl; // robana
+    
+    cout << "--------------- Replace Part of the string" << endl;    
+    // replace part of string
+    // EXAMPLE: str.replace(start_pos, from.length(), to);
+    
+    // Replaced one letter with string
+    string s1 = "Trabana";
+    s1.replace(0,1,"ddd");
+    cout << s1 << endl; // dddrabana
+
+    // Replaced three letters with one char
+    string s2 = "oneTwoThree";
+    s2.replace(0,3,"Z");
+    cout << s2 << endl; // ZTwoThree
+
+    // Split string to words
+    cout << "--------------- Split string to words `Stringstream` (Prefered)" << endl;
     /*
-        1 - digit char: 
-        a - alphabet char: 
-        b - alphabet char: 
-        2 - digit char: 
-        x - alphabet char: 
-        z - alphabet char: 
-        3 - digit char: 
-        g - alphabet char:     
+    Stringstream object can be initialized using a string object, it automatically tokenizes strings on space char. Just like “cin” stream stringstream allows you to read a string as a stream of words.
+
+    Some of the Most Common used functions of StringStream.
+    clear() — flushes the stream 
+    str() —  converts a stream of words into a C++ string object.
+    operator << — pushes a string object into the stream.
+    operator >> — extracts a word from the stream.
+    The code below demonstrates it. 
+    */    
+    string someString = "How do you do!";
+    // Takes only space separated C++ strings.
+    stringstream ss(someString);
+    string wordBuffer;
+    while (ss >> wordBuffer) {
+        cout << wordBuffer << endl;
+    }
+    /*
+        How
+        do
+        you
+        do!    
     */
+    
+    
+    cout << "--------------- Split string to words `find() and substr()`" << endl;
+
+    string someString2 = "Hi$%do$%you$%do$%!";
+    string del = "$%";
+
+    int start = 0;
+    int end = someString2.find(del, start);
+    cout << " end: " << end << endl; // 2
+    while (end != -1) {
+        cout << someString2.substr(start, end - start) << endl;
+        start = end + del.size();
+        end = someString2.find(del, start);
+    }
+    cout << someString2.substr(start, end - start);
+    cout << endl;
+
+    cout << "--------------- Cut string before symbol" << endl;
+
+    string someStr3 = "JAck;Susan;Blah; ...";
+    string one, two;
+
+    stringstream ss2(someStr3);
+    
+    getline(ss2, one, ';');
+    cout << "one: " << one << endl;
+    
+    getline(ss2, two, ';');
+    cout << "two: " << two << endl;
+
+    
+    cout << "--------------- Cut string before symbol loop" << endl;
+    
+    string someStr4 = "JAck;Susan;Blah; ...";
+    stringstream ss3(someStr4);
+    while(ss3.good()) {
+        string substr;
+        getline(ss3, substr, ';'); //get first string delimited by semicolon
+        cout << " " << substr << endl;
+    }
+    
 
     return 0;
 }
