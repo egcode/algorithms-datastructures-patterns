@@ -1,5 +1,5 @@
 /*
-g++ bitwise.cpp -std=c++11;./a.out
+g++ bitwise.cpp -std=c++11 -o /tmp/a.out;/tmp/a.out
 */
 
 #include <bits/stdc++.h>
@@ -84,6 +84,15 @@ int main() {
     int flipByMask = ~num & mask;
     cout << "flipByMask  " << bitset<8>(flipByMask) << endl;//   flipByMask:               00011111
 
+    cout << endl << "-----------------------------Hamming Weight" << "\n";
+    int hamInteger = 456;
+    int hamWeight = 0;
+    cout << bitset<16>(hamInteger) << "\n"; // 0000000111001000
+    for (int i=0; i<32; i++) {
+        hamWeight += (hamInteger & 1);
+        hamInteger = hamInteger >> 1;
+    }
+    cout << "Weight: " << hamWeight << "\n";
 
     return 0;
 }
