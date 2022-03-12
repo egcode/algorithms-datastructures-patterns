@@ -1,8 +1,5 @@
 /*
-g++ priority_queue.cpp -std=c++11;./a.out
-
-priority_queue<Type, vector<Type>, comparator> min_heap;
-
+g++ priority_queue.cpp -std=c++11 -o /tmp/a.out;/tmp/a.out
 */
 
 #include <bits/stdc++.h>

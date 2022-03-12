@@ -1,5 +1,5 @@
 /*
-g++ vector_1d.cpp -std=c++11;./a.out
+g++ vector_1d.cpp -std=c++11 -o /tmp/a.out;/tmp/a.out
 
 begin() — Returns an iterator to the first element in the vector
 end() — Returns an iterator to a location past last element in the vector

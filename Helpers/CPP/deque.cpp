@@ -1,5 +1,5 @@
 /*
-g++ deque.cpp -std=c++11;./a.out
+g++ deque.cpp -std=c++11 -o /tmp/a.out;/tmp/a.out
 */
 
 #include <bits/stdc++.h>

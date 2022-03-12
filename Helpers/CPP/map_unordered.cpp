@@ -1,5 +1,5 @@
 /*
-g++ map_unordered.cpp -std=c++20;./a.out
+g++ map_unordered.cpp -std=c++11 -o /tmp/a.out;/tmp/a.out
 */
 
 #include <bits/stdc++.h>

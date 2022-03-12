@@ -1,5 +1,5 @@
 /*
-g++ pair.cpp -std=c++17;./a.out
+g++ pair.cpp -std=c++11 -o /tmp/a.out;/tmp/a.out
 */
 
 #include <bits/stdc++.h>

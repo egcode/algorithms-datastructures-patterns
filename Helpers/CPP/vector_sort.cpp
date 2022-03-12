@@ -1,5 +1,5 @@
 /*
-g++ vector_sort.cpp -std=c++14;./a.out
+g++ vector_sort.cpp -std=c++11 -o /tmp/a.out;/tmp/a.out
 */
 
 #include <bits/stdc++.h>
