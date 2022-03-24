@@ -57,6 +57,26 @@ int main() {
     s2.replace(0,3,"Z");
     cout << s2 << endl; // ZTwoThree
 
+
+    cout << "--------------- Remove one char from word" << endl;
+    string someDigitWord = "123456";
+    cout << someDigitWord<<" - original"<<"\n";
+    for (int i=0; i<someDigitWord.size(); i++) {
+        string wordPrefix = someDigitWord.substr(0, i); 
+        string wordSuffix = someDigitWord.substr(i+1, someDigitWord.size());
+        cout << wordPrefix << " " << wordSuffix << "\n";
+    }
+    /*
+        --------------- Remove char
+         23456
+        1 3456
+        12 456
+        123 56
+        1234 6
+        12345    
+    */
+
+
     // Split string to words
     cout << "--------------- Split string to words `Stringstream` (Prefered)" << endl;
     /*
