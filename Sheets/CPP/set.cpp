@@ -78,6 +78,18 @@ int main(){
         cout<<"{"<<x.first<<", "<<x.second<<"}, "; // After pop:   {3, 1}, {5, 10}, {5, 11}, 
     cout << endl;
 
+    cout << "--------------- New set from old" << endl;
+    set<int>s1;
+    s1.insert(1);s1.insert(2);s1.insert(3);
+    for (int i:s1) cout << " " << i; //  3 2 1
+    cout << "\n";
+    
+    set<int>s2;
+    s2.insert(s1.begin(), s1.end());
+    s2.insert(6);
+    for (int i:s2) cout << " " << i; //  6 1 2 3
+    cout << "\n";
+
 
     return 0;
 }
