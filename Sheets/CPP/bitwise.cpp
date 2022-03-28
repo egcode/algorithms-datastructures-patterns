@@ -63,28 +63,28 @@ int main() {
     cout << "  m       " << bitset<8>(m) << endl; //    m      00000000 
 
     if (!(m & (1 << 3)))
-        cout << " 3nd bit is not set to 1" << endl;
+        cout << " 3nd bit is not set to 1" << "\n";
 
-    cout << endl << "-----------------------------Fill Mask" << endl;
+    cout << "\n" << "-----------------------------Fill Mask" << "\n";
 
     m = 0;
-    cout << "empty mask:      m       " << bitset<8>(m) << endl; //              empty mask:      m       00000000
+    cout << "empty mask:      m       " << bitset<8>(m) << "\n"; //              empty mask:      m       00000000
 
     int fill = 5;
     m = (1 << fill) - 1;
-    cout << "filled " << fill << " bytes:  m       " << bitset<8>(m) << endl; // filled 5 bytes:  m       00011111
+    cout << "filled " << fill << " bytes:  m       " << bitset<8>(m) << "\n"; // filled 5 bytes:  m       00011111
 
-    cout << endl << "-----------------------------Flip by Mask" << endl;
+    cout << "\n" << "-----------------------------Flip by Mask" << "\n";
 
     int num  = 0;
     int mask = (1 << 5) - 1;   
-    cout << "num         " << bitset<8>(num) << endl; //                      num:         00000000
-    cout << "mask        " << bitset<8>(mask) << endl;//                     mask:         00011111
+    cout << "num         " << bitset<8>(num) << "\n"; //                      num:         00000000
+    cout << "mask        " << bitset<8>(mask) << "\n";//                     mask:         00011111
 
     int flipByMask = ~num & mask;
-    cout << "flipByMask  " << bitset<8>(flipByMask) << endl;//   flipByMask:               00011111
+    cout << "flipByMask  " << bitset<8>(flipByMask) << "\n";//   flipByMask:               00011111
 
-    cout << endl << "-----------------------------Hamming Weight" << "\n";
+    cout << "\n" << "-----------------------------Hamming Weight" << "\n";
     int hamInteger = 456;
     int hamWeight = 0;
     cout << bitset<16>(hamInteger) << "\n"; // 0000000111001000
@@ -93,6 +93,17 @@ int main() {
         hamInteger = hamInteger >> 1;
     }
     cout << "Weight: " << hamWeight << "\n";
+
+    cout << "\n" << "----------------------------- Packing TWO values into ONE Integer for hash" << "\n";
+    int row = 111, col = 555;
+    cout<<"Coordinates,  row: "<<row<<" col: "<<col<<"\n";
+    int packForHash = (row<<16) + col; 
+    cout<<"Packed Integer: "<<packForHash<<"\n";
+    
+    int rowUnpacked = (packForHash-col)>>16;
+    int colUnpacked = (packForHash-(row<<16));
+    cout<<"Coordinates,  rowUnpacked: "<<rowUnpacked<<" colUnpacked: "<<colUnpacked<<"\n";
+ 
 
     return 0;
 }
