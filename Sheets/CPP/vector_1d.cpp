@@ -21,6 +21,7 @@ emplace_back() - Faster version push the elements into a vector from the back
 using namespace std;
 
 int main(){
+    
     cout << endl << "-----------------------------Vector Creation" << endl; 
 
     // V1
@@ -145,6 +146,20 @@ int main(){
     for (auto i : conc1)
         cout << " " << i; // 1 2 3 15 16 17
     cout << endl;
+
+    cout << endl << "----------------------------- set_union" << endl; 
+    vector<int> s1 {0,1,2,2,4,4,5};
+    vector<int> s2 {1,1,3,4,5};
+    // make sure output could fit all elements
+    vector<int> out;
+    out.resize(s1.size() + s2.size());
+    auto e = set_union(begin(s1), end(s1), begin(s2), end(s2), begin(out));
+    // shrink output to fit
+    out.erase(e, end(out));
+    for (int x : out) { cout << x << ' '; }  // 0 1 1 2 2 3 4 4 5
+    cout << '\n';
+    
+
 
     return 0;
 }
