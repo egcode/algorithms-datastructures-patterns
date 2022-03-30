@@ -5,6 +5,19 @@ g++ string.cpp -std=c++11 -o /tmp/a.out;/tmp/a.out
 #include <bits/stdc++.h>
 using namespace std;
 
+
+vector<string> split(string strToSplit, char delimeter)
+{
+    stringstream ss(strToSplit);
+    string wordBuffer;
+    vector<string> splittedStrings;
+    while (getline(ss, wordBuffer, delimeter)) {
+       splittedStrings.push_back(wordBuffer);
+    }
+    return splittedStrings;
+}
+
+
 int main() {
 
     cout << endl << "-----------------------------SUBSTRINGS" << endl; 
@@ -77,49 +90,32 @@ int main() {
     */
 
 
-    // Split string to words
-    cout << "--------------- Split string to words `Stringstream` (Prefered)" << endl;
-    /*
-    Stringstream object can be initialized using a string object, it automatically tokenizes strings on space char. Just like “cin” stream stringstream allows you to read a string as a stream of words.
+    // // Split string to words
+    // cout << "--------------- Split string to words `Stringstream`" << endl;
+    // /*
+    // Stringstream object can be initialized using a string object, it automatically tokenizes strings on space char. Just like “cin” stream stringstream allows you to read a string as a stream of words.
 
-    Some of the Most Common used functions of StringStream.
-    clear() — flushes the stream 
-    str() —  converts a stream of words into a C++ string object.
-    operator << — pushes a string object into the stream.
-    operator >> — extracts a word from the stream.
-    The code below demonstrates it. 
-    */    
-    string someString = "How do you do!";
-    // Takes only space separated C++ strings.
-    stringstream ss(someString);
-    string wordBuffer;
-    while (ss >> wordBuffer) {
-        cout << wordBuffer << endl;
-    }
-    /*
-        How
-        do
-        you
-        do!    
-    */
+    // Some of the Most Common used functions of StringStream.
+    // clear() — flushes the stream 
+    // str() —  converts a stream of words into a C++ string object.
+    // operator << — pushes a string object into the stream.
+    // operator >> — extracts a word from the stream.
+    // The code below demonstrates it. 
+    // */    
+    // string someString = "How do you do!";
+    // // Takes only space separated C++ strings.
+    // stringstream ss(someString);
+    // string wordBuffer;
+    // while (ss >> wordBuffer) {
+    //     cout << wordBuffer << endl;
+    // }
+    // /*
+    //     How
+    //     do
+    //     you
+    //     do!    
+    // */
     
-    
-    cout << "--------------- Split string to words `find() and substr()`" << endl;
-
-    string someString2 = "Hi$%do$%you$%do$%!";
-    string del = "$%";
-
-    int start = 0;
-    int end = someString2.find(del, start);
-    cout << " end: " << end << endl; // 2
-    while (end != -1) {
-        cout << someString2.substr(start, end - start) << endl;
-        start = end + del.size();
-        end = someString2.find(del, start);
-    }
-    cout << someString2.substr(start, end - start);
-    cout << endl;
-
     cout << "--------------- Cut string before symbol" << endl;
 
     string someStr3 = "JAck;Susan;Blah; ...";
@@ -136,14 +132,36 @@ int main() {
     
     cout << "--------------- Cut string before symbol loop" << endl;
     
-    string someStr4 = "JAck;Susan;Blah; ...";
+    string someStr4 = "JAck;Susan;Blah;aaa";
     stringstream ss3(someStr4);
     while(ss3.good()) {
         string substr;
         getline(ss3, substr, ';'); //get first string delimited by semicolon
         cout << " " << substr << endl;
     }
-    
+    /*
+        JAck
+        Susan
+        Blah
+        aaa    
+    */
+
+    cout << "--------------- Cut string before symbol loop (Preffered)" << endl;
+    string someStr5 = "uuu;aaa;555;9999";
+    stringstream ss4(someStr5);
+    string wordBuffer;
+    vector<string> wordArray;
+    while (getline(ss4, wordBuffer, ';')) {
+       wordArray.push_back(wordBuffer);
+    }
+    for (string word:wordArray)
+        cout <<" "<<word<<"\n";
+    /*
+        uuu
+        aaa
+        555
+        9999    
+    */
 
     return 0;
 }
