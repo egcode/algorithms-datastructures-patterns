@@ -22,7 +22,7 @@ using namespace std;
 
 int main(){
     
-    cout << endl << "-----------------------------Vector Creation" << endl; 
+    cout << "\n" << "-----------------------------Vector Creation" << "\n"; 
 
     // V1
     cout<<"\nV1: "; // V1: 0 0 0 0 0
@@ -43,14 +43,14 @@ int main(){
     // V3
     vector <int> numbers;
     if (numbers.empty()) { 
-        cout << "The vector is empty :(" << endl; // The vector is empty :(
+        cout << "The vector is empty :(" << "\n"; // The vector is empty :(
     }
     for(int i=0; i<100; i+=10) { 
         numbers.push_back(i);
         numbers.emplace_back(i+1);
     }
 
-    cout << endl << "-----------------------------Vector Looping" << endl; 
+    cout << "\n" << "-----------------------------Vector Looping" << "\n"; 
     // Looping: 
     // V1
     vector <int>::iterator it;
@@ -68,17 +68,17 @@ int main(){
     for(int num : numbers)
         cout << " " << num;
 
-    cout << "vector front: " << numbers.front() << endl; // vector front: 0
-    cout << "vector back: " << numbers.back() << endl; // vector back: 91
+    cout << "vector front: " << numbers.front() << "\n"; // vector front: 0
+    cout << "vector back: " << numbers.back() << "\n"; // vector back: 91
 
-    cout << endl << "-----------------------------Modify Vector" << endl; 
+    cout << "\n" << "-----------------------------Modify Vector" << "\n"; 
     /////// Modify Vector
 
     int position = 5;
-    cout<<"\nVector at position "<<position<<" contains "<<numbers.at(position)<<endl; // Vector at position 5 contains 21
+    cout<<"\nVector at position "<<position<<" contains "<<numbers.at(position)<<"\n"; // Vector at position 5 contains 21
 
     numbers.erase(numbers.begin() + position);
-    cout<<"Vector at position "<<position<<" contains "<<numbers.at(position)<<endl; // Vector at position 5 contains 30
+    cout<<"Vector at position "<<position<<" contains "<<numbers.at(position)<<"\n"; // Vector at position 5 contains 30
 
     // deleting a range of elements, first two elements
     // index 2 is not inclusive.
@@ -94,7 +94,7 @@ int main(){
         cout << "\nThe vector is now empty again :("; // The vector is now empty again :(
     }
     
-    cout << "\n\nVector of pairs vefore modification: "<<endl;
+    cout << "\n\nVector of pairs vefore modification: "<<"\n";
     vector <pair<int, int>> vec;
     vec={{1, 2}, { 3, 4}};
     for (auto p: vec)
@@ -105,26 +105,26 @@ int main(){
     for (auto &p: vec)
         p.first *= 100;
 
-    cout << "\nVector of pairs after modification: "<<endl;
+    cout << "\nVector of pairs after modification: "<<"\n";
     for (auto p: vec)
         cout<<"      "<<p.first<<" "<<p.second;
     cout<<"\n"; //       100 2      300 4
 
 
-    cout << endl << "-----------------------------Vector Slicing" << endl; 
+    cout << "\n" << "-----------------------------Vector Slicing" << "\n"; 
 
     vector <int> nums;
     nums={1, 2, 3, 4, 5, 6};
     cout << "Original Vector: "; // Original Vector:  1 2 3 4 5 6
     for ( auto num: nums)
         cout << " " << num;
-    cout << endl;
+    cout << "\n";
 
     vector<int> cop1=vector<int>(nums.begin(), nums.begin()+2);
     cout << "1 Copied Vector: "; // 1 Copied Vector:  1 2
     for (auto cop: cop1)
         cout << " " << cop;
-    cout << endl;
+    cout << "\n";
 
     // nums:    1, 2, 3, 4, 5, 6
     // indexes  0  1  2  3  4  5
@@ -133,9 +133,17 @@ int main(){
     cout << "2 Copied Vector: "; // 2 Copied Vector:  3 4
     for (auto cop1: cop2)
         cout << " " << cop1;
-    cout << endl;
+    cout << "\n";
 
-    cout << endl << "-----------------------------Vector Concatenate" << endl; 
+
+    cout << "\n" << "-----------------------------Vector Insert at Index" << "\n"; 
+    vector<int>insVec={1, 2, 3, 4};
+    insVec.insert(insVec.begin()+1, 444);
+    for (auto i : insVec)
+        cout << " " << i; //  1 444 2 3 4
+    cout << "\n";
+
+    cout << "\n" << "-----------------------------Vector Concatenate" << "\n"; 
     vector <int> conc1, conc2;    
     conc1={1, 2, 3};
     conc2={15, 16, 17};
@@ -145,9 +153,9 @@ int main(){
 
     for (auto i : conc1)
         cout << " " << i; // 1 2 3 15 16 17
-    cout << endl;
+    cout << "\n";
 
-    cout << endl << "----------------------------- set_union" << endl; 
+    cout << "\n" << "----------------------------- set_union" << "\n"; 
     vector<int> s1 {0,1,2,2,4,4,5};
     vector<int> s2 {1,1,3,4,5};
     // make sure output could fit all elements
