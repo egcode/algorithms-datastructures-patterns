@@ -163,5 +163,24 @@ int main() {
         9999    
     */
 
+    cout << "--------------- Cut string with Two Pointers" << endl;
+    string ttext = "uuu;aaa;555;9999";
+    int i = 0, j = 0; //        
+    while (i < ttext.size()) {
+        i++;
+        if (ttext[i] == ';' || i == ttext.size()) {
+            string wwrd = ttext.substr(j, i - j);
+            cout <<" "<<wwrd<<"\n";
+            j = i + 1;
+        }
+    }
+    /*
+        uuu
+        aaa
+        555
+        9999    
+    */
+
+
     return 0;
 }
