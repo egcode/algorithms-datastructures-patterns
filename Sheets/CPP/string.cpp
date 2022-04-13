@@ -146,7 +146,7 @@ int main() {
         aaa    
     */
 
-    cout << "--------------- Cut string before symbol loop (Preffered)" << endl;
+    cout << "--------------- Cut string before symbol loop" << endl;
     string someStr5 = "uuu;aaa;555;9999";
     stringstream ss4(someStr5);
     string wordBuffer;
@@ -163,7 +163,7 @@ int main() {
         9999    
     */
 
-    cout << "--------------- Cut string with Two Pointers" << endl;
+    cout << "--------------- Cut string with Two Pointers (Preffered)" << endl;
     string ttext = "uuu;aaa;555;9999";
     int i = 0, j = 0; //        
     while (i < ttext.size()) {
