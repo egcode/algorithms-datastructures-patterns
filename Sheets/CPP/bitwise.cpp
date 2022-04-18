@@ -100,8 +100,8 @@ int main() {
     int packForHash = (row<<16) + col; 
     cout<<"Packed Integer: "<<packForHash<<"\n";
     
-    int rowUnpacked = (packForHash-col)>>16;
-    int colUnpacked = (packForHash-(row<<16));
+    int rowUnpacked = packForHash>>16;
+    int colUnpacked = packForHash-(row<<16);
     cout<<"Coordinates,  rowUnpacked: "<<rowUnpacked<<" colUnpacked: "<<colUnpacked<<"\n";
  
 
