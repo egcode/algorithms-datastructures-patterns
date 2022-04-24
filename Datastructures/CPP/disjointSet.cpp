@@ -41,6 +41,59 @@ class DisjointSet {
     }
 };
 
+/*
+Example with Groups Members count:
+
+class DisjointSet {
+  public:
+    vector<int>root;
+    vector<int>rate;
+    int groupCount;
+    unordered_map<int,int>sizes;
+    DisjointSet (int n) {
+        groupCount=n;
+        for (int i=0;i<n;++i) {
+            root.push_back(i);
+            rate.push_back(1);
+            sizes[i]=1;
+        }
+    }
+    int find(int x) {
+        if (x==root[x])
+            return x;
+        root[x]=find(root[x]);
+        return root[x];
+    }
+    void unionSet(int x, int y) {
+        int rootX=find(x);
+        int rootY=find(y);
+        if (rootX != rootY) {
+            if (rate[rootX]>rate[rootY]){
+                root[rootY]=rootX;
+                
+                sizes[rootX] += sizes[rootY];
+                sizes[rootY] = 0;
+            } else if (rate[rootX]<rate[rootY]) {
+                root[rootX]=rootY;
+                
+                sizes[rootY] += sizes[rootX];
+                sizes[rootX] = 0;
+            } else {
+                root[rootY]=rootX;
+                rate[rootX]++;
+                
+                sizes[rootX] += sizes[rootY];
+                sizes[rootY] = 0;
+            }
+            groupCount--;
+        }
+    }
+    int getGroupSize(int groupID) {
+        return sizes[groupID];
+    }
+};
+*/
+
 
 int main() {
 
