@@ -18,7 +18,7 @@ int main(){
     }
     cout << "\n";
 
-    cout << endl << "-----------------------------Splice" << endl; 
+    cout << endl << "-----------------------------Doubly Linked List Splice" << endl; 
 
     // initializing lists
     list<int> l1 = { 1, 2, 3 };
@@ -34,7 +34,7 @@ int main(){
     cout << "\n";
     
 
-    cout << endl << "-----------------------------FORWARD LIST" << endl; 
+    cout << endl << "-----------------------------Forward List" << endl; 
     forward_list<int> fl {1,2,3};
     cout << "insert_after begin 5" << "\n"; 
     fl.insert_after(fl.begin(), 5);
