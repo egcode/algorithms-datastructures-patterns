@@ -22,27 +22,34 @@ int main(){
 
     // initializing lists
     list<int> l1 = { 1, 2, 3 };
-    list<int> l2 = { 4, 5 };
-    list<int> l3 = { 6, 7, 8 };
  
     // transfer all the elements of l2 after second element
     auto it=l1.begin();
     advance(it, 2);
-    l1.splice(it, l2);
+    l1.splice(it, list<int>{ 4, 5 });
  
-    // at the beginning of l1
-    cout << "list l1 after splice operation" << endl;
-    for (auto x : l1)
-        cout << x << " "; // 1 2 4 5 3
- 
-    // transfer all the elements of l1
-    l3.splice(l3.end(), l1);
- 
-    // at the end of l3
-    cout << "\nlist l3 after splice operation" << endl;
-    for (auto x : l3)
-        cout << x << " "; // 6 7 8 1 2 4 5 3
+    // add 
+    cout << "merge { 4, 5 } list to { 1, 2, 3 } list after second element" << endl;
+    for (auto x : l1) cout << x << " "; // 1 2 4 5 3
     cout << "\n";
     
+
+    cout << endl << "-----------------------------FORWARD LIST" << endl; 
+    forward_list<int> fl {1,2,3};
+    cout << "insert_after begin 5" << "\n"; 
+    fl.insert_after(fl.begin(), 5);
+    for (auto x : fl) cout << x << " "; // 1 5 2 3 
+    cout << "\n";
+
+    cout << "insert_after before_begin 88" << "\n";
+    fl.insert_after(fl.before_begin(), 88);
+    for (auto x : fl) cout << x << " "; // 88 1 5 2 3
+    cout << "\n";
+
+    cout << "erase_after begin" << "\n";
+    fl.erase_after(fl.begin());
+    for (auto x : fl) cout << x << " "; // 88 5 2 3
+    cout << "\n";
+
     return 0;
 }
