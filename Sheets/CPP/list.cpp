@@ -25,13 +25,15 @@ int main(){
     list<int> l2 = { 4, 5 };
     list<int> l3 = { 6, 7, 8 };
  
-    // transfer all the elements of l2
-    l1.splice(l1.begin(), l2);
+    // transfer all the elements of l2 after second element
+    auto it=l1.begin();
+    advance(it, 2);
+    l1.splice(it, l2);
  
     // at the beginning of l1
     cout << "list l1 after splice operation" << endl;
     for (auto x : l1)
-        cout << x << " "; // 4 5 1 2 3
+        cout << x << " "; // 1 2 4 5 3
  
     // transfer all the elements of l1
     l3.splice(l3.end(), l1);
@@ -39,7 +41,8 @@ int main(){
     // at the end of l3
     cout << "\nlist l3 after splice operation" << endl;
     for (auto x : l3)
-        cout << x << " "; // 6 7 8 4 5 1 2 3
-
+        cout << x << " "; // 6 7 8 1 2 4 5 3
+    cout << "\n";
+    
     return 0;
 }
