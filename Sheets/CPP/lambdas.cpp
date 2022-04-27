@@ -21,13 +21,15 @@ int main(){
    vector<int> vec1 = {1,2,3,4,5};
    int i = 2;
    transform(begin(vec1), end(vec1), begin(vec1),
-                    [&] (int x){
+                    [&] (int x){  
+                        // without this [&] `i` variable would not be visible inside closure, 
+                        // if [=] - variable would be visible but immutable
                         ++i;
                         return (x * i);
                     });
-    cout << "Transformed Vector: ";
+    cout << "Transformed Vector Captured by Reference: ";
     for (auto & v:vec1) cout << " " << v; // 3 8 15 24 35
-    cout << "\ni: "<<i<<"\n"; // 7
+    cout << "\ni: "<< i <<"\n"; // 7
 
 
     cout << endl << "-----------------------------Partition Example" << endl; 
