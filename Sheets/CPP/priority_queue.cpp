@@ -1,5 +1,5 @@
 /*
-g++ priority_queue.cpp -std=c++11 -o /tmp/a.out;/tmp/a.out
+g++ priority_queue.cpp -std=c++17 -o /tmp/a.out;/tmp/a.out
 */
 
 #include <bits/stdc++.h>
@@ -82,6 +82,51 @@ int main(){
         p2name   age: 46
         p1name   age: 47    
     */
-    
+
+
+    cout << endl << "-----------------------------Heap with Vector" << endl; 
+
+    vector<int> h {1,6,4,2,9,7,8};
+    cout << "make min heap ";
+    make_heap(begin(h), end(h), greater<int>{});
+    for (int x : h) { cout << x << ' '; }  // 1 2 4 9 6 7 8
+    cout << '\n';
+
+    cout << "make max heap (default) ";
+    make_heap(begin(h), end(h));
+    for (int x : h) { cout << x << ' '; }  // 9 6 8 2 1 7 4
+    cout << '\n';
+
+
+    cout << endl << "-----------------------------Heap with Vector Manipulations" << endl; 
+
+    vector<int> hp {1,6,4,2,9,7,8};
+    make_heap(begin(hp), end(hp), greater<int>{});
+    for (int x : hp) { cout << x << ' '; }  // 1 2 4 9 6 7 8
+    cout << '\n';
+
+    pop_heap(begin(hp), end(hp), greater<int>{});
+    auto oldmin = hp.back();  // oldmin = 1
+    cout << "removed: "<< oldmin << "\n";
+    hp.pop_back();
+
+    for (int x : hp) { cout << x << ' '; }  // 2 6 4 8 9 7
+    cout << '\n';
+
+    pop_heap(begin(hp), end(hp), greater<int>{});
+    auto oldmin1 = hp.back();  // oldmin = 2
+    cout << "removed: "<< oldmin1 << "\n";
+    hp.pop_back();
+
+    for (int x : hp) { cout << x << ' '; }  // 6 4 8 9 7
+    cout << '\n';
+
+    cout << "add new element to heap:  333" << "\n";
+    hp.push_back(333);
+    push_heap(begin(hp), end(hp), greater<int>{});
+    for (int x : hp) { cout << x << ' '; }  // 6 4 8 9 7
+    cout << '\n';
+
+
     return 0;
 }
