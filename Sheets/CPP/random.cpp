@@ -15,7 +15,7 @@ int randomInteger(int start, int end) {
     mt19937 engine {seed};  // Mersenne Twister random engine:
 
     // -- Distribution
-    // generate random ints ∈ [1,20]
+    // generate random ints ∈ [start, end]
     uniform_int_distribution<int> distr {start, end};
     int const randomNumber = distr(engine);
     return randomNumber;
