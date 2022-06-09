@@ -24,7 +24,7 @@ int randomInteger(int start, int end) {
 
 int main(){
 
-    cout << endl << "-----------------------------Random Number1" << endl; 
+    cout << endl << "-----------------------------Random number in Range" << "\n"; 
 
     int start=10, end=25;
     cout<<"Random numbers generated between  ["<< start << ", "<< end << "] ";
@@ -33,6 +33,29 @@ int main(){
         cout << " " << randomInt;
     }
     cout << "\n";
+
+
+    cout << endl << "-----------------------------Random numbers between 1 and 10" << "\n";
+    srand((unsigned) time(0));
+    for (int i=0;i<5;++i) {
+        int randomNumber = (rand() % 10)+1;
+        cout << " " << randomNumber;
+    }
+    cout << "\n";
+
+    cout << endl << "-----------------------------Random numbers between 0 and 1" << "\n";
+    srand((unsigned) time(NULL));
+    for (int i = 0; i < 5; i++) {
+        cout << (float) rand() / RAND_MAX << "  ";
+    }
+    cout << "\n";
+
+
+    cout << endl << "-----------------------------Generate either 0 or 1" << "\n";
+    srand(time(NULL));
+    cout << rand() % 2;
+    cout << "\n";
+
 
     return 0;
 }
