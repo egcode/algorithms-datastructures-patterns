@@ -1,5 +1,5 @@
 /*
-g++ Boyer-Moore-Voting.cpp -std=c++17;./a.out
+g++ Boyer-Moore-Voting.cpp -std=c++17 -o /tmp/a.out;/tmp/a.out
 */
 
 #include <bits/stdc++.h>
@@ -34,6 +34,6 @@ int main() {
     cout << "Majority element in array: ";
     for (auto num: nums)
         cout << " " << num;
-    cout << " is: " << maj << endl;
+    cout << " is: " << maj << endl; // Majority element in array:  2 2 1 1 1 2 2 is: 2
     return 0;
 }

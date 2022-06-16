@@ -1,5 +1,5 @@
 /*
-g++ Rabin-Karp-Reverse.cpp -std=c++17;./a.out
+g++ Rabin-Karp-Reverse.cpp -std=c++17 -o /tmp/a.out;/tmp/a.out
 */
 
 #include <bits/stdc++.h>
@@ -31,7 +31,7 @@ int findPattern(string s, string pattern, int power, int modulo) {
         hashValue += ((int)(pattern[i]-'a'+1) * (int)pow(power,i)) % modulo;
     }
     hashValue %= modulo;
-    cout << "Pattern Hash Value: " << hashValue << endl;
+    cout << "Pattern Hash Value: " << hashValue << "\n"; // Pattern Hash Value: 48
 
     // Searching pattern
     long long win = 0;
@@ -53,8 +53,8 @@ int findPattern(string s, string pattern, int power, int modulo) {
             res = i;
     }
 
-    cout << pattern << " was found on index: " << res << endl;
-    cout << "final pattern found: " << s.substr(res, k) << endl;
+    cout << pattern << " was found on index: " << res << endl; // two was found on index: 3
+    cout << "final pattern found: " << s.substr(res, k) << endl; // final pattern found: two
     return res;
 }
 

@@ -1,5 +1,5 @@
 /*
-g++ Knuth–Morris–Pratt.cpp -std=c++17;./a.out
+g++ Knuth–Morris–Pratt.cpp -std=c++17 -o /tmp/a.out;/tmp/a.out
 */
 
 #include <bits/stdc++.h>
@@ -57,7 +57,7 @@ int main() {
     string text = "----abcxxxabcy---------";
     int index = findPattern(text, patt);
     if (index != -1) {
-        cout << "Pattern: "<< patt << " found at: `" << index << "`" <<  " in text: `" << text << "`" <<endl;
+        cout << "Pattern: "<< patt << " found at: `" << index << "`" <<  " in text: `" << text << "`" << "\n"; // Pattern: abcxxxabcy found at: `4` in text: `----abcxxxabcy---------`
     } else {
         cout << "Pattern: "<< patt << " not found in text: `" << text << "`" <<endl;
     }
