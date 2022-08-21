@@ -33,6 +33,48 @@ int main() {
     c = a >> 2;
     cout << ">> operator: " << bitset<8>(c) << endl; // >> operator: 00001111 - Right Shift
 
+    cout << endl << "-----------------------------Check the bit" << endl;
+
+    int value = 13; 
+    cout << bitset<8>(value) << endl; // 00001101
+    for  (int i=0; i<8; ++i) {
+        if (value & (1<<i)) {
+            cout << i << "th bit is one" << "\n";
+        } else {
+            cout << i << "th bit is zero" << "\n";
+        }
+    } 
+    /*
+        0th bit is one
+        1th bit is zero
+        2th bit is one
+        3th bit is one
+        4th bit is zero
+        5th bit is zero
+        6th bit is zero
+        7th bit is zero    
+    */
+
+    cout << endl << "-----------------------------Set/Unset the bit" << endl;
+    int vis = 13; 
+    cout << bitset<8>(vis) << endl; // 00001101
+
+    cout << "Set 5th bit to one"<< "\n";
+    vis |= (1<<5);
+    cout << bitset<8>(vis) << endl; // 00101101
+
+    cout << "\nSet 5th bit back to zero, or clear the bit"<< "\n";
+    vis &= ~(1<<5);
+    cout << bitset<8>(vis) << endl; // 00001101
+
+
+    cout << "\nToogle bit with XOR"<< "\n";
+    vis ^= (1<<5);
+    cout << bitset<8>(vis) << endl; // 00001101
+    cout << "Toogle bit with XOR"<< "\n";
+    vis ^= (1<<5);
+    cout << bitset<8>(vis) << endl; // 00001101
+
     cout << endl << "-----------------------------Add/Remove Right Most" << endl;
 
     int x = 7;
