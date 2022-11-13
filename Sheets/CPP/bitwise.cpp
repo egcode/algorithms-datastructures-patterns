@@ -143,7 +143,7 @@ int main() {
     cout<<"Packed Integer: "<<packForHash<<"\n";
     
     int rowUnpacked = packForHash>>16;
-    int colUnpacked = packForHash-(row<<16);
+    int colUnpacked = packForHash - (rowUnpacked<<16)
     cout<<"Coordinates,  rowUnpacked: "<<rowUnpacked<<" colUnpacked: "<<colUnpacked<<"\n";
  
 
