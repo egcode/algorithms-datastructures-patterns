@@ -53,9 +53,9 @@ class Solution:
                 res = (k+1) * (k+1) + dp(l+1, r, 0) 
                 
                 # Try to merge non-contiguous boxes of the same color together                
-                for m in range(l + 1, r + 1):
-                    if boxes[l] == boxes[m]:
-                        res = max(res, dp(m, r, k+1) + dp(l+1, m-1, 0))
+                for i in range(l + 1, r + 1):
+                    if boxes[l] == boxes[i]:
+                        res = max(res, dp(l+1, i-1, 0) + dp(i, r, k+1))
                 return res
 
             return dp(0, len(boxes) - 1, 0)
