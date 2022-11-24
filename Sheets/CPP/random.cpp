@@ -1,8 +1,9 @@
 /*
-g++ random.cpp -std=c++17 -o /tmp/a.out;/tmp/a.out
+g++ random.cpp -std=c++20 -o /tmp/a.out;/tmp/a.out
 */
 
 #include <bits/stdc++.h>
+#include <random>
 using namespace std;
 
 int randomInteger(int start, int end) {
@@ -56,6 +57,14 @@ int main(){
     cout << rand() % 2;
     cout << "\n";
 
+    cout << endl << "-----------------------------Generate Random Word" << "\n";
+	random_device rd;
+	const string charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    string code;
+    for (int i = 0; i < 6; i++)
+       code.push_back(charset[rd() % charset.size()]);
+
+    cout << "Random Word: " << code << "\n"; // Random Word: XdxPbU
 
     return 0;
 }
