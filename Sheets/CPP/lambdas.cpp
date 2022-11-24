@@ -42,8 +42,25 @@ int main(){
                                           //             ^ 
 
     cout << "\npartition end: " << *part1 << "    index after that is other partition\n";
-
-
+/**
+ Definition for a binary tree node.
+ struct TreeNode {
+     int val;
+     TreeNode *left;
+     TreeNode *right;
+     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ };
+    function<void(TreeNode*, vector<int>&)> dfs;
+    dfs = [&](TreeNode* n, vector<int>& v)
+    {
+        if (n) dfs(n->left, v), v.push_back(n->val), dfs(n->right, v);
+    };
+    
+    vector<int> nums;
+    dfs(root, nums);
+*/
 
 
 
