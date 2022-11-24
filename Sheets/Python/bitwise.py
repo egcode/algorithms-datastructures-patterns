@@ -1,4 +1,30 @@
 # # #### BIT Wise Operations
+print("-----------------------------Basic")
+a = 60
+b = 13
+print("a = " + format(a, '08b')) # 00111100
+print("b = " + format(b, '08b')) # 00001101
+
+c = a & b;
+print("& operator: " + format(c, '08b') + "\n") # & operator: 00001100 - AND
+
+c = a | b;
+print("| operator: " + format(c, '08b') + "\n") # | operator: 00111101 - OR
+
+c = a ^ b;
+print("^ operator: " + format(c, '08b') + "\n") # ^ operator: 00110001 - XOR
+
+c = ~a;
+print("~ operator: " + format(c, '08b') + "\n") # ~ operator: 11000011 - One's Complement
+
+c = a << 2;
+print("<< operator: " + format(c, '08b') + "\n") # << operator: 11110000 - Left Shift
+
+c = a >> 2;
+print(">> operator: " + format(c, '08b') + "\n") # >> operator: 00001111 - Right Shift
+
+
+print("-----------------------------Basic END")
 
 # ######################### Combination Binary masks
 
