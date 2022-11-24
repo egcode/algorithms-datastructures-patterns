@@ -1,4 +1,4 @@
-def leftBisect(nums: List[int], target: int) -> int:
+def leftBisect(nums, target):
     l, r = 0, len(nums)
     while l < r :
         m = (l + r) // 2;
