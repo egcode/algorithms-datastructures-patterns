@@ -38,38 +38,38 @@ Output: []
 ### Python
 ```
 class Solution:
-#     def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
-#         '''
-#         DFS Recurstion
-#         '''
-#         memo={}
+    def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
+        '''
+        DFS Recurstion
+        '''
+        memo={}
         
-#         def dfs(path, arr):
-#             if path=="":
-#                 return [[]]
+        def dfs(path):
+            if path=="":
+                return [[]]
             
-#             if path in memo.keys():
-#                 return memo[path]
+            if path in memo.keys():
+                return memo[path]
             
-#             out=[]
-#             for word in wordDict:
-#                 if len(word)<=len(path) and path[:len(word)]==word:
-#                     suffix=path[len(word):]
-#                     r=dfs(suffix, arr)
+            out=[]
+            for word in wordDict:
+                if len(word)<=len(path) and path[:len(word)]==word:
+                    suffix=path[len(word):]
+                    r=dfs(suffix)
                     
-#                     tmp=[]
-#                     for t in r:
-#                         tmp.append([word]+t)
+                    tmp=[]
+                    for t in r:
+                        tmp.append([word]+t)
                     
-#                     if tmp:
-#                         out += tmp
+                    if tmp:
+                        out += tmp
             
-#             memo[path]=out
-#             return out
+            memo[path]=out
+            return out
         
-#         res=dfs(s, [])
+        res=dfs(s)
         
-#         return [" ".join(el) for el in res]
+        return [" ".join(el) for el in res]
         
     
     def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
