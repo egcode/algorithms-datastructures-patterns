@@ -1,8 +1,8 @@
 ### [Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/) <br>
 
-There are n cities connected by some number of flights. You are given an array flights where <img src="https://render.githubusercontent.com/render/math?math=flights[i]"> = [<img src="https://render.githubusercontent.com/render/math?math=from_i">, <img src="https://render.githubusercontent.com/render/math?math=to_i">, <img src="https://render.githubusercontent.com/render/math?math=price_i">] indicates that there is a flight from city <img src="https://render.githubusercontent.com/render/math?math=from_i"> to city <img src="https://render.githubusercontent.com/render/math?math=to_i"> with cost <img src="https://render.githubusercontent.com/render/math?math=price_i">.
+There are `n` cities connected by some number of flights. You are given an array `flights` where *flights[i] = [from<sub>i</sub>, to<sub>i</sub>, price<sub>i</sub>]* indicates that there is a flight from city *from<sub>i</sub> to city to<sub>i</sub>* with cost *price<sub>i</sub>*.
 
-You are also given three integers `src`, `dst`, and `k`, return **the cheapest price** *from* `src` *to* `dst` *with at most* `k` *stops*. If there is no such route, return `-1`.
+You are also given three integers `src`, `dst`, and `k`, return the **cheapest price from** `src` to `dst` with at most `k` stops. If there is no such route, return `-1`.
 
 
 
