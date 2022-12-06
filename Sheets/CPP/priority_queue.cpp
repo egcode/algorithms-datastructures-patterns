@@ -5,6 +5,7 @@ g++ priority_queue.cpp -std=c++17 -o /tmp/a.out;/tmp/a.out
 #include <bits/stdc++.h>
 using namespace std;
 
+using p = pair<int,int>;
 
 struct Person {
   string name;
@@ -25,7 +26,7 @@ bool compare_names(struct Person p1, struct Person p2) {
 
 int main(){
 
-    cout << endl << "-----------------------------Heap" << endl; 
+    cout << endl << "-----------------------------Heap" << "\n"; 
 
     //  max heap
     // priority_queue <int> pq;
@@ -46,8 +47,47 @@ int main(){
         pq.pop();
     }
 
+    cout << endl << "-----------------------------Heap with Pair" << "\n"; 
 
-    cout << endl << "-----------------------------Custom Object Heap" << endl; 
+    priority_queue<p, vector<p>, greater<p> >q;
+    
+    cout << "\n" << "Sorts by first element" << "\n";
+    q.push({3,900});
+    q.push({1,400});
+    q.push({7,100});
+
+    while (not q.empty()) {
+        int f = q.top().first;
+        int s = q.top().second;
+        cout <<"{"<<f<<", "<<s<<"}"<<"\n";
+        q.pop();
+    }
+    /*
+        Sorts by first element    
+        {1, 400}
+        {3, 900}
+        {7, 100}    
+    */
+
+    cout << "\n" << "Sorts by second if first is the same" << "\n";
+    q.push({1,900});
+    q.push({1,400});
+    q.push({1,100});
+
+    while (not q.empty()) {
+        int f = q.top().first;
+        int s = q.top().second;
+        cout <<"{"<<f<<", "<<s<<"}"<<"\n";
+        q.pop();
+    }    
+    /*
+        Sorts by second if first is the same    
+        {1, 100}
+        {1, 400}
+        {1, 900}    
+    */
+
+    cout << endl << "-----------------------------Custom Object Heap" << "\n"; 
 
     // creating heap from user defined objects
     // Let's initialize the properties of `Person` object first
@@ -74,7 +114,7 @@ int main(){
     while (!mh.empty())
     {
     	struct Person p = mh.top();
-        cout << p.name << " " << "  age: "<< p.age << endl;
+        cout << p.name << " " << "  age: "<< p.age << "\n";
         mh.pop();
     }
     /*
@@ -84,7 +124,7 @@ int main(){
     */
 
 
-    cout << endl << "-----------------------------Heap with Vector" << endl; 
+    cout << endl << "-----------------------------Heap with Vector" << "\n"; 
 
     vector<int> h {1,6,4,2,9,7,8};
     cout << "make min heap ";
@@ -98,7 +138,7 @@ int main(){
     cout << '\n';
 
 
-    cout << endl << "-----------------------------Heap with Vector Manipulations" << endl; 
+    cout << endl << "-----------------------------Heap with Vector Manipulations" << "\n"; 
 
     vector<int> hp {1,6,4,2,9,7,8};
     make_heap(begin(hp), end(hp), greater<int>{});
