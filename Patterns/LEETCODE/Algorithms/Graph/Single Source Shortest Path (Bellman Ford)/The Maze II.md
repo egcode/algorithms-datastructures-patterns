@@ -43,6 +43,43 @@ Output: -1
 # Solutions
 
 
+### Python
+```
+class Solution:
+    def shortestDistance(self, maze: List[List[int]], start: List[int], destination: List[int]) -> int:
+        '''
+        SPFA (Optimized Bellman Ford)
+        Shortest Path Faster Algorithm        
+        '''
+        h=len(maze)
+        w=len(maze[0])
+        dirs=[[1,0],[-1,0],[0,1],[0,-1]]
+
+        d=collections.deque([(start[0],start[1])])
+        
+        distances=[[-1]*w for _ in range(h)]
+        distances[start[0]][start[1]]=0 # initial
+        
+        while d:
+            row, col = d.pop()
+            prevDistance = distances[row][col]
+            
+            for dr,dc in dirs:
+                r, c = row, col
+                steps=0
+                while 0<=r+dr<h and 0<=c+dc<w and maze[r+dr][c+dc]==0:
+                    r += dr
+                    c += dc
+                    steps += 1
+                # If not visited OR prev distance is too big
+                if distances[r][c]==-1 or distances[r][c]>steps+prevDistance:
+                    distances[r][c]=steps+prevDistance
+                    d.appendleft((r,c))
+        return distances[destination[0]][destination[1]]
+
+```
+
+
 ### CPP
 ```
 class Solution {
