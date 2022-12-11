@@ -88,21 +88,17 @@ if __name__ == "__main__":
         print("="*20)
         print("MIN HEAP")
         minHeap = MinHeap(5)
-        minHeap.add(3)
-        minHeap.add(1)
-        minHeap.add(2)
-        # [1,3,2]
-        print(minHeap)
-        # 1
-        print(minHeap.peek())
-        # 1
-        print(minHeap.pop())
-        # 2
-        print(minHeap.pop())
-        # 3
-        print(minHeap.pop())
         minHeap.add(4)
+        minHeap.add(1)
+        minHeap.add(3)
+        print("minHeap: "+ str(minHeap))
+        print("minHeap.peek(): " + str(minHeap.peek()))
+        print("minHeap.pop(): " + str(minHeap.pop()))
+        print("minHeap.pop(): " + str(minHeap.pop()))
+        print("minHeap: "+ str(minHeap))
+        print("add:  2")
+        minHeap.add(2)
+        print("add:  5")
         minHeap.add(5)
-        # [4,5]
-        print(minHeap)
+        print("minHeap: "+ str(minHeap))
         print("="*20)
