@@ -24,8 +24,16 @@ int getSubstringsCount(int n) {
 int main() {    
     cout << "---------------------------------- All Substrings" << "\n"; 
     int substringsMethod1 = getSubstringsCount(n);
+    /*
+    0
+    1
+    2
+    0 1
+    1 2
+    0 1 2
+    */    
     int substringsMethod2 = n*(n+1)/2;    
-    cout <<"substringsMethod1: " << substringsMethod1 <<"\n";    
-    cout <<"substringsMethod2: " << substringsMethod2 <<"\n";
+    cout <<"substringsMethod1: " << substringsMethod1 <<"\n"; //substringsMethod1: 6
+    cout <<"substringsMethod2: " << substringsMethod2 <<"\n"; //substringsMethod2: 6
     return 0;    
 }
