@@ -39,8 +39,26 @@ int main() {
     cout << "---------------------------------- All Subsets" << "\n";
     vector<int>subset;    
     getSubsets(0, subset);
+    /*
+        2
+        1
+        1 2
+        0
+        0 2
+        0 1
+        0 1 2    
+    */
     int subsetsCount = 1 << n;
     //subsetsCount - from 0 to n
-    cout <<"subsetsCount: " << subsetsCount-1 <<"\n";    
-    getSubsets2(0);    
+    cout <<"subsetsCount: " << subsetsCount-1 <<"\n";// subsetsCount: 7
+    getSubsets2(0);
+    /*
+        0
+        1
+        0 1
+        2
+        0 2
+        1 2
+        0 1 2    
+    */
 }
