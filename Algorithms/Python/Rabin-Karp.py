@@ -8,19 +8,19 @@ def findStartIndex(pattern, source):
     MOD = 9023874098237409872309487
     length = len(pattern)
 
-    numsSource=[ord(c)-ord('a') for c in source]
-    numsPattern=[ord(c)-ord('a') for c in pattern]
+    def toInt(c):
+        return ord(c)-ord('a')
 
     # d is the number of characters in the input alphabet
     d = 256            
     for i in range(length):
-        curHash = (curHash * d + numsSource[i]) % MOD
-        patternHash = (patternHash * d + numsPattern[i]) % MOD
+        curHash = (curHash * d + toInt(source[i])) % MOD
+        patternHash = (patternHash * d + toInt(pattern[i])) % MOD
     seen.add(curHash)
     
     a = (d**length) % MOD
     for i in range(length,len(source)):
-        curHash = (curHash * d + numsSource[i] - numsSource[i-length] * a) % MOD
+        curHash = (curHash * d + toInt(source[i]) - toInt(source[i-length]) * a) % MOD
         
         if curHash == patternHash:
             return i-length+1
