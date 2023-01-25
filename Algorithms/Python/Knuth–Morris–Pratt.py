@@ -39,10 +39,16 @@ def findPattern(text, pattern):
     
     return -1
 
-
-
+#         0123456789
+source = "----abcxxxabcy---------";
 patt = "abcxxxabcy";
-text = "----abcxxxabcy---------";
 
-index = findPattern(text, patt)
-print("Found pattern: "+patt+"  on index: "+str(index)+" in text: "+text)
+index = findPattern(source, patt)
+print("Found pattern: "+patt+"  on index: "+str(index)+" in text: "+source) # Found pattern: abcxxxabcy  on index: 4
+
+
+#         01234567890    
+source = "123456yobanaV346563sdsdkhfhs"
+pattern = "yobana"
+index = findPattern(source, pattern)
+print("Found pattern: "+pattern+"  on index: "+str(index)+" in text: "+source) # Found pattern: abcxxxabcy  on index: 6
