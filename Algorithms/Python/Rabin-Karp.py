@@ -36,4 +36,4 @@ print("Found source: "+str(res1)) # Found source: 6
 source = "abcdefghijklm"
 pattern = "xyz"
 res2 = findStartIndex(pattern, source)
-print("Found source: "+str(res2)) # Found source: 1
+print("Source not found: "+str(res2)) # Source not found: -1
