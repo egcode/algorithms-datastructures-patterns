@@ -1,8 +1,8 @@
 ### [Connecting Cities With Minimum Cost](https://leetcode.com/problems/connecting-cities-with-minimum-cost/) <br>
 
-There are `n` cities labeled from `1` to `n`. You are given the integer `n` and an array `connections` where <img src="https://render.githubusercontent.com/render/math?math=connections[i]"> = [<img src="https://render.githubusercontent.com/render/math?math=x_i">, <img src="https://render.githubusercontent.com/render/math?math=y_i">, <img src="https://render.githubusercontent.com/render/math?math=cost_i">] indicates that the cost of connecting city <img src="https://render.githubusercontent.com/render/math?math=x_i"> and city <img src="https://render.githubusercontent.com/render/math?math=y_i"> (bidirectional connection) is <img src="https://render.githubusercontent.com/render/math?math=cost_i">.
+There are `n` cities labeled from `1` to `n`. You are given the integer `n` and an array `connections` where *connections[i] = [x<sub>i</sub>, y<sub>i</sub>, cost<sub>i</sub>]* indicates that the cost of connecting city x<sub>i</sub> and city y<sub>i</sub> (bidirectional connection) is cost<sub>i</sub>.
 
-Return the *minimum* **cost** **to connect all the** `n` *cities such that there is at least one path between each pair of cities*. If it is impossible to connect all the `n` cities, return `-1`,
+Return the *minimum* **cost** *to connect all the `n` cities such that there is at least one path between each pair of cities". If it is impossible to connect all the `n` cities, return `-1`,
 
 The **cost** is the sum of the connections' costs used.
 
