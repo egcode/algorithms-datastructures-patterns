@@ -22,7 +22,7 @@ int getSubArraysCount(int n) {
 }
 
 int main() {    
-    cout << "---------------------------------- All Substrings" << "\n"; 
+    cout << "---------------------------------- All SubArrays" << "\n"; 
     int subArraysMethod1 = getSubArraysCount(n);
     /*
     0
