@@ -1,5 +1,5 @@
 /*
-g++ trie.cpp -std=c++17;./a.out
+g++ Trie.cpp -std=c++17;./a.out
 */
 
 #include <bits/stdc++.h>

@@ -1,5 +1,5 @@
 /*
-g++ fenwickTree.cpp -std=c++17;./a.out
+g++ FenwickTree.cpp -std=c++17;./a.out
 */
 
 #include <bits/stdc++.h>
