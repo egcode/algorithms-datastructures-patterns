@@ -1,5 +1,5 @@
 /*
-g++ allSubstrings.cpp -std=c++17 -o /tmp/a.out;/tmp/a.out
+g++ allSubArrays.cpp -std=c++17 -o /tmp/a.out;/tmp/a.out
 */
 
 #include <bits/stdc++.h>
@@ -7,7 +7,7 @@ using namespace std;
 
 int n=3;
 
-int getSubstringsCount(int n) {
+int getSubArraysCount(int n) {
     int count = 0;
     for (int len = 1; len <= n; len++) { // Pick starting point
         for (int i = 0; i <= n - len; i++) { // Pick ending point
@@ -23,7 +23,7 @@ int getSubstringsCount(int n) {
 
 int main() {    
     cout << "---------------------------------- All Substrings" << "\n"; 
-    int substringsMethod1 = getSubstringsCount(n);
+    int subArraysMethod1 = getSubArraysCount(n);
     /*
     0
     1
@@ -32,8 +32,8 @@ int main() {
     1 2
     0 1 2
     */    
-    int substringsMethod2 = n*(n+1)/2;    
-    cout <<"substringsMethod1: " << substringsMethod1 <<"\n"; //substringsMethod1: 6
-    cout <<"substringsMethod2: " << substringsMethod2 <<"\n"; //substringsMethod2: 6
+    int subArraysMethod2 = n*(n+1)/2;    
+    cout <<"subArraysMethod1: " << subArraysMethod1 <<"\n"; //subArraysMethod1: 6
+    cout <<"subArraysMethod2: " << subArraysMethod2 <<"\n"; //subArraysMethod2: 6
     return 0;    
 }
