@@ -49,9 +49,23 @@ private:
 };
 
 int main() {
+
+    cout << endl << "-----------------------------Segment Tree Min Query" << endl;
+    //ind:         0  1  2  3  4  5  6  7  8  9  10
     vector<int> v {3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5};
+    cout << "ind: ";
+    for (int i=0;i<v.size();++i)
+        cout << " " << i;
+    cout << "\n";
+    cout << "num: ";
+    for (int & e:v) 
+        cout << " " << e;
+    cout << "\n";
+
     SegmentTree st(v);
-    cout << st.query(2, 6) << endl; // Output: 1
-    cout << st.query(4, 9) << endl; // Output: 3
+    cout << "Min query: [2, 6] -> ";
+    cout << st.query(2, 6) << "\n"; // Min query: [2, 6] -> 1
+    cout << "Min query: [4, 9] -> ";
+    cout << st.query(4, 9) << "\n"; // Min query: [4, 9] -> 2
     return 0;
 }
