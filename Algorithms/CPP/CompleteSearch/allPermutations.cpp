@@ -10,7 +10,7 @@ void permute(vector<int>& v, int start, int end) {
         for (int i = 0; i < v.size(); i++) {
             cout << v[i] << " ";
         }
-        cout << endl;
+        cout << "\n";
     } else {
         for (int i = start; i <= end; i++) {
             int tmp = v[i];
