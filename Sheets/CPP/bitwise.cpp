@@ -89,6 +89,8 @@ int main() {
     c = x & (x-1); // removes rightmost 1-bit
     cout << "x & (x-1) " << bitset<8>(c) << endl; // x & (x-1) 00000110
 
+    c = x | (x-1); // inverts all the bits after the last one bit
+    cout << "x | (x-1) " << bitset<8>(c) << endl; // x | (x-1) 00000111    
 
     cout << endl << "-----------------------------Binary Mask" << endl;
 
@@ -143,7 +145,7 @@ int main() {
     cout<<"Packed Integer: "<<packForHash<<"\n";
     
     int rowUnpacked = packForHash>>16;
-    int colUnpacked = packForHash - (rowUnpacked<<16)
+    int colUnpacked = packForHash - (rowUnpacked<<16);
     cout<<"Coordinates,  rowUnpacked: "<<rowUnpacked<<" colUnpacked: "<<colUnpacked<<"\n";
  
 
