@@ -78,3 +78,14 @@ index: 3 num:4
 index: 4 num:5
 ''' 
 print(40*"-")
+
+## loop with index reversed:
+for i,num in reversed(list(enumerate(arr))):
+    print("index: "+str(i)+ " num:"+str(num))
+'''
+index: 4 num:5
+index: 3 num:4
+index: 2 num:3
+index: 1 num:2
+index: 0 num:1
+''' 
