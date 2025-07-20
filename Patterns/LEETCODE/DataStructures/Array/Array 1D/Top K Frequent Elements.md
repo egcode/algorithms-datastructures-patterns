@@ -46,4 +46,34 @@ class Solution:
             
         return arr[:k]
 
+
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        '''
+        O(n)
+        bucket sort.
+        We use array's index as counter of elements
+        '''
+        n=len(nums)
+        mp={}
+        buckets = [[] for _ in range(n+1)]
+        
+        # counting using map
+        for num in nums:
+            mp[num]=mp.get(num, 0)+1
+        
+        # filling buckets with map values
+        for key,val in mp.items():
+            buckets[val].append(key)
+
+        # getting `k` values from bukets
+        res = []
+        for bucket in reversed(buckets):
+            if len(bucket)>0:
+                for number in bucket:
+                    res.append(number)
+            if len(res)>=k:
+                return res
+        return res
+
+
 ```
