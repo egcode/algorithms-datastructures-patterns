@@ -14,3 +14,15 @@ var ar=[1,2,3,4,5,6]
 var last=ar[ar.endIndex-1]
 print("End element: \(last)")
 
+
+// Reversed enumerated array
+let arr = ["a", "b", "c", "d"]
+for (index, value) in arr.enumerated().reversed() {
+    print("Index: \(index), Value: \(value)")
+}
+/*
+Index: 3, Value: d
+Index: 2, Value: c
+Index: 1, Value: b
+Index: 0, Value: a
+*/
