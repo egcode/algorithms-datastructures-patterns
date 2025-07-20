@@ -35,6 +35,9 @@ for (i, val) in arr[1...3].enumerated() {
     print("Index: \(originalIndex), Value: \(val)")
 }
 /*
+Because enumerated() always starts at 0, even on a slice. 
+So we shift the index back to match the original array's indices.
+
 Index: 1, Value: b
 Index: 2, Value: c
 Index: 3, Value: d
