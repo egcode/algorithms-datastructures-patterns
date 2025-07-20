@@ -26,3 +26,16 @@ Index: 2, Value: c
 Index: 1, Value: b
 Index: 0, Value: a
 */
+
+
+// Loop in array from index 1 to 3
+let arr = ["a", "b", "c", "d", "e", "f"]
+for (i, val) in arr[1...3].enumerated() {
+    let originalIndex = i + 1
+    print("Index: \(originalIndex), Value: \(val)")
+}
+/*
+Index: 1, Value: b
+Index: 2, Value: c
+Index: 3, Value: d
+*/
