@@ -90,4 +90,49 @@ class Solution:
             
         return res
         
+
+
+
+    def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
+        '''
+        We start from pacific cells and store visited
+        and start from atlantic cells and store it's visited
+        and result is intersection of visited of both
+        '''
+        pacific, atlantic = set(),set()
+        pacStart, atlStart = set(),set()
+        h = len(heights)
+        w = len(heights[0])
+
+        for r in range(h):
+            for c in range(w):
+                if r==0 or c==0:
+                    pacStart.add((r,c))
+                if r==(h-1) or c==(w-1):
+                    atlStart.add((r,c))
+
+        def bfs(startSet, visited):
+            q=collections.deque(startSet)
+
+            while q:
+                row,col = q.popleft()
+                visited.add((row,col))
+                for d in [[0,1],[0,-1],[1,0],[-1,0]]:
+                    r,c = d[0]+row, d[1]+col
+                    if r<0 or r==h or c<0 or c==w or (r,c) in visited:
+                        continue
+                    # We go to neighbor if it's equal or higher
+                    if heights[r][c] < heights[row][col]:
+                        continue
+                    q.append([r,c])
+            return visited
+        bfs(pacStart, pacific)
+        bfs(atlStart, atlantic)
+        res = list(pacific & atlantic)
+        return res
+
+
+
+
+
 ```
