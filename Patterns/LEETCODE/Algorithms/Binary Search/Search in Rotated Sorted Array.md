@@ -66,18 +66,20 @@ class Solution:
             
             if nums[mid]==target:
                 return mid
-            elif nums[left]<=nums[mid]:
-                #left is sorted 
-                if nums[left]<=target<nums[mid]:
+            elif nums[left]<=nums[mid]: #left is sorted 
+                
+                if nums[left]<=target<nums[mid]: # search in sorted part
                     right = mid - 1
                 else:
                     left = mid + 1
-            else:
-                # right is sorted
-                if nums[mid]<target<=nums[right]:
+                    
+            else:  # right is sorted
+               
+                if nums[mid]<target<=nums[right]: # search in sorted part
                     left = mid + 1
                 else:
                     right = mid - 1
+
         return -1
 
 ```
