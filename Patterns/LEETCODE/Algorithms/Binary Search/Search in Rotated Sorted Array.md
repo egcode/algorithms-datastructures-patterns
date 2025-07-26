@@ -41,28 +41,43 @@ Output: -1
 ```
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        n=len(nums)
-        lo=0
-        hi=n-1
-        
-        while lo<=hi:
-            mid=lo+(hi-lo)//2
+        '''
+    Ex.  nums = [5, 6, 7, 0, 1, 2, 4]
+        target = 1
+    Initial state:
+        left = 0, right = 6, mid = 3
+        nums[mid] = 0, nums[left] = 5, nums[right] = 4
+
+    Here:
+        nums[left] <= nums[mid] → 5 <= 0 → ❌
+        So the left side is not sorted, meaning the right side must be sorted.
+
+    Now we check:
+        if nums[mid] < target <= nums[right]:  # 0 < 1 <= 4 → ✅
+        Since the target is in the sorted half, we search that half.
+        '''
+
+
+        left = 0
+        right = len(nums)-1
+
+        while left <= right:
+            mid = (left + right)//2
             
             if nums[mid]==target:
                 return mid
-            elif nums[lo]<=nums[mid]:
-                # left is sorted
-                if nums[lo]<=target<nums[mid]:
-                    hi=mid-1
+            elif nums[left]<=nums[mid]:
+                #left is sorted 
+                if nums[left]<=target<nums[mid]:
+                    right = mid - 1
                 else:
-                    lo=mid+1
+                    left = mid + 1
             else:
                 # right is sorted
-                if nums[mid]<target<=nums[hi]:
-                    lo=mid+1
+                if nums[mid]<target<=nums[right]:
+                    left = mid + 1
                 else:
-                    hi=mid-1
-        
+                    right = mid - 1
         return -1
 
 ```
