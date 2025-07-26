@@ -18,6 +18,12 @@ def fn(arr, target):
 
 
 # Binary search: duplicate elements, left-most insertion point
+'''
+Ex. 
+arr = [1, 3, 3, 3, 5, 6]  target = 3
+       0  1  2  3  4  5
+“1 is the left-most position where 3 can be inserted”
+'''
 def fn(arr, target):
     left = 0
     right = len(arr)
@@ -31,6 +37,12 @@ def fn(arr, target):
     return left
 
 # Binary search: duplicate elements, right-most insertion point
+'''
+Ex. 
+arr = [1, 3, 3, 3, 5, 6]  target = 3
+       0  1  2  3  4  5
+“4 is the right-most position where 3 can be inserted”
+'''
 def fn(arr, target):
     left = 0
     right = len(arr)
