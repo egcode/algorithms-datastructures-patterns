@@ -27,13 +27,15 @@ Output: 5
 ```
 class Solution:
     def getSum(self, a: int, b: int) -> int:
-            mask = 0xffffffff
+            MASK = 0xffffffff
+            MAX = 0x7FFFFFFF  # max int  (2^31 - 1)
             while b != 0:
                 carry = (a & b) << 1
-                a = (a ^ b) & mask
-                b = carry & mask
-            if a > mask // 2:
-                return ~(a ^ mask)
-            else:
+                a = (a ^ b) & MASK
+                b = carry & MASK
+            if a <= MAX:
                 return a
+            else:
+                return ~(a ^ MASK)
+
 ```
