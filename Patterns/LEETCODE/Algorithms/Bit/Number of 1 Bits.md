@@ -42,10 +42,16 @@ Explanation: The input binary string 11111111111111111111111111111101 has a tota
 ### Python
 ```
 class Solution:
+    # def hammingWeight(self, n: int) -> int:
+    #     res = 0
+    #     while n:
+    #         res += n & 1 # Check if last bit is 1
+    #         n = n >> 1
+    #     return res
     def hammingWeight(self, n: int) -> int:
-        summ=0
-        while n != 0:
-            summ += 1
-            n &= (n-1)
-        return summ
+        res = 0
+        while n:
+            res += 1
+            n = n & (n-1) # removes rightmost 1-bit 
+        return res
 ```
