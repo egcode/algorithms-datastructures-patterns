@@ -36,6 +36,10 @@ class Solution:
             if a <= MAX:
                 return a
             else:
+                '''
+                This means a is a large unsigned number that should actually represent a negative number in 32-bit two's complement.
+                We need to convert it back to its proper signed form.
+                '''
                 return ~(a ^ MASK)
 
 ```
