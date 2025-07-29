@@ -34,41 +34,14 @@ Explanation: In this case, no transactions are done and the max profit = 0.
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
         '''
-        Kadane's Algorithm
-        '''        
-        if not prices: return 0
-        buy=-prices[0]
-        sell=0
-        profit=0
+        Kadane's Algorythm
+        '''
+        cur_price, best_price = 0, 0
         for i in range(1, len(prices)):
-            buy = max(buy, -prices[i])
-            sell = max(sell, buy+prices[i])
-            profit = max(profit, sell)
-        return profit
-        
-    
-#     def maxProfit(self, prices: List[int]) -> int:
-#         '''
-#         Kadane's Algorithm
-#         '''
-#         best_sum=0
-#         current_sum=0
-        
-#         for i in range(1, len(prices)):
-#             current_sum=max(0, current_sum + prices[i] - prices[i-1])
-#             best_sum=max(best_sum, current_sum)
-#         return best_sum
-    
-    
-    
-#    def maxProfit(self, prices: List[int]) -> int:
-#         res=0
-#         smallest=prices[0]
-        
-#         for i in range(1, len(prices)):
-#             smallest=min(smallest, prices[i])
-#             res=max(res, prices[i]-smallest)
-            
-#         return res
+            price = prices[i]-prices[i-1]
+            cur_price = max(price, price + cur_price)
+            best_price = max(best_price, cur_price) 
+
+        return best_price
 
 ```
