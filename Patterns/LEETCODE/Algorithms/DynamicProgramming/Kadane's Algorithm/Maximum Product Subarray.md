@@ -33,22 +33,35 @@ Explanation: The result cannot be 2, because [-2,-1] is not a subarray.
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
         '''
-        Kadane's Algorithm multiply version
+        Kadane's Algorythm, multiply version
         '''
-        
-        n=len(nums)
-        max_so_far = [0]*n
-        min_so_far = [0]*n
-        
-        max_so_far[0]=nums[0]
-        min_so_far[0]=nums[0]
-        res=nums[0]
-        
-        for i in range(1, n):
-            max_so_far[i]=max(nums[i], nums[i]*max_so_far[i-1], nums[i]*min_so_far[i-1])
-            min_so_far[i]=min(nums[i], nums[i]*max_so_far[i-1], nums[i]*min_so_far[i-1])
-            
-            res = max(res, max_so_far[i], min_so_far[i])
+        curMin, curMax = 1, 1
+        res = max(nums)
+        for num in nums:
+            oldCurMin = curMin
+            curMin = min(num, oldCurMin * num, curMax * num)
+            curMax = max(num, oldCurMin * num, curMax * num)
+            res = max(res, curMin, curMax)
+
         return res
 
-```
+    # def maxProduct(self, nums: List[int]) -> int:
+    #     '''
+    #     Kadane's Algorythm, multiply version
+    #     '''
+
+    #     n = len(nums)
+    #     cur_sum_max, cur_sum_min = [0] * n, [0] * n
+    #     best_sum = nums[0]
+
+    #     cur_sum_max[0]=nums[0]
+    #     cur_sum_min[0]=nums[0]
+
+    #     for i in range(1, n):
+    #         cur_sum_min[i] = min(nums[i], cur_sum_min[i-1] * nums[i], cur_sum_max[i-1] * nums[i])
+    #         cur_sum_max[i] = max(nums[i], cur_sum_min[i-1] * nums[i], cur_sum_max[i-1] * nums[i])
+
+    #         best_sum = max(best_sum, cur_sum_min[i], cur_sum_max[i])
+    #     return best_sum
+    
+    ```
