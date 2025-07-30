@@ -64,58 +64,33 @@ Explanation: "06" cannot be mapped to "F" because of the leading zero ("6" is di
 ```
 class Solution:
     def numDecodings(self, s: str) -> int:
-        '''
-        Dynamic Programming
-        '''
-        n=len(s)
-        dp=[0]*(n+1)
-        dp[0]=1
-        dp[1]=1
-        if s[0]=="0":
-            dp[1]=0
-            
-        for i in range(2, n+1):
-            
-            if s[i-1] != "0":
-                dp[i] += dp[i-1]
-            
-            last_two=int(s[i-2:i])
-            if last_two>=10 and last_two<=26:
-                dp[i] += dp[i-2]
-            
-        # print(dp)
-        return dp[n]
-        
-    
-#     def numDecodings(self, s: str) -> int:
-#         '''
-#         DFS
-#         '''
-        
-#         @cache
-#         def dfs(n):
-#             if n==len(s):
-#                 return 1
-            
-#             if int(s[n])==0: # if s[n]=="0"
-#                 return 0
-            
-#             if n==len(s)-1:
-#                 return 1
-        
-#             first=dfs(n+1)
-#             second=dfs(n+2)
-#             if (int(s[n:n+2])>26):
-#                 second=0
-                
-#             return first + second
-            
-#         if len(s)==1:
-#             if 0<int(s)<=26:
-#                 return 1
-#             else:
-#                 return 0            
-            
-#         return dfs(0)
+        dp = {len(s):1}
 
-```
+        for i in range(len(s)-1, -1, -1):
+            if s[i]=="0":
+                dp[i]=0
+            else:
+                dp[i]=dp[i+1]        
+            if i+1<len(s) and (10 <= int(s[i:i+2]) <= 26):
+                dp[i] += dp[i+2]
+
+        return dp[0]
+        
+    # def numDecodings(self, s: str) -> int:
+    #     dp = {len(s):1}
+
+    #     def dfs(i):
+    #         if i in dp:
+    #             return dp[i]
+    #         if s[i]=="0":
+    #             return 0
+
+    #         res = dfs(i+1)
+    #         if i+1<len(s) and (10 <= int(s[i:i+2]) <= 26):
+    #             res += dfs(i+2)
+    #         dp[i]=res
+    #         return res
+
+    #     return dfs(0)
+        
+    ```
