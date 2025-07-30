@@ -18,3 +18,8 @@ s="leetcode"
 ss="leet"
 print(s[:len(ss)]) # leet
 print(s[len(ss):]) # code
+
+
+s = "123"
+i = 1
+tra = int(s[i:i+2])  # This is int("23") => 23
