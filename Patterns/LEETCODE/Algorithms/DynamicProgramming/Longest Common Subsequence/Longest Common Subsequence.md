@@ -80,24 +80,6 @@ class Solution:
                        
         return dp[0][0]
     
-    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
-        '''
-        Recursive function that 
-        tracks both indices i and j — positions in both strings.
-        '''
-        @cache
-        def dfs(i,j):
-            if i==len(text1) or j==len(text2):
-                return 0
-            res = 0
-            if text1[i]==text2[j]:
-                res=max(res, 1+dfs(i+1, j+1))
-            else:
-                res=max(res,dfs(i+1,j), dfs(i,j+1))
-            return res        
-
-        return dfs(0,0)
-
 #     def longestCommonSubsequence(self, text1: str, text2: str) -> int:
 #         '''
 #         Same as above, but we loop from begining
@@ -133,5 +115,23 @@ class Solution:
 #                     dp[row+1][col+1]=max(dp[row+1][col+1], dp[row][col+1], dp[row+1][col])
         
 #         return dp[-1][-1]    
+
+    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+        '''
+        Recursive function that 
+        tracks both indices i and j — positions in both strings.
+        '''
+        @cache
+        def dfs(i,j):
+            if i==len(text1) or j==len(text2):
+                return 0
+            res = 0
+            if text1[i]==text2[j]:
+                res=max(res, 1+dfs(i+1, j+1))
+            else:
+                res=max(res,dfs(i+1,j), dfs(i,j+1))
+            return res        
+
+        return dfs(0,0)
 
 ```
