@@ -62,18 +62,14 @@ class Solution:
             if yes, increase num +1 and check if this new num is in the set, if it is lenght+1 and store in result.
             if no, continue
         '''
-        
-        num_set=set(nums)
-        res=0
-        
-        for num in nums:
-            if num-1 not in num_set: # check if it's start of a sequence
-                # check length of a sequence
-                tmp=num
-                length=0
-                while num+length in num_set:
-                    length += 1
-                res=max(res, length)
-                
-        return res    
+        res = 0
+        s = set(nums)
+        for num in s: # Loop through set to avoid time limit exceeded
+            if num-1 in s:
+                continue
+            length = 1
+            while num+length in s:
+                length += 1
+            res = max(res,length)
+        return res
 ```

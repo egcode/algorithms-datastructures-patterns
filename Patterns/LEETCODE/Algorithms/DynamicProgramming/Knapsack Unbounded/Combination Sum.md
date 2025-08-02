@@ -60,6 +60,12 @@ class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         '''
         Tabulation
+
+        dp[i] stores all combinations that sum up to i.
+        Ex:
+        [2,3,6,7] target 7
+        [[[]], [], [[2]], [[3]], [[2, 2]], [[2, 3]], [[2, 2, 2], [3, 3], [6]], [[2, 2, 3], [7]]]
+
         '''
         dp=[[] for _ in range(target+1)]
         dp[0]=[[]]
