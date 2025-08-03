@@ -1,9 +1,8 @@
 ### [Number of Connected Components in an Undirected Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/) <br>
 
-You have a graph of `n` nodes. You are given an integer `n` and an array `edges` where <img src="https://render.githubusercontent.com/render/math?math=edges[i] = [a_i, b_i]"> indicates that there is an edge between <img src="https://render.githubusercontent.com/render/math?math=a_i"> and <img src="https://render.githubusercontent.com/render/math?math=b_i"> in the graph.
+You have a graph of `n` nodes. You are given an integer `n` and an array `edges` where `edges[i] = [a_i, b_i]` indicates that there is an edge between node `a_i` and node `b_i` in the graph.
 
-Return the **number of connected components in the graph**.
-
+Return the **number of connected components** in the graph.
 
 
 
