@@ -46,6 +46,25 @@ Output: 6
 
 ### Python
 ```
+    def uniquePaths(self, m: int, n: int) -> int:
+        '''
+        Ex. m=3 , n=2
+        [1, 1, 1], 
+        [1, 2, 2], 
+        [1, 3, 3], 
+        [1, 3, 0]
+        dp[m][n] never accessed so we return dp[m-1][n-1]
+        '''
+        dp=[[0]*(n+1) for _ in range(m+1)]
+        dp[0][0]=1
+
+        for i in range(m):
+            for j in range(n):
+                dp[i][j+1] += dp[i][j]
+                dp[i+1][j] += dp[i][j]
+        return dp[m-1][n-1]
+
+
 class Solution:
 #     def uniquePaths(self, m: int, n: int) -> int:
 #         '''
