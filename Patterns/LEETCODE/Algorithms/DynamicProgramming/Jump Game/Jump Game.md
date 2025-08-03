@@ -31,57 +31,21 @@ Explanation: You will always arrive at index 3 no matter what. Its maximum jump 
 ### Python
 ```
 class Solution:
-#     def canJump(self, nums: List[int]) -> bool:
-#         '''
-#         BFS Time Limit Exceeded
-        
-#         '''
-#         n=len(nums)
-#         if n==1: return True
-        
-#         stack=collections.deque([0])
-#         while stack:
-#             i = stack.pop()
-#             num=nums[i]
-#             while num>0:
-#                 next_index=i+num
-#                 if next_index==n-1:
-#                     return True
-#                 if next_index<n:
-#                     stack.appendleft(next_index)
-#                 num -= 1
-                
-#         return False
+    def canJump(self, nums: List[int]) -> bool:
+        n=len(nums)
 
-    
-#     def canJump(self, nums: List[int]) -> bool:
-#         '''
-#         DFS Time Limit Exceeded
-#         '''
-#         n=len(nums)
-#         if n==1: return True
-#         memo={}
-        
-#         def dfs(current):
-#             if current in memo.keys():
-#                 return memo[current]
-            
-#             if current == (n-1):
-#                 memo[current]=True
-#                 return True            
-#             num=nums[current]
-#             while num>0:
-#                 next_index=current+num
-#                 if next_index<n:
-#                     if dfs(next_index)==True:
-#                         memo[current]=True
-#                         return True
-#                 num -= 1
+        @cache
+        def dfs(i):
+            if i==(n-1):
+                return True
+            if i>=n:
+                return False
+            for j in range(1, nums[i]+1):
+                if dfs(i+j):
+                    return True
+            return False
+        return dfs(0)
 
-#             memo[current]=False
-#             return False
-        
-#         return dfs(0)
         
     def canJump(self, nums: List[int]) -> bool:
         '''
