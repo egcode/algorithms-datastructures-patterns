@@ -8,3 +8,8 @@ print(dist) # {1: inf, 2: inf, 3: inf, 4: inf, 5: inf}
 my_map = {}
 key = 'apple'
 my_map[key] = my_map.get(key, 0) + 1
+
+#Every time you access a missing key, 
+# it automatically creates a new empty list
+graph = collections.defaultdict(list)
+graph["test"].append(1) # graph = {'test': [1]}
