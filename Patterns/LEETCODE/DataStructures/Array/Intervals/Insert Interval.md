@@ -72,10 +72,10 @@ class Solution:
             if prod <= 0:
                 # Overlapping: merge interval with current
                 cur = [min(cur[0], interval[0]), max(cur[1], interval[1])]
-            elif interval[1] < cur[0]:
+            elif interval[0] < cur[0]:
                 # Current interval is completely before the new interval
                 res.append(interval)
-            elif interval[0] > cur[1]:
+            elif interval[0] > cur[0]:
                 # Current interval is completely after the new interval
                 if not inserted:
                     res.append(cur)
