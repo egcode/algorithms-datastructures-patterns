@@ -25,15 +25,15 @@ Output: 1
 ```
 class Solution:
 
-    def minMeetingRooms(self, intervals: List[Interval]) -> int:
+    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
         '''
         sort starts and ends of interval.
         Loop through both arrays with p1 and p2 pointers
         if current start les than end we increase meetings count,
         and decrease otherwise
         '''
-        starts=sorted([i.start for i in intervals])
-        ends=sorted([i.end for i in intervals])
+        starts=sorted([i[0] for i in intervals])
+        ends=sorted([i[1] for i in intervals])
         n=len(intervals)
         p1,p2 = 0,0
         res, count = 0, 0
