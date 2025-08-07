@@ -1,6 +1,6 @@
 ### [Meeting Rooms](https://leetcode.com/problems/meeting-rooms/) <br>
 
-Given an array of meeting time `intervals` where <img src="https://render.githubusercontent.com/render/math?math=intervals[i]"> = [<img src="https://render.githubusercontent.com/render/math?math=start_i">, <img src="https://render.githubusercontent.com/render/math?math=end_i">], determine if a person could attend all meetings.
+Given an array of meeting time `intervals` where `intervals[i] = [start_i, end_i]`, determine if a person could attend all meetings.
 
 
 
