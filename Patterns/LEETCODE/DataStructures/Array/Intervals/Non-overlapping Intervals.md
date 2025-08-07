@@ -1,6 +1,6 @@
 ### [Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/) <br>
 
-Given an array of intervals `intervals` where <img src="https://render.githubusercontent.com/render/math?math=intervals[i]"> = [<img src="https://render.githubusercontent.com/render/math?math=start_i">, <img src="https://render.githubusercontent.com/render/math?math=end_i">], return *the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping*.
+Given an array of intervals intervals where intervals[i] = [start_i, end_i], return *the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping*.
 
 
 
