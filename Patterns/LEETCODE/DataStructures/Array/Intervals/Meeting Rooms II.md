@@ -1,6 +1,6 @@
 ### [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/) <br>
 
-Given an array of meeting time intervals `intervals` where <img src="https://render.githubusercontent.com/render/math?math=intervals[i]"> = [<img src="https://render.githubusercontent.com/render/math?math=start_i">, <img src="https://render.githubusercontent.com/render/math?math=end_i">], return *the minimum number of conference rooms required*.
+Given an array of meeting time intervals `intervals` where `intervals[i] = [start_i, end_i]`, return *the minimum number of conference rooms required*.
 
 
 #### Example 1:
