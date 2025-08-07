@@ -52,15 +52,29 @@ Explanation: There is no cycle in the linked list.
 #         self.next = None
 
 class Solution:
-    def hasCycle(self, head: ListNode) -> bool:
-        cur=head
-        vis=set()
-        while cur:
-            if cur in vis:
-                return True
-            vis.add(cur)
-            cur=cur.next
-            
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        '''
+        O(1)-memory, is efficient
+        Floyd's Tortoise and Hare algorithm
+        '''
+        norm, fast, = head, head # declare norm/fast speed
+        while fast and fast.next:
+            norm = norm.next
+            fast = fast.next.next
+            if norm == fast:
+                    return True
         return False
-        
+
+    # def hasCycle(self, head: Optional[ListNode]) -> bool:
+    #     '''
+    #     O(n)-memory, is not efficient
+    #     '''
+    #     cur = head
+    #     s = set()
+    #     while cur:
+    #         if cur in s:
+    #             return True
+    #         s.add(cur)
+    #         cur=cur.next
+    #     return False        
 ```
