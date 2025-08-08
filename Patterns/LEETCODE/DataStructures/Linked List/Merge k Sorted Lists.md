@@ -52,6 +52,22 @@ Output: []
 #         self.next = next
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        '''
+        Example Walkthrough
+        lists = [
+            1 -> 4 -> 5,
+            1 -> 3 -> 4,
+            2 -> 6
+        ]
+        Round 1:
+            Merge (1->4->5) and (1->3->4) → 1->1->3->4->4->5
+            Last one (2->6) has no pair → stays as is
+            mergedLists = [ 1->1->3->4->4->5 , 2->6 ]
+
+        Round 2:
+            Merge (1->1->3->4->4->5) and (2->6) → 1->1->2->3->4->4->5->6
+            Only one list remains — return it.
+        '''
         if not lists or len(lists)==0:
             return None
         while len(lists)>1:
@@ -63,7 +79,7 @@ class Solution:
                 mergedLists.append(self.mergeTwoLists(l1,l2))
             lists = mergedLists
         return lists[0]
-        
+
     # def mergeKLists(self, lists: List[ListNode]) -> ListNode:
         
     #     if len(lists)==0: return None
