@@ -51,35 +51,51 @@ Output: []
 #         self.val = val
 #         self.next = next
 class Solution:
-    def mergeKLists(self, lists: List[ListNode]) -> ListNode:
-        
-        if len(lists)==0: return None
-        if len(lists)==1: return lists[0]
-        
-        mid=len(lists)//2
-        l=self.mergeKLists(lists[:mid])
-        r=self.mergeKLists(lists[mid:])
-        return self.merge(l, r)
-        
-        
-    def merge(self, l, r):
-        dummy=ListNode()
-        tail=dummy
-        
-        while l and r:
-            if l.val < r.val:
-                tail.next=l
-                l=l.next
-            else:
-                tail.next=r
-                r=r.next
-            tail=tail.next
-            
-        if l:
-            tail.next=l
-        if r:
-            tail.next=r
-        
-        return dummy.next
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        if not lists or len(lists)==0:
+            return None
+        while len(lists)>1:
+            mergedLists = []
 
+            for i in range(0, len(lists), 2):
+                l1=lists[i]
+                l2=lists[i+1] if (i+1)<len(lists) else None
+                mergedLists.append(self.mergeTwoLists(l1,l2))
+            lists = mergedLists
+        return lists[0]
+        
+    # def mergeKLists(self, lists: List[ListNode]) -> ListNode:
+        
+    #     if len(lists)==0: return None
+    #     if len(lists)==1: return lists[0]
+        
+    #     mid=len(lists)//2
+    #     l=self.mergeKLists(lists[:mid])
+    #     r=self.mergeKLists(lists[mid:])
+    #     return self.mergeTwoLists(l, r)
+
+    def mergeTwoLists(self, list1, list2):
+        if not list1:
+            return list2
+        if not list2:
+            return list1
+
+        if list1.val < list2.val:
+            cur = root = list1
+            list1 = list1.next
+        else:
+            cur = root = list2
+            list2 = list2.next
+
+        while list1 and list2:
+            if list1.val > list2.val:
+                cur.next = list2
+                list2 = list2.next
+            else:
+                cur.next = list1
+                list1 = list1.next
+            cur = cur.next
+        if list1 or list2:
+            cur.next = list1 or list2
+        return root
 ```
